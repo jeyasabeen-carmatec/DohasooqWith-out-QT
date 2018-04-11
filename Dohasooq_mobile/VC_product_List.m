@@ -429,7 +429,7 @@
                 pro_cell.LBL_stock.text =[str uppercaseString];
                 if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                 {
-                     pro_cell.LBL_stock.text = @"غير متوفّر";
+                     pro_cell.LBL_stock.text = @"نفذ المنتج ";
                 }
             }
 
@@ -2175,6 +2175,8 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 
                 
                 self.collection_product.hidden = NO;
+                
+                
                 NSMutableDictionary *json_DATAs = [[NSMutableDictionary alloc]init];
                 json_DATAs = data;
                 
@@ -2184,12 +2186,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
                         _VW_empty.hidden = YES;
                         [Helper_activity stop_activity_animation:self];
 
-                        
-                        
-                        
-                        
-                        
-                        
                         //currency_code
                         
                         currency_code = [json_DATAs valueForKey:@"currency"] ;

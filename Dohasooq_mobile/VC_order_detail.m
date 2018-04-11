@@ -483,7 +483,7 @@
     _TXT_country.inputAccessoryView =accessoryView;
     _TXT_state.inputAccessoryView =accessoryView;
 
-        [_BTN_next addTarget:self action:@selector(next_page) forControlEvents:UIControlEventTouchUpInside];
+    [_BTN_next addTarget:self action:@selector(next_page) forControlEvents:UIControlEventTouchUpInside];
     [_BTN_Product_summary addTarget:self action:@selector(product_clicked) forControlEvents:UIControlEventTouchUpInside];
     [_BTN_done addTarget:self action:@selector(deliveryslot_action) forControlEvents:UIControlEventTouchUpInside];
     [_BTN_check addTarget:self action:@selector(BTN_check_clickd) forControlEvents:UIControlEventTouchUpInside];
@@ -620,7 +620,6 @@
         }
         _TXT_state.text =  str_state;
         
-       // str_phone = [str_phone stringByReplacingOccurrencesOfString:@"<null>" withString:@"
        
 // Getting State_id and Cntry_Id for Payment
         
@@ -705,11 +704,6 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         else{
             self.LBL_shipping_charge.text = [NSString stringWithFormat:@"%@ %.2f",[[NSUserDefaults standardUserDefaults] valueForKey:@"currency"],charge_ship];
         }
-
-
-
-        
-    
         [self fill_value_to_Lbl_product_summary:@" "];
         
         
@@ -1192,7 +1186,6 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                     only_price = [NSString stringWithFormat:@"%@ %@ /",qr,prev_price];
                 }
         
-               // NSString *india_currency = [NSString stringWithFormat:@"%@ %@ %@%@",qr,price,qr,prev_price];
                 
             // Font size Based on Screen
                 
@@ -1326,8 +1319,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                     cell.LBL_current_price.textAlignment = NSTextAlignmentRight;
                 }
                 
-                //pro_cell.LBL_prev_price.text =  [temp_dict valueForKey:@"key3"];
-                // cell.LBL_discount.text = @"35% off";
+               
        
    // Custom text For DohaMiles Label
                 
@@ -1820,7 +1812,8 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                     cell.BTN_edit_addres.hidden = YES;
                 }
                 
-#pragma Shipping address Table DATA
+              // Load Shipping Address to Shipping AddressTableView..........
+                
                 NSString *name_str =[NSString stringWithFormat:@"%@ %@",[[[dict_shipping valueForKey:[keys_arr objectAtIndex:indexPath.row]] valueForKey:@"shippingaddress"] valueForKey:@"firstname"],[[[dict_shipping valueForKey:[keys_arr objectAtIndex:indexPath.row]] valueForKey:@"shippingaddress"] valueForKey:@"lastname"]];
                 name_str = [name_str stringByReplacingOccurrencesOfString:@"<null>" withString:@"Not mentioned"];
                 
@@ -1839,7 +1832,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                 
                 NSString *zipcode = [NSString stringWithFormat:@",%@",[[[dict_shipping valueForKey:[keys_arr objectAtIndex:indexPath.row]] valueForKey:@"shippingaddress"] valueForKey:@"zip_code"]];
                 
-               if ([zipcode containsString:@"<null>"] ||[zipcode containsString:@"<nil>"] || [zipcode isEqualToString:@""]) {
+               if ([zipcode containsString:@"<null>"] ||[zipcode containsString:@"<nil>"] || [zipcode isEqualToString:@""] || [zipcode containsString:@"null"]) {
                     zipcode = @"";
                 }
                 cntry_zip = [NSString stringWithFormat:@"%@ %@",cntry_zip,zipcode];
@@ -2656,7 +2649,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
 
 -(void)BTN_edit_clickd:(UIButton*)sender
 {
-   
+   // Set frame for Shipping Address View......
     
     _VW_SHIIPING_ADDRESS.hidden = NO;
     CGRect frameset = _VW_SHIIPING_ADDRESS.frame;
@@ -2705,67 +2698,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
 
         [self loadShippingAddress:edit_tag];
 
-//        NSString *state = [[[[jsonresponse_dic_address valueForKey:@"shipaddress"]valueForKey:[keys_arr objectAtIndex:edit_tag]] valueForKey:@"shippingaddress"]  valueForKey:@"state"];
-//        NSString *country = [[[[jsonresponse_dic_address valueForKey:@"shipaddress"]valueForKey:[keys_arr objectAtIndex:edit_tag]] valueForKey:@"shippingaddress"]  valueForKey:@"country"];
-//        //  state = [state stringByReplacingOccurrencesOfString:@"<null>" withString:@"Not mentioned"];
-//        
-//        //  country = [country stringByReplacingOccurrencesOfString:@"<null>" withString:@"Not mentioned"];
-//        NSString *str_fname,*str_lname,*str_addr1,*str_addr2,*str_city,*str_zip_code,*str_phone,*str_country,*str_state,*str_email,*str_phone_code;
-//        
-//        str_fname = [[[[jsonresponse_dic_address valueForKey:@"shipaddress"]valueForKey:[keys_arr objectAtIndex:edit_tag]] valueForKey:@"shippingaddress"] valueForKey:@"firstname"];
-//        str_lname = [[[[jsonresponse_dic_address valueForKey:@"shipaddress"]valueForKey:[keys_arr objectAtIndex:edit_tag]] valueForKey:@"shippingaddress"]  valueForKey:@"lastname"];
-//        str_addr1 = [[[[jsonresponse_dic_address valueForKey:@"shipaddress"]valueForKey:[keys_arr objectAtIndex:edit_tag]] valueForKey:@"shippingaddress"]  valueForKey:@"address1"];
-//        str_addr2 = [[[[jsonresponse_dic_address valueForKey:@"shipaddress"]valueForKey:[keys_arr objectAtIndex:edit_tag]] valueForKey:@"shippingaddress"]  valueForKey:@"address2"];
-//        str_city = [[[[jsonresponse_dic_address valueForKey:@"shipaddress"]valueForKey:[keys_arr objectAtIndex:edit_tag]] valueForKey:@"shippingaddress"]  valueForKey:@"city"];
-//        str_zip_code = [[[[jsonresponse_dic_address valueForKey:@"shipaddress"]valueForKey:[keys_arr objectAtIndex:edit_tag]] valueForKey:@"shippingaddress"]  valueForKey:@"zip_code"];
-//        str_phone = [[[[jsonresponse_dic_address valueForKey:@"shipaddress"]valueForKey:[keys_arr objectAtIndex:edit_tag]] valueForKey:@"shippingaddress"] valueForKey:@"phone"];
-//        str_country = country;
-//        str_state =state;
-//        
-//        
-//        //cell.Btn_save.hidden = YES;
-//        
-//    ship_state_ID = [NSString stringWithFormat:@"%@",[[[[jsonresponse_dic_address valueForKey:@"shipaddress"]valueForKey:[keys_arr objectAtIndex:edit_tag]] valueForKey:@"shippingaddress"] valueForKey:@"state_id"]];
-//        
-//    ship_cntry_ID = [NSString stringWithFormat:@"%@",[[[[jsonresponse_dic_address valueForKey:@"shipaddress"]valueForKey:[keys_arr objectAtIndex:edit_tag]] valueForKey:@"shippingaddress"] valueForKey:@"country_id"]];
-//        
-//      str_phone_code=[[[[jsonresponse_dic_address valueForKey:@"shipaddress"]valueForKey:[keys_arr objectAtIndex:edit_tag]] valueForKey:@"shippingaddress"] valueForKey:@"phonecode"];
-//        
-//        if ([str_phone_code isEqualToString:@"<null>"] ||[str_phone_code isEqualToString:@"<nil>"]||[str_phone_code isEqualToString:@""] ) {
-//            str_phone_code = @"+974";
-//        }
-//    
-//    str_fname = [str_fname stringByReplacingOccurrencesOfString:@"<null>" withString:@""];
-//    
-//    str_lname = [str_lname stringByReplacingOccurrencesOfString:@"<null>" withString:@""];
-//    str_addr1 = [str_addr1 stringByReplacingOccurrencesOfString:@"<null>" withString:@""];
-//    str_addr2 = [str_addr2 stringByReplacingOccurrencesOfString:@"<null>" withString:@""];
-//    str_city = [str_city stringByReplacingOccurrencesOfString:@"<null>" withString:@""];
-//    str_zip_code = [str_zip_code stringByReplacingOccurrencesOfString:@"<null>" withString:@""];
-//    str_phone = [str_phone stringByReplacingOccurrencesOfString:@"<null>" withString:@""];
-//    
-//    str_country = [str_country stringByReplacingOccurrencesOfString:@"<null>" withString:@"Select Country"];
-//    
-//    str_state = [str_state stringByReplacingOccurrencesOfString:@"<null>" withString:@""];
-//        str_email = [str_email stringByReplacingOccurrencesOfString:@"<null>" withString:@""];
-//        
-//        
-//        if ([str_zip_code isEqualToString:@"<null>"] ||[str_zip_code isEqualToString:@"<nil>"]||[str_zip_code isEqualToString:@"null"] ) {
-//            str_zip_code = @"";
-//        }
-//
-//        
-//        _TXT_ship_fname.text =  str_fname;
-//         _TXT_ship_lname.text =  str_lname;
-//         _TXT_ship_addr1.text =  str_addr1;
-//        _TXT_ship_addr2.text =  str_addr2;
-//         _TXT_ship_city.text =  str_city;
-//         _TXT_ship_state.text =  str_state;
-//         _TXT_ship_zip.text =  str_zip_code;
-//         _TXT_ship_country.text =  str_country;
-//        _TXT_ship_email.text =  str_email;
-//        _TXT_ship_phone.text =  str_phone;
-//        _TXT_ship_cntry_code.text =str_phone_code;
+
         
         
         
@@ -2779,6 +2712,8 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
     //Shipping Address  For PAyment Paramater
      newaddressinput= @"1";
     
+    
+    //  Loading Empty Form of Shipping Address.....
     _VW_SHIIPING_ADDRESS.hidden = NO;
     CGRect frameset = _VW_SHIIPING_ADDRESS.frame;
     frameset.origin.y = _TBL_address.frame.origin.y + _TBL_address.contentSize.height + 40;
@@ -2812,7 +2747,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
     _TXT_ship_phone.userInteractionEnabled = YES;
     
     
-// Shipping Country  ID Must Be  Related Country Country ID
+// Shipping Country  ID Must Be  Related Local Country ID
     
     @try {
         
@@ -2830,7 +2765,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         
     }
 }
-
+// Delivery Slot Action........
 -(void)deliveryslot_action // Done Button
 {
     if ([_TXT_Date.text length] != 0 && [_TXT_Time.text length] != 0) {
@@ -2866,10 +2801,10 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
         {
             
-            [HttpClient createaAlertWithMsg:@"بليز حدد الوقت واليوم / التاريخ" andTitle:@""];;
+            [HttpClient createaAlertWithMsg:@" يرجى اختيار الوقت و اليوم / التاريخ" andTitle:@""];;
         }
         else{
-            [HttpClient createaAlertWithMsg:@"Plese select Time and  Day/Date" andTitle:@""];
+            [HttpClient createaAlertWithMsg:@"please select delivery date / Time" andTitle:@""];
         }
        
     }
@@ -2897,7 +2832,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
 //    [self.TBL_address reloadData];
 //}
 
-//Radio_button_action
+//Radio_button_action.......
 -(void)radio_btn_action:(UIButton*)sender{
     
     
@@ -2956,6 +2891,9 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
     _VW_special.frame = frame_set;
 
 }
+
+// Filtering RadioButton VAlues for default selection of shipping address.....
+
 -(void)radioButton_values{
     
     @try {
@@ -2981,7 +2919,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
 }
 
 
-// TableView orders Cell check Clicked
+// TableView orders Cell checkBox Clicked..........
 
 -(void)BTN_check_clickds:(UIButton *)sender
 {
@@ -3047,7 +2985,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
             charge_ship = charge_ship+[reduce_amount floatValue];
               total = total+[reduce_amount floatValue];
         }
-        
+       // Shipping Charrge Label....
         if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
         {
             self.LBL_shipping_charge.text = [NSString stringWithFormat:@"%.2f %@",charge_ship,[[NSUserDefaults standardUserDefaults] valueForKey:@"currency"]];
@@ -3072,27 +3010,22 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
     }
 // For Updating Total Amount and Dohamiles value in  product View Summary
     
-    [self fill_value_to_Lbl_product_summary:@" "];
+    [self fill_value_to_Lbl_product_summary:@" "]; // Footer Section Total Amount
     
-    [self LBl_dohamilesAndTotalAmount:total];
+    [self LBl_dohamilesAndTotalAmount:total];    // Product Summary Total amount
 }
 
--(void)btnfav_action
-{
-    //[self performSegueWithIdentifier:@"" sender:self];
-    
-    NSLog(@"fav_clicked");
-}
--(void)btn_cart_action
-{
-    //[self performSegueWithIdentifier:@"" sender:self];
-    NSLog(@"cart_clicked");
-}
--(void)tapGesture_close
-{
-    // [self dismissViewControllerAnimated:NO completion:nil];
-    NSLog(@"the cancel clicked");
-}
+
+
+//-(void)tapGesture_close
+//{
+//    // [self dismissViewControllerAnimated:NO completion:nil];
+//    NSLog(@"the cancel clicked");
+//}
+
+
+// Minus Button Action.......
+
 -(void)minus_action:(UIButton*)btn
 {
     CGPoint center= btn.center;
@@ -3127,17 +3060,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         
         NSLog(@"id_m %@  id_p %@",product_id,merchent_id);
         
-        //[self updating_cart_List_api];
-        
-        
-        
-        //    NSArray *keys_arr = [[[jsonresponse_dic valueForKey:@"data"]valueForKey:@"pdts"] allKeys];
-        //    arr_product = [[[jsonresponse_dic valueForKey:@"data"] valueForKey:@"pdts"] valueForKey:[keys_arr objectAtIndex:indexPath.section]];
-        
-        //    NSString *prev_price = [NSString stringWithFormat:@"%@",[[arr_product objectAtIndex:indexPath.row] valueForKey:@"productprice"]];
-        //
-        //    NSString *price = [NSString stringWithFormat:@"%@",[[arr_product objectAtIndex:indexPath.row] valueForKey:@"specialPrice"]];
-        //    NSInteger subTtl;
+       
         @try {
             //subTtl = total + [price integerValue];
             [self  updating_cart_List_api:[NSString stringWithFormat:@"%@",item_count]];
@@ -3151,6 +3074,8 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         
     }
 }
+
+//  Plus Action.........
 -(void)plus_action:(UIButton*)btn
 {
     CGPoint center= btn.center;
@@ -3168,14 +3093,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
     
     NSLog(@"id_m %@  id_p %@",product_id,merchent_id);
     
-    //    NSArray *keys_arr = [[[jsonresponse_dic valueForKey:@"data"]valueForKey:@"pdts"] allKeys];
-    //    arr_product = [[[jsonresponse_dic valueForKey:@"data"] valueForKey:@"pdts"] valueForKey:[keys_arr objectAtIndex:indexPath.section]];
-    //
-    //    NSString *prev_price = [NSString stringWithFormat:@"%@",[[arr_product objectAtIndex:indexPath.row] valueForKey:@"productprice"]];
-    //
-    //    NSString *price = [NSString stringWithFormat:@"%@",[[arr_product objectAtIndex:indexPath.row] valueForKey:@"specialPrice"]];
-    //    //[self updating_cart_List_api];
-    //    NSInteger subTtl;
+    
     @try {
         //subTtl = total + [price integerValue];
         [self  updating_cart_List_api:[NSString stringWithFormat:@"%@",item_count]];
@@ -3383,9 +3301,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         [self.staes_country_pickr selectRow:0 inComponent:0 animated:YES];
 
         
-//        textField.inputView = _staes_country_pickr;
-//        textField.inputAccessoryView = accessoryView;
-//        [self.pickerView becomeFirstResponder];
+
         [self performSelector:@selector(CountryAPICall) withObject:nil afterDelay:0];
       
     }
@@ -3395,8 +3311,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         pickerSelection = @"StatesAndCountry";
                 isCountrySelected = NO;
 
-        //textField.inputView = _staes_country_pickr;
-        //textField.inputAccessoryView = accessoryView;
+        
         [self.staes_country_pickr selectRow:0 inComponent:0 animated:YES];
         [self.pickerView becomeFirstResponder];
         [self performSelector:@selector(stateApiCall) withObject:nil afterDelay:0];
@@ -3405,9 +3320,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
     
     if(textField == _TXT_phone ||textField == _TXT_Cntry_code || textField ==_TXT_ship_cntry_code || textField ==_TXT_country || textField ==_TXT_state||textField == _TXT_ship_phone||textField == _TXT_city||textField == _TXT_zip||textField == _TXT_ship_zip||textField == _TXT_ship_city||textField == _TXT_ship_country||textField == _TXT_ship_state||textField == _TXT_ship_addr2 || textField == _TXT_instructions)
     {
-//        [UIView beginAnimations:nil context:NULL];
-//        self.view.frame = CGRectMake(0,-190,self.view.frame.size.width,self.view.frame.size.height);
-//        [UIView commitAnimations];
+
         
         [self view_animation:-190];
 
@@ -3454,13 +3367,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         textField.text = cntry_selection;
         
         
-//        if (textField == _TXT_country) {
-//            _TXT_state.placeholder = @"Select State";
-//
-//        }
-//        if (textField == _TXT_ship_country) {
-//             _TXT_ship_state.placeholder = @"Select State";
-//        }
+
         
         if ([textField.text isEqualToString:@""]) {
             
@@ -3488,7 +3395,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
     [UIView commitAnimations];
 }
 
-#pragma mark Delivary Slot DATE Related
+#pragma mark Delivary Slot DATE Related Code....
 -(void)delivarySlotDateRelated:(UITextField*)textfield{
     
     @try {
@@ -3500,6 +3407,9 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         if ([[delivary_slot_dic valueForKey:@"days"] isKindOfClass:[NSDictionary class]]) {
             
             slot_keys_arr = [[delivary_slot_dic valueForKey:@"days"]allKeys];
+            
+            
+            // Getting DateString from  Response...
             for (int slot = 0; slot< slot_keys_arr.count; slot++) {
                 
                 NSString *str = [[delivary_slot_dic valueForKey:@"days"] valueForKey:[slot_keys_arr objectAtIndex:slot]];
@@ -3537,6 +3447,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
     }
 }
 #pragma mark Delivary Slot TIME Related
+
 -(void)delivary_slot_time_related:(UITextField*)textfield{
     
    NSString *str_zone =   [[NSUserDefaults standardUserDefaults]  valueForKey:@"time_zone"];
@@ -3560,7 +3471,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         
         for (int slot = 0; slot< slot_keys_arr.count; slot++) {
             
-            // [deliverySlotPickerArray addObject:[[delivary_slot_dic valueForKey:@"delivery"] valueForKey:[slot_keys_arr objectAtIndex:slot]]];
+            
             
             NSString *str = [[delivary_slot_dic valueForKey:@"delivery"] valueForKey:[slot_keys_arr objectAtIndex:slot]];
             NSRange equalRange = [str rangeOfString:@"-" options:NSBackwardsSearch];
@@ -3574,6 +3485,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
             }//Close If
             
         }//close for
+        
         // Sorting By Using Date
         NSSortDescriptor *descriptor=[[NSSortDescriptor alloc] initWithKey:@"strt_time_to_sort" ascending:YES];
         NSArray *descriptors=[NSArray arrayWithObject: descriptor];
@@ -3699,7 +3611,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
 - (IBAction)order_to_wishListPage:(id)sender {
     [self performSegueWithIdentifier:@"order_to_wish" sender:self];
 }
-#pragma mark filtering  paramaters for place order method
+#pragma mark filtering Shipping_charge,PickUpFrom_merchant_Location,Merchnat_id  paramaters for place order method
 
 -(void)filtering_MerchantId{
     
@@ -4122,14 +4034,8 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                         
                         if ([data isKindOfClass:[NSArray class]]) {
                            
-//                            [response_countries_dic addEntriesFromDictionary:data];
                             [shipping_Countries_array removeAllObjects];
                             
-//                            for (int x=0; x<[[response_countries_dic allKeys] count]; x++) {
-//                                NSDictionary *dic = @{@"id":[[response_countries_dic allKeys] objectAtIndex:x],@"name":[response_countries_dic valueForKey:[[response_countries_dic allKeys] objectAtIndex:x]]};
-//                                
-//                                [shipping_Countries_array addObject:dic];
-//                            }
                             
                             [shipping_Countries_array addObjectsFromArray:data];
                             
@@ -4845,7 +4751,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         [_TXT_state becomeFirstResponder];
         if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
         {
-            msg = @"يرجى تحديد الدولة";
+            msg =@"يرجى تحديد الولاية";
         }
         else{
             msg = @"Please Select State";//يرجى تحديد البلد
@@ -5126,7 +5032,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
             [_TXT_ship_state becomeFirstResponder];
             if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
             {
-                msg = @"يرجى تحديد الدولة";
+               msg = @"يرجى تحديد الولاية";
             }
             else{
                 msg = @"Please Select State";//يرجى تحديد البلد
@@ -5599,7 +5505,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                 addr2 = _TXT_ship_addr2.text;
                 city =_TXT_ship_city.text;
                 state = ship_state_ID;
-                zip_code = _TXT_zip.text;
+                zip_code = _TXT_ship_zip.text;
                 country = ship_cntry_ID;
                 phone = _TXT_ship_phone.text;
                 str_code = _TXT_ship_cntry_code.text;

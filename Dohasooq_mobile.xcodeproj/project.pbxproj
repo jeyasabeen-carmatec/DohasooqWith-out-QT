@@ -33,6 +33,8 @@
 		73EE69ED204E823E00BB600A /* VC_intial.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EE69EC204E823E00BB600A /* VC_intial.m */; };
 		73EE69F1204EBEAC00BB600A /* VC_myaddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EE69F0204EBEAC00BB600A /* VC_myaddress.m */; };
 		73EE69F5204EBEF600BB600A /* VC_wish_list.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EE69F4204EBEF600BB600A /* VC_wish_list.m */; };
+		773AB3BB207DE40500FF5431 /* Arabic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 773AB3BA207DE40500FF5431 /* Arabic.storyboard */; };
+		773AB3BD207DE41C00FF5431 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 773AB3BC207DE41C00FF5431 /* Main.storyboard */; };
 		BE04D8D91FC02000008926F6 /* orders_cell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE04D8D71FC02000008926F6 /* orders_cell.m */; };
 		BE04D8DD1FC021FB008926F6 /* track7.png in Resources */ = {isa = PBXBuildFile; fileRef = BE04D8DC1FC021FB008926F6 /* track7.png */; };
 		BE04D8E11FC026CC008926F6 /* first_top_cell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE04D8DF1FC026CC008926F6 /* first_top_cell.m */; };
@@ -231,7 +233,6 @@
 		D028B54120298B0500A8DB6B /* special_cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D028B53F20298B0500A8DB6B /* special_cell.xib */; };
 		D028B5432029971B00A8DB6B /* VC_ub_table_view.m in Sources */ = {isa = PBXBuildFile; fileRef = D028B5422029971B00A8DB6B /* VC_ub_table_view.m */; };
 		D028B546202999D300A8DB6B /* lbl_instructions.m in Sources */ = {isa = PBXBuildFile; fileRef = D028B545202999D300A8DB6B /* lbl_instructions.m */; };
-		D028B54E202C4FB700A8DB6B /* Arabic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D028B54D202C4FB700A8DB6B /* Arabic.storyboard */; };
 		D028B550202C4FEA00A8DB6B /* order_cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D028B54F202C4FEA00A8DB6B /* order_cell.xib */; };
 		D028B552202C500C00A8DB6B /* orders_cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D028B551202C500C00A8DB6B /* orders_cell.xib */; };
 		D028B5D6202DBE6600A8DB6B /* address_cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D028B5D5202DBE6600A8DB6B /* address_cell.xib */; };
@@ -255,7 +256,6 @@
 		D07842BC201AEAC600E77C36 /* arbic_wish.png in Resources */ = {isa = PBXBuildFile; fileRef = D07842BA201AEAC600E77C36 /* arbic_wish.png */; };
 		D07842BD201AEAC600E77C36 /* arbic_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = D07842BB201AEAC600E77C36 /* arbic_gray.png */; };
 		D07842CD201CB75200E77C36 /* orders_not.png in Resources */ = {isa = PBXBuildFile; fileRef = D07842CC201CB75200E77C36 /* orders_not.png */; };
-		D07842CF201CB77B00E77C36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D07842CE201CB77B00E77C36 /* Main.storyboard */; };
 		D0A283AC201746D60096D70F /* blue5.png in Resources */ = {isa = PBXBuildFile; fileRef = D0A283A9201746D60096D70F /* blue5.png */; };
 		D0A283AD201746D60096D70F /* wv5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D0A283AA201746D60096D70F /* wv5.jpg */; };
 		D0A283AE201746D60096D70F /* yell3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D0A283AB201746D60096D70F /* yell3.jpg */; };
@@ -300,6 +300,8 @@
 		73EE69EC204E823E00BB600A /* VC_intial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VC_intial.m; sourceTree = "<group>"; };
 		73EE69F0204EBEAC00BB600A /* VC_myaddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VC_myaddress.m; sourceTree = "<group>"; };
 		73EE69F4204EBEF600BB600A /* VC_wish_list.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VC_wish_list.m; sourceTree = "<group>"; };
+		773AB3BA207DE40500FF5431 /* Arabic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Arabic.storyboard; sourceTree = "<group>"; };
+		773AB3BC207DE41C00FF5431 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		81AB41A92C59F23F463B0423 /* Pods-Dohasooq_mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dohasooq_mobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dohasooq_mobile/Pods-Dohasooq_mobile.debug.xcconfig"; sourceTree = "<group>"; };
 		BE04D8D21FC01FA7008926F6 /* VC_myorders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VC_myorders.h; sourceTree = "<group>"; };
 		BE04D8D61FC02000008926F6 /* orders_cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orders_cell.h; sourceTree = "<group>"; };
@@ -591,7 +593,6 @@
 		D028B5422029971B00A8DB6B /* VC_ub_table_view.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VC_ub_table_view.m; sourceTree = "<group>"; };
 		D028B544202999D300A8DB6B /* lbl_instructions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lbl_instructions.h; sourceTree = "<group>"; };
 		D028B545202999D300A8DB6B /* lbl_instructions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lbl_instructions.m; sourceTree = "<group>"; };
-		D028B54D202C4FB700A8DB6B /* Arabic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Arabic.storyboard; sourceTree = "<group>"; };
 		D028B54F202C4FEA00A8DB6B /* order_cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = order_cell.xib; sourceTree = "<group>"; };
 		D028B551202C500C00A8DB6B /* orders_cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = orders_cell.xib; sourceTree = "<group>"; };
 		D028B5D4202DBE6600A8DB6B /* address_cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = address_cell.h; sourceTree = "<group>"; };
@@ -626,7 +627,6 @@
 		D07842BB201AEAC600E77C36 /* arbic_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arbic_gray.png; sourceTree = "<group>"; };
 		D07842BF201C47D600E77C36 /* paymentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = paymentCell.h; sourceTree = "<group>"; };
 		D07842CC201CB75200E77C36 /* orders_not.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orders_not.png; sourceTree = "<group>"; };
-		D07842CE201CB77B00E77C36 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D0A283A9201746D60096D70F /* blue5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue5.png; sourceTree = "<group>"; };
 		D0A283AA201746D60096D70F /* wv5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wv5.jpg; sourceTree = "<group>"; };
 		D0A283AB201746D60096D70F /* yell3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yell3.jpg; sourceTree = "<group>"; };
@@ -1004,8 +1004,8 @@
 				BE339AE51FD7CFEA00FC80DC /* VC_intial */,
 				BE3065DD1F74B0CD003F6C40 /* ViewController.h */,
 				BEE9FC292008BDBA002D1283 /* ViewController.m */,
-				D07842CE201CB77B00E77C36 /* Main.storyboard */,
-				D028B54D202C4FB700A8DB6B /* Arabic.storyboard */,
+				773AB3BC207DE41C00FF5431 /* Main.storyboard */,
+				773AB3BA207DE40500FF5431 /* Arabic.storyboard */,
 				BE30662B1F752A9D003F6C40 /* Sign_UP */,
 				BE6795C01F95D805007C45EC /* QTickets */,
 				BE6795BF1F95D7C9007C45EC /* Doha sooq */,
@@ -1820,7 +1820,7 @@
 					BE3065D31F74B0CC003F6C40 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 4MCGAH3G26;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -1860,7 +1860,6 @@
 				BE1D11141F84F884003A3954 /* edit.png in Resources */,
 				BE6796AF1F976151007C45EC /* upload-7.png in Resources */,
 				BE4F0C2C1F8B87EA0076AFB5 /* offer_bg.png in Resources */,
-				D07842CF201CB77B00E77C36 /* Main.storyboard in Resources */,
 				BEEAA5B120048555002823F5 /* loader4.png in Resources */,
 				D02AC6C42069FF1B00F47C93 /* Fashion_categorie_cell.xib in Resources */,
 				BE2B793E20011D0400ACB3C9 /* Payment_summary_cell.xib in Resources */,
@@ -1922,6 +1921,7 @@
 				BE5A6CBC1FFBBE5D0085D000 /* back.png in Resources */,
 				BE6BA4351FDE6B4E00E41B2E /* finalthree.png in Resources */,
 				BE1D11251F861C01003A3954 /* sort.png in Resources */,
+				773AB3BD207DE41C00FF5431 /* Main.storyboard in Resources */,
 				BE64232F1F849C2E00BB1E02 /* checked_order.png in Resources */,
 				73C0EA8B2046B1F3009AFB9F /* TOp_logo.png in Resources */,
 				D0A283AD201746D60096D70F /* wv5.jpg in Resources */,
@@ -1958,6 +1958,7 @@
 				BE8338351FD1041100C5EB25 /* radiobtn.png in Resources */,
 				BE8338311FD1037600C5EB25 /* radiobtn-2.png in Resources */,
 				BE4F0C331F8B8ADC0076AFB5 /* background_image.png in Resources */,
+				773AB3BB207DE40500FF5431 /* Arabic.storyboard in Resources */,
 				BE14433C1FFF8B95001ECDD8 /* upload-28.png in Resources */,
 				733559B9205BE75F002F99F4 /* billing_address.xib in Resources */,
 				BE1D11C91F88B557003A3954 /* layer.png in Resources */,
@@ -1970,7 +1971,6 @@
 				BE72D8C41FCD111B0082E8D2 /* profile_pic.png in Resources */,
 				BE14433A1FFF8B95001ECDD8 /* cercle.png in Resources */,
 				BE14432E1FFE6E8D001ECDD8 /* upload-27.png in Resources */,
-				D028B54E202C4FB700A8DB6B /* Arabic.storyboard in Resources */,
 				BE3065E41F74B0CE003F6C40 /* Assets.xcassets in Resources */,
 				BE7B9AB81F7A123100715216 /* product_detail_cell.xib in Resources */,
 				BE3069181F78D74F003F6C40 /* Poppins-SemiBold.ttf in Resources */,
@@ -2304,7 +2304,7 @@
 				CODE_SIGN_ENTITLEMENTS = Dohasooq_mobile/Dohasooq_mobile.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Carmatec IT Solutions Private Limited (4MCGAH3G26)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 4MCGAH3G26;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2321,8 +2321,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.carmatec.Dohasooq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b53ccd97-7792-46ed-b635-2198c9338f14";
-				PROVISIONING_PROFILE_SPECIFIER = DEV_DS;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7s armv7 arm64";
 			};
@@ -2336,7 +2336,7 @@
 				CODE_SIGN_ENTITLEMENTS = Dohasooq_mobile/Dohasooq_mobile.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Carmatec IT Solutions Private Limited (4MCGAH3G26)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 4MCGAH3G26;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2353,8 +2353,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.carmatec.Dohasooq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b53ccd97-7792-46ed-b635-2198c9338f14";
-				PROVISIONING_PROFILE_SPECIFIER = DEV_DS;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7s armv7 arm64";
 			};

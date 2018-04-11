@@ -609,7 +609,7 @@
                 _LBL_stock.textColor = [UIColor colorWithRed:0.90 green:0.22 blue:0.00 alpha:1.0];
                 if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                 {
-                    _LBL_stock.text = @"غير متوفّر";
+                    _LBL_stock.text = @"نفذ المنتج ";
                 }
                 else
                 {
@@ -1485,7 +1485,7 @@
                             pro_cell.LBL_stock.textColor = [UIColor colorWithRed:0.90 green:0.22 blue:0.00 alpha:1.0];
                             if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                             {
-                                  pro_cell.LBL_stock.text = @"غير متوفّر";
+                                  pro_cell.LBL_stock.text = @"نفذ المنتج ";
                             }
                             else
                             {
@@ -2347,7 +2347,7 @@
     
     NSDictionary *dict = [[NSUserDefaults standardUserDefaults] valueForKey:@"userdata"];
     NSString *user_ID = [NSString stringWithFormat:@"%@",[dict valueForKey:@"id"]];
-    NSString *pdId = [NSString stringWithFormat:@"%@",[[[[json_Response_Dic valueForKey:@"products"] valueForKey:@"0"] valueForKey:@"product_descriptions"]  valueForKey:@"product_id"]];
+    NSString *pdId = [NSString stringWithFormat:@"%@",[[[[[json_Response_Dic valueForKey:@"products"] valueForKey:@"0"] valueForKey:@"product_descriptions"] objectAtIndex:0] valueForKey:@"product_id"]];
 
     NSString *urlGetuser =[NSString stringWithFormat:@"%@apis/delFromWishList/%@/%@.json",SERVER_URL,pdId,user_ID];
     
@@ -2665,7 +2665,7 @@
             if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
             {
                 str = @"حسنا";
-                str_stat = @"غير متوفّر";
+                str_stat = @"نفذ المنتج ";
             }
             
 
@@ -2690,7 +2690,7 @@
                 if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                 {
                     str = @"حسنا";
-                    str_stat = @"غير متوفّر";
+                    str_stat = @"نفذ المنتج ";
                 }
                 
                 

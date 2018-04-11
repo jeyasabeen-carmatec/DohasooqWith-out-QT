@@ -663,6 +663,8 @@ int j ,i;
             
             NSString *country = [NSString stringWithFormat:@"%@ , %@",[[[[json_DATA valueForKey:@"Order"] valueForKey:[keys_arr objectAtIndex:0]] valueForKey:@"Shipping"] valueForKey:@"shipping_country"],[[[[json_DATA valueForKey:@"Order"] valueForKey:[keys_arr objectAtIndex:0]] valueForKey:@"Shipping"] valueForKey:@"shipping_zip_code"]];
             country = [country stringByReplacingOccurrencesOfString:@"<null>" withString:@"Not mentioned"];
+                country = [country stringByReplacingOccurrencesOfString:@"null" withString:@""];
+                
             NSString *phone = [NSString stringWithFormat:@"Mobile : %@",[[[[json_DATA valueForKey:@"Order"] valueForKey:[keys_arr objectAtIndex:0]] valueForKey:@"Shipping"] valueForKey:@"shipping_mobile"]];
             phone = [phone stringByReplacingOccurrencesOfString:@"<null>" withString:@"Not mentioned"];
 
@@ -675,7 +677,7 @@ int j ,i;
             }
             @catch(NSException *Exception)
             {
-                
+                NSLog(@"Data Exception..........");
             }
 
             

@@ -1074,13 +1074,13 @@
         }
     }
     
-
+ 
     else if ([str_state isEqualToString:@""])
     {
         [cell.TXT_state becomeFirstResponder];
         if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
         {
-            msg = @"يرجى تحديد الدولة";
+          msg = @"يرجى تحديد الولاية";
         }
         else{
             msg = @"Please Select State";//يرجى تحديد البلد

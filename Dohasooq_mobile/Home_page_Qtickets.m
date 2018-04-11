@@ -74,14 +74,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.screenName = @"HOme page Q ticket";
+    self.screenName = @"HomePage ";
     
     
         
     [self API_call];
     
-    
-
     
 }
 -(void)view_appear
@@ -2475,7 +2473,7 @@
                   NSString *contact_us = @"سياسة الخصوصية";
                 NSString *terms =@"الأحكام والشروط";
                 NSString *privacy =@"اتصل بنا";
-               // NSString *help =@"نبذة عنا";
+               // NSString *help =@"مكتب الخدمات";
                 
                 
             ARR_info = [NSArray arrayWithObjects:about_us,contact_us,terms,privacy, nil];
@@ -4125,7 +4123,7 @@
              
              str_status_text = @"شكراً، نراكم قريباً";
              
-             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:str_status_text delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:str_status_text delegate:self cancelButtonTitle:@"حسنا" otherButtonTitles:nil, nil];
              
              [alert show];
            
@@ -4156,17 +4154,19 @@
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"userdata"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         NSString *str_status_text;
-        
+        UIAlertView *alert;
         if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
         {
              str_status_text = @"شكراً، نراكم قريباً";
+             alert = [[UIAlertView alloc] initWithTitle:@"" message:str_status_text delegate:self cancelButtonTitle:@"حسنا" otherButtonTitles:nil, nil];
         }
         else
         {
             str_status_text = @"Thank you! See you soon!";
+             alert = [[UIAlertView alloc] initWithTitle:@"" message:str_status_text delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         }
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:str_status_text delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+       
         
         [alert show];
         
@@ -5394,7 +5394,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         cell.LBL_stock.text = [str uppercaseString];
         if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
         {
-            cell.LBL_stock.text = @"غير متوفّر";
+            cell.LBL_stock.text = @"";
         }
 
     }
@@ -5935,9 +5935,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
             }
             
         }
-        
-        
-        
         
     }
     @catch(NSException *exception)

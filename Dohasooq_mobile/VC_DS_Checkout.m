@@ -121,21 +121,29 @@
 }
 - (IBAction)back_action:(id)sender {
     
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+  /*  [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
                                                   forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    [self.navigationController popToRootViewControllerAnimated:NO];
+    [self.navigationController popToRootViewControllerAnimated:NO];*/
     
 
     //VC_cart_list *list = [self.storyboard instantiateViewControllerWithIdentifier:@"cart_identifir"];
     //direct_checkout_home
+    UIAlertView *alert;
+    if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
+    {
+         alert = [[UIAlertView alloc] initWithTitle:@"تنبيه الدفع" message:@"قد يؤدي إلغاء الطلب إلى الرجوع. هل أنت متأكد من أنك تريد العودة؟" delegate:self cancelButtonTitle:@"حسنا" otherButtonTitles:@"إلغاء", nil];
+        
+    }else{
     
-  /*  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Payment Alert" message:@"Going back might cancel the order.Are you sure you want to go back?" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"Cancel", nil];
+   alert = [[UIAlertView alloc] initWithTitle:@"Payment Alert" message:@"Going back might cancel the order.Are you sure you want to go back?" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"Cancel", nil];
+    }
     alert.tag = 1;
-    [alert show];*/
-  /*  [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+    [alert show];
+    
+    /*  [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
                                                   forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor];
