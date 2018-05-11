@@ -535,6 +535,24 @@
         [request setURL:[NSURL URLWithString:urlGetuser]];
         [request setHTTPMethod:@"POST"];
         
+        
+        // set Cookie and awllb......
+        if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
+            
+            NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
+            
+            if (![awlllb containsString:@"(null)"]) {
+                awlllb = [NSString stringWithFormat:@"%@;%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"],awlllb];
+                [request addValue:awlllb forHTTPHeaderField:@"Cookie"];
+            }
+            else{
+                [request addValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] forHTTPHeaderField:@"Cookie"];
+            }
+            
+        }
+        
+
+        
         NSString *boundary = @"---------------------------14737809831466499882746641449";
         NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
         [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
@@ -560,7 +578,16 @@
         [request setHTTPBody:body];
         
         NSData *aData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-        if(aData)
+        if (response) {
+            [HttpClient filteringCookieValue:response];
+        }
+        
+        if (error) {
+            [Helper_activity stop_activity_animation:self];
+            [HttpClient createaAlertWithMsg:[error localizedDescription] andTitle:@""];
+        }
+        
+       else if(aData)
         {
             NSMutableDictionary *json_DATA = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:aData options:NSASCIIStringEncoding error:&error];
             NSLog(@"The response Api post sighn up API %@",json_DATA);
@@ -574,18 +601,17 @@
             {
                [Helper_activity stop_activity_animation:self];
                 NSString *str_ok = @"Ok";
-                NSString *str_stat =  @"The new password has been saved";
+                
                 
                 if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                 {
                     str_ok = @"حسنا";
-                    str_stat = @"تم حفظ كلمة المرور الجديدة";
-                }
+                                }
 
                 
                 //تم حفظ كلمة المرور الجديدة
 
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:str_stat delegate:self cancelButtonTitle:str_ok otherButtonTitles:nil, nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:msg delegate:self cancelButtonTitle:str_ok otherButtonTitles:nil, nil];
                 [alert show];
 //                ViewController *login = [self.storyboard instantiateViewControllerWithIdentifier:@"login_VC"];
 //                [self presentViewController:login animated:NO completion:nil];
@@ -609,12 +635,7 @@
             }
             
         }
-        else
-        {
-            [Helper_activity stop_activity_animation:self];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Connection Failed" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
-            [alert show];
-        }
+        
     }
     
     @catch(NSException *exception)

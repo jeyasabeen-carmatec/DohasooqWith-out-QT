@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17D47" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14101" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14086"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -194,7 +194,6 @@
                                         <rect key="frame" x="16" y="15" width="288" height="40"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                     </textField>
@@ -219,7 +218,7 @@
                         <rightBarButtonItems>
                             <barButtonItem title="" style="plain" id="Ev5-rD-zKb">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="avo-1w-km0">
-                                    <rect key="frame" x="284" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="270.5" y="5.5" width="33.5" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -234,7 +233,7 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="Trv-W6-6UD">
                                 <view key="customView" contentMode="scaleToFill" id="PNQ-lL-a7c">
-                                    <rect key="frame" x="205" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="191.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Xgu-mO-3rs">
@@ -350,7 +349,7 @@
                         <rightBarButtonItems>
                             <barButtonItem title="" style="plain" id="7Ld-WV-ez1">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Umq-mj-Pyj">
-                                    <rect key="frame" x="284" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="270.5" y="5.5" width="33.5" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -371,7 +370,7 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="fmX-Am-xkz">
                                 <view key="customView" contentMode="scaleToFill" id="xPc-i2-0MZ">
-                                    <rect key="frame" x="205" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="191.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="POC-Rq-J7e">
@@ -428,7 +427,7 @@
                         <rightBarButtonItems>
                             <barButtonItem title="" style="plain" id="05V-AL-cZP">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="REu-3J-xfL">
-                                    <rect key="frame" x="284" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="270.5" y="5.5" width="33.5" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -448,7 +447,7 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="NvR-w1-H17">
                                 <view key="customView" contentMode="scaleToFill" id="Iok-Sl-5Z6">
-                                    <rect key="frame" x="205" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="191.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gmQ-Jy-w1M">
@@ -564,7 +563,7 @@
                         <rightBarButtonItems>
                             <barButtonItem title="" style="plain" id="OLu-p6-cHK">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="s8X-lt-PZX">
-                                    <rect key="frame" x="284" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="270.5" y="5.5" width="33.5" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -583,7 +582,7 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="9SS-3x-3cc">
                                 <view key="customView" contentMode="scaleToFill" id="hqY-zz-UjB">
-                                    <rect key="frame" x="205" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="191.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2IF-bX-jjc">
@@ -644,7 +643,7 @@
                         <rightBarButtonItems>
                             <barButtonItem style="plain" id="byn-gL-Ebm">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="D7j-2J-K2u">
-                                    <rect key="frame" x="284" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="271" y="0.0" width="33" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <state key="normal" title="">
@@ -657,7 +656,7 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="EV6-kH-eK0">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Iud-RE-z2k">
-                                    <rect key="frame" x="26" y="7" width="250" height="30"/>
+                                    <rect key="frame" x="13" y="2" width="250" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                     <state key="normal">
@@ -1010,7 +1009,7 @@
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" id="Bs1-5t-pj1">
                             <view key="customView" contentMode="scaleToFill" id="F18-rI-WD5">
-                                <rect key="frame" x="16" y="5" width="71" height="33"/>
+                                <rect key="frame" x="16" y="5.5" width="71" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="P2i-xp-fXu">
@@ -1035,9 +1034,9 @@
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="" style="plain" id="lIo-hd-LqZ">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hxA-Aq-sS1">
-                                    <rect key="frame" x="284" y="7" width="20" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hxA-Aq-sS1">
+                                    <rect key="frame" x="271" y="6" width="33" height="33"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <inset key="titleEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1051,11 +1050,11 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="Owz-5t-x4h">
                                 <view key="customView" contentMode="scaleToFill" misplaced="YES" id="2KH-3j-Nex">
-                                    <rect key="frame" x="176" y="5" width="100" height="33"/>
+                                    <rect key="frame" x="162.5" y="5.5" width="100" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="73K-gx-U3E">
-                                            <rect key="frame" x="10" y="5" width="86" height="23"/>
+                                            <rect key="frame" x="14" y="5" width="86" height="23"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
@@ -1158,7 +1157,7 @@
                         <rightBarButtonItems>
                             <barButtonItem title="" style="plain" id="VxE-ZM-Gdl">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uw3-Sp-lhn">
-                                    <rect key="frame" x="284" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="270.5" y="5.5" width="33.5" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1174,7 +1173,7 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="8yC-bg-pWl">
                                 <view key="customView" contentMode="scaleToFill" misplaced="YES" id="7DQ-gV-WYY">
-                                    <rect key="frame" x="176" y="5" width="100" height="33"/>
+                                    <rect key="frame" x="162.5" y="5.5" width="100" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3Cq-86-U4n">
@@ -1250,15 +1249,6 @@
                                 <rect key="frame" x="0.0" y="65" width="320" height="415"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ARq-Lw-oyK">
-                                <rect key="frame" x="0.0" y="65" width="320" height="373"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="pbc-hN-8EP" id="6iP-zN-pfU"/>
-                                    <outlet property="delegate" destination="pbc-hN-8EP" id="mbT-Hc-dm4"/>
-                                </connections>
-                            </tableView>
                             <view contentMode="scaleToFill" misplaced="YES" id="eIh-nQ-ft1">
                                 <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -1313,6 +1303,15 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ARq-Lw-oyK">
+                                <rect key="frame" x="-10" y="65" width="320" height="373"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="pbc-hN-8EP" id="6iP-zN-pfU"/>
+                                    <outlet property="delegate" destination="pbc-hN-8EP" id="mbT-Hc-dm4"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1322,7 +1321,7 @@
                         <rightBarButtonItems>
                             <barButtonItem title="" style="plain" id="6Dd-hN-K4y">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4LJ-95-be1">
-                                    <rect key="frame" x="284" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="270.5" y="5.5" width="33.5" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1338,7 +1337,7 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="nyd-gU-oPt">
                                 <view key="customView" contentMode="scaleToFill" misplaced="YES" id="Ouq-Ln-9WR">
-                                    <rect key="frame" x="176" y="5" width="100" height="33"/>
+                                    <rect key="frame" x="162.5" y="5.5" width="100" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PQt-pY-rDC">
@@ -1390,14 +1389,14 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ليس لديك أي صنف في سلّة التسوق " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WZd-8F-iL6">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="لايوجد لديك أي أصناف في عربة التسوق" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WZd-8F-iL6">
                             <rect key="frame" x="0.0" y="141" width="300" height="21"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="سلّة التسوّق خالية " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="79B-Rb-9fo">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="عربة التسوق فارغة " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="79B-Rb-9fo">
                             <rect key="frame" x="0.0" y="119" width="300" height="21"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
@@ -1569,7 +1568,7 @@
                         <rightBarButtonItems>
                             <barButtonItem title="" style="plain" id="ZwM-YW-4wG">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HYO-wb-fsH">
-                                    <rect key="frame" x="284" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="270.5" y="5.5" width="33.5" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1586,7 +1585,7 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="syI-38-9sp">
                                 <view key="customView" contentMode="scaleToFill" misplaced="YES" id="DEJ-Gz-bGf">
-                                    <rect key="frame" x="176" y="5" width="100" height="33"/>
+                                    <rect key="frame" x="162.5" y="5.5" width="100" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MDl-RA-thi">
@@ -1730,7 +1729,7 @@
                                 <outlet property="delegate" destination="wMB-1W-bS2" id="pdU-5e-htx"/>
                             </connections>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="مدينة*" textAlignment="right" minimumFontSize="17" id="WYP-aN-KKb" customClass="Hoshi_Billing_ADDR">
+                        <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="المدينة*" textAlignment="right" minimumFontSize="17" id="WYP-aN-KKb" customClass="Hoshi_Billing_ADDR">
                             <rect key="frame" x="13" y="273" width="179" height="50"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             <nil key="textColor"/>
@@ -1750,7 +1749,7 @@
                                 <outlet property="delegate" destination="wMB-1W-bS2" id="JuI-V5-AuC"/>
                             </connections>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="بلد*" textAlignment="right" minimumFontSize="17" id="HsV-l4-3yR" customClass="Hoshi_Billing_ADDR">
+                        <textField opaque="NO" clipsSubviews="YES" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="البلد*" textAlignment="right" minimumFontSize="17" id="HsV-l4-3yR" customClass="Hoshi_Billing_ADDR">
                             <rect key="frame" x="197" y="329" width="153" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             <nil key="textColor"/>
@@ -1899,7 +1898,7 @@
                                 <outlet property="delegate" destination="wMB-1W-bS2" id="MU1-91-sLI"/>
                             </connections>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="مدينة*" textAlignment="right" minimumFontSize="17" id="MN7-FL-t04" customClass="Hoshi_Billing_ADDR">
+                        <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="المدينة*" textAlignment="right" minimumFontSize="17" id="MN7-FL-t04" customClass="Hoshi_Billing_ADDR">
                             <rect key="frame" x="16" y="277" width="179" height="50"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             <nil key="textColor"/>
@@ -1946,7 +1945,7 @@
                                 <outlet property="delegate" destination="wMB-1W-bS2" id="Tr4-DR-nVj"/>
                             </connections>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" tag="8" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="بلد*" textAlignment="right" minimumFontSize="17" id="d6R-WY-am0" customClass="Hoshi_Billing_ADDR">
+                        <textField opaque="NO" clipsSubviews="YES" tag="8" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="البلد*" textAlignment="right" minimumFontSize="17" id="d6R-WY-am0" customClass="Hoshi_Billing_ADDR">
                             <rect key="frame" x="201" y="335" width="153" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             <nil key="textColor"/>
@@ -1995,7 +1994,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="المجموع الفرعي" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0tb-VK-5bq">
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text=" المجموع الفرعي " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0tb-VK-5bq">
                             <rect key="frame" x="134" y="49" width="176" height="30"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
@@ -2016,22 +2015,16 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumFontSize="8" id="Pag-1Z-LeA">
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumFontSize="8" id="Pag-1Z-LeA">
                             <rect key="frame" x="7" y="49" width="119" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                            <string key="text" base64-UTF8="YES">
-UVIgNjgwMAM
-</string>
                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumFontSize="8" id="rVt-gX-Tow">
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumFontSize="8" id="rVt-gX-Tow">
                             <rect key="frame" x="8" y="79" width="94" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                            <string key="text" base64-UTF8="YES">
-UVIgMAM
-</string>
                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -2466,7 +2459,7 @@ UVIgMAM
                         <rightBarButtonItems>
                             <barButtonItem title="" style="plain" id="BHg-Y1-WhR">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="X6a-R2-tgq">
-                                    <rect key="frame" x="284" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="270.5" y="5.5" width="33.5" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -2485,7 +2478,7 @@ UVIgMAM
                             </barButtonItem>
                             <barButtonItem style="plain" id="dNa-LB-Utd">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dL0-V1-fbd">
-                                    <rect key="frame" x="126" y="7" width="150" height="30"/>
+                                    <rect key="frame" x="112.5" y="2" width="150" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                     <state key="normal" title="STORE">
@@ -2599,7 +2592,6 @@ UVIgMAM
                                 <rect key="frame" x="28" y="90" width="264" height="40"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
@@ -2618,7 +2610,7 @@ UVIgMAM
                         <rightBarButtonItems>
                             <barButtonItem title="" style="plain" id="o0w-re-xdE">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zDG-0v-e8C">
-                                    <rect key="frame" x="284" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="270.5" y="5.5" width="33.5" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -2750,7 +2742,7 @@ UVIgMAM
                         <rightBarButtonItems>
                             <barButtonItem title="" style="plain" id="UUp-0s-iuo">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IE5-TG-Kx4">
-                                    <rect key="frame" x="284" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="270.5" y="5.5" width="33.5" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -2766,7 +2758,7 @@ UVIgMAM
                             </barButtonItem>
                             <barButtonItem style="plain" id="1vc-zr-pwJ">
                                 <view key="customView" contentMode="scaleToFill" id="Wqb-Uj-4AN">
-                                    <rect key="frame" x="205" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="191.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Kyc-Gv-qUk">
@@ -2815,11 +2807,11 @@ UVIgMAM
                     <navigationItem key="navigationItem" id="3fC-zr-dhY">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" id="z5F-gL-HTr">
-                            <rect key="frame" x="13" y="6" width="265" height="33"/>
+                            <rect key="frame" x="8" y="6" width="226" height="33"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iTV-Go-35i">
-                                    <rect key="frame" x="170" y="3" width="86" height="23"/>
+                                    <rect key="frame" x="131" y="3" width="86" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                     <state key="normal" backgroundImage="ds_logo.png">
@@ -2848,12 +2840,12 @@ UVIgMAM
                         </view>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="y7n-bn-CJk">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8KA-1i-ydI">
-                                <rect key="frame" x="284" y="14" width="20" height="15"/>
+                                <rect key="frame" x="240" y="0.0" width="64" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                 <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
                                 <inset key="titleEdgeInsets" minX="20" minY="20" maxX="0.0" maxY="2"/>
-                                <inset key="imageEdgeInsets" minX="20" minY="20" maxX="0.0" maxY="2"/>
+                                <inset key="imageEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
                                 <state key="normal" backgroundImage="menu.png">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -3459,7 +3451,7 @@ UVIgMAM
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="rpy-vi-ebc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="c2F-6J-uP1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3495,7 +3487,7 @@ UVIgMAM
                         <rightBarButtonItems>
                             <barButtonItem title="" style="plain" id="5xe-Rr-a4V">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bh4-Sk-GXc">
-                                    <rect key="frame" x="284" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="270.5" y="5.5" width="33.5" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -3511,7 +3503,7 @@ UVIgMAM
                             </barButtonItem>
                             <barButtonItem style="plain" id="p1l-40-2h5">
                                 <view key="customView" contentMode="scaleToFill" id="Ayd-Fb-LnI">
-                                    <rect key="frame" x="205" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="191.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Tvb-4W-ER7">
@@ -3561,7 +3553,7 @@ UVIgMAM
                         <rightBarButtonItems>
                             <barButtonItem title="" style="plain" id="bv2-wn-VyD">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bbL-jg-mRa">
-                                    <rect key="frame" x="284" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="270.5" y="5.5" width="33.5" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -3577,7 +3569,7 @@ UVIgMAM
                             </barButtonItem>
                             <barButtonItem style="plain" id="LtU-gI-71y">
                                 <view key="customView" contentMode="scaleToFill" id="pkU-2o-Lub">
-                                    <rect key="frame" x="205" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="191.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lHh-DO-1Pm">
@@ -3613,7 +3605,7 @@ UVIgMAM
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="TWH-4U-GVn"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Eqn-qb-vyB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -3632,7 +3624,7 @@ UVIgMAM
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="yLC-Aw-Y4H"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hgE-Ab-XzI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3666,7 +3658,7 @@ UVIgMAM
                         <rightBarButtonItems>
                             <barButtonItem title="" style="plain" id="GOb-GJ-rQP">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gNg-Af-4qM">
-                                    <rect key="frame" x="284" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="270.5" y="5.5" width="33.5" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -3681,7 +3673,7 @@ UVIgMAM
                             </barButtonItem>
                             <barButtonItem style="plain" id="9ig-ZA-wgg">
                                 <view key="customView" contentMode="scaleToFill" id="Zh2-kL-fWU">
-                                    <rect key="frame" x="205" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="191.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OOd-k8-BV4">
@@ -4124,7 +4116,7 @@ UVIgMAM
                         <rightBarButtonItems>
                             <barButtonItem style="plain" id="fm3-Eh-KIt">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HTW-R3-H3j">
-                                    <rect key="frame" x="284" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="270.5" y="5.5" width="33.5" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -4139,7 +4131,7 @@ UVIgMAM
                             </barButtonItem>
                             <barButtonItem style="plain" id="8u7-l2-Neu">
                                 <view key="customView" contentMode="scaleToFill" id="fAv-eF-iCS">
-                                    <rect key="frame" x="205" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="191.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="j78-gB-rES">
@@ -4229,7 +4221,7 @@ UVIgMAM
                                                 <rect key="frame" x="19" y="5" width="92" height="25"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <state key="normal" title="أضف إلى السلة">
+                                                <state key="normal" title="أضف إلى العربة">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -4250,7 +4242,7 @@ UVIgMAM
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" id="HEc-jM-MBQ">
                             <view key="customView" contentMode="scaleToFill" id="ds5-4K-q2O">
-                                <rect key="frame" x="16" y="5" width="71" height="33"/>
+                                <rect key="frame" x="16" y="5.5" width="71" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Kdv-cs-4Ai">
@@ -4273,7 +4265,7 @@ UVIgMAM
                         <rightBarButtonItems>
                             <barButtonItem title="" style="plain" id="tUK-oE-kow">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SFg-z1-d5j">
-                                    <rect key="frame" x="284" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="270.5" y="5.5" width="33.5" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -4288,7 +4280,7 @@ UVIgMAM
                             </barButtonItem>
                             <barButtonItem style="plain" id="GJK-0Q-k7J">
                                 <view key="customView" contentMode="scaleToFill" misplaced="YES" id="Qho-EZ-bok">
-                                    <rect key="frame" x="176" y="5" width="100" height="33"/>
+                                    <rect key="frame" x="163" y="6" width="100" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gr5-qS-QKl">
@@ -4700,7 +4692,7 @@ UVIgMAM
                         <rightBarButtonItems>
                             <barButtonItem title="" style="plain" id="czK-dn-HEB">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1TP-Qz-7HV">
-                                    <rect key="frame" x="270" y="5" width="34" height="33"/>
+                                    <rect key="frame" x="270" y="5.5" width="34" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -4715,7 +4707,7 @@ UVIgMAM
                             </barButtonItem>
                             <barButtonItem style="plain" id="yEn-GZ-LjG">
                                 <view key="customView" contentMode="scaleToFill" id="fCz-ZS-eg2">
-                                    <rect key="frame" x="191" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="191" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JUg-BB-xql">
@@ -4764,7 +4756,7 @@ UVIgMAM
                         <rightBarButtonItems>
                             <barButtonItem style="plain" id="gdG-8L-p51">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ktd-mC-Gp5">
-                                    <rect key="frame" x="284" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="270.5" y="5.5" width="33.5" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -4779,7 +4771,7 @@ UVIgMAM
                             </barButtonItem>
                             <barButtonItem style="plain" id="Nbx-8V-hhH">
                                 <view key="customView" contentMode="scaleToFill" id="I4b-U1-qUT">
-                                    <rect key="frame" x="205" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="191.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ftz-lc-f8V">
@@ -4983,7 +4975,7 @@ UVIgMAM
                         <rightBarButtonItems>
                             <barButtonItem title="" style="plain" id="OxW-NP-gW3">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="h0e-aS-k5C">
-                                    <rect key="frame" x="284" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="270.5" y="5.5" width="33.5" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -4998,7 +4990,7 @@ UVIgMAM
                             </barButtonItem>
                             <barButtonItem style="plain" id="OCe-sh-5xA">
                                 <view key="customView" contentMode="scaleToFill" id="9jY-h4-Sfu">
-                                    <rect key="frame" x="205" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="191.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="okT-hJ-Jyl">
@@ -5266,7 +5258,7 @@ UVIgMAM
                         <rightBarButtonItems>
                             <barButtonItem title="" style="plain" id="bcz-dJ-eX3">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Fqt-UY-Eaw">
-                                    <rect key="frame" x="284" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="270.5" y="5.5" width="33.5" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -5284,7 +5276,7 @@ UVIgMAM
                             </barButtonItem>
                             <barButtonItem style="plain" id="kUa-Nq-wxW">
                                 <view key="customView" contentMode="scaleToFill" misplaced="YES" id="3t7-W1-TJu">
-                                    <rect key="frame" x="176" y="5" width="100" height="33"/>
+                                    <rect key="frame" x="162.5" y="5.5" width="100" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lYf-0h-XgB">
@@ -5343,7 +5335,7 @@ UVIgMAM
                         <rightBarButtonItems>
                             <barButtonItem title="" style="plain" id="ufR-hs-TU7">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nVG-0O-YAF">
-                                    <rect key="frame" x="284" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="270.5" y="5.5" width="33.5" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -5358,7 +5350,7 @@ UVIgMAM
                             </barButtonItem>
                             <barButtonItem style="plain" id="xxr-vR-fQl">
                                 <view key="customView" contentMode="scaleToFill" id="YqB-wW-afL">
-                                    <rect key="frame" x="205" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="191.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uw9-vx-GVI">
@@ -5454,7 +5446,7 @@ UVIgMAM
                     <navigationItem key="navigationItem" id="nGC-7y-F2k">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="rFP-F0-63u">
                             <view key="customView" contentMode="scaleToFill" misplaced="YES" id="5I1-qW-H8a">
-                                <rect key="frame" x="16" y="4" width="250" height="35"/>
+                                <rect key="frame" x="16" y="4.5" width="250" height="35"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="البحث عن المنتجات" textAlignment="right" minimumFontSize="17" id="Zwu-rv-g54" customClass="TXT_Blck_field">
@@ -5481,7 +5473,7 @@ UVIgMAM
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="KYv-io-mhg">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MCh-2L-wLQ">
-                                <rect key="frame" x="269" y="7" width="35" height="30"/>
+                                <rect key="frame" x="272" y="0.0" width="32" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                 <state key="normal" title="">
@@ -5543,20 +5535,15 @@ UVIgMAM
         <image name="wv5.jpg" width="350" height="1020"/>
         <image name="yell3.jpg" width="350" height="1030"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
-    </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="BPu-hj-98k"/>
+        <segue reference="ZQz-cY-hR0"/>
+        <segue reference="lT4-28-Wjm"/>
+        <segue reference="qYK-Na-3Yd"/>
         <segue reference="wZ3-07-46C"/>
-        <segue reference="s4c-Qx-Ots"/>
-        <segue reference="jMz-Ik-OBI"/>
+        <segue reference="JjR-Qr-AQ0"/>
         <segue reference="LJJ-ad-5gJ"/>
         <segue reference="a0t-dX-VXu"/>
-        <segue reference="qYK-Na-3Yd"/>
-        <segue reference="BPu-hj-98k"/>
-        <segue reference="yiG-Mz-ByU"/>
         <segue reference="UCK-dQ-vRE"/>
     </inferredMetricsTieBreakers>
 </document>

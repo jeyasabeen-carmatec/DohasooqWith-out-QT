@@ -171,7 +171,7 @@
         if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
         {
             
-            str = @"% إيقاف";
+            str = @"% خصم";
             cell.LBL_discount.text = [NSString stringWithFormat:@"%@%@",[[response_Arr objectAtIndex:indexPath.section]valueForKey:@"product_discount"],str];
         }
         else{
@@ -437,8 +437,10 @@
 -(void)tapGesture_close:(UITapGestureRecognizer *)tapgstr
 {
     CGPoint location = [tapgstr locationInView:_TBL_wish_list_items];
-    NSIndexPath *indexPath = [_TBL_wish_list_items indexPathForRowAtPoint:location];
-    product_id = [NSString stringWithFormat:@"%@",[[response_Arr objectAtIndex:indexPath.row] valueForKey:@"product_id"]];
+    NSIndexPath *index = [_TBL_wish_list_items indexPathForRowAtPoint:location];
+    
+    NSLog( @".......%ld",(long)index.row);
+    product_id = [NSString stringWithFormat:@"%@",[[response_Arr objectAtIndex:index.section] valueForKey:@"product_id"]];
     
 //      [self performSelector:@selector(delete_from_wishLis:@"") withObject:nil afterDelay:0.01];
     [self delete_from_wishLis:@"delete"];
@@ -482,9 +484,7 @@
     NSString *user_id = [NSString stringWithFormat:@"%@",[dict valueForKey:@"id"]];
     @try {
         
-        
-    
-        
+                
     response_Arr = [[NSMutableArray alloc]init];
 
     //http://192.168.0.171/dohasooq/apis/customerWishList/46/1/1
@@ -506,13 +506,9 @@
                     NSLog(@"%@",[error localizedDescription]);
                 }
                   @try {
-//                      dispatch_async(dispatch_get_main_queue(), ^{
-//                          [self performSelector:@selector(cart_count) withObject:nil afterDelay:0.01];
-//                      });
+
                 if (data) {
                   
-                    
-                    
                        response_Arr = data;
                     
                         image_empty.hidden = YES;
@@ -609,7 +605,25 @@
         [request setHTTPMethod:@"POST"];
         [request setHTTPBody:postData];
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        
+        // set Cookie and awllb......
+        if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
+            
+            NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
+            
+            if (![awlllb containsString:@"(null)"]) {
+                awlllb = [NSString stringWithFormat:@"%@;%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"],awlllb];
+                [request addValue:awlllb forHTTPHeaderField:@"Cookie"];
+            }
+            else{
+                [request addValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] forHTTPHeaderField:@"Cookie"];
+            }
+            
+        }
         NSData *aData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        if (response) {
+            [HttpClient filteringCookieValue:response];
+        }
         if (error) {
             [Helper_activity stop_activity_animation:self];
             [HttpClient createaAlertWithMsg:[error localizedDescription] andTitle:@""];
@@ -791,7 +805,35 @@
                         [Helper_activity stop_activity_animation:self];
                         NSLog(@"%@",data);
                         
-                        if([[data valueForKey:@"msg"] isEqualToString:@"Customer not found"])
+                        if ([[NSString stringWithFormat:@"%@",[data valueForKey:@"msg"]] isEqualToString:@"Removed from your Wishlist"]) {
+                            [Helper_activity stop_activity_animation:self];
+                            
+                            if ([fromDelete isEqualToString:@"delete"]) { // for Direct calling of remove from wish list or from move to cart
+                                
+                                [HttpClient createaAlertWithMsg:[data valueForKey:@"multi_msg"] andTitle:@""];
+                                
+                            }
+                            
+                            
+                            [self performSelector:@selector(wish_list_api_calling) withObject:nil afterDelay:0.01];
+                            
+                        }
+                        else{
+                            [HttpClient createaAlertWithMsg:[data valueForKey:@"multi_msg"] andTitle:@""];
+
+                            
+                        }
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        /////////////
+                        
+                      /*  if([[data valueForKey:@"msg"] isEqualToString:@"Customer not found"])
                         {
                              [HttpClient createaAlertWithMsg:[data valueForKey:@"msg"] andTitle:@""];
                         }
@@ -812,14 +854,18 @@
                                 [HttpClient createaAlertWithMsg:@"Item Removed From Your Wishlist." andTitle:@""];
                                 
                             }
+                                
                             }
                             
+                            
                             [self performSelector:@selector(wish_list_api_calling) withObject:nil afterDelay:0.01];
+                    
                         } @catch (NSException *exception) {
                             NSLog(@"%@",exception);
                             
                         }
-                        }
+                       
+                        }*/
                     
                     
                     }

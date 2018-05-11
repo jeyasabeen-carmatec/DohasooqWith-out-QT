@@ -172,18 +172,38 @@
         [request setHTTPMethod:@"POST"];
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         [request setHTTPBody:postData];
-        //[request setAllHTTPHeaderFields:headers];
-        [request setHTTPShouldHandleCookies:NO];
+       
+        // set Cookie and awllb......
+        if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
+            
+            NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
+            
+            if (![awlllb containsString:@"(null)"]) {
+                awlllb = [NSString stringWithFormat:@"%@;%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"],awlllb];
+                [request addValue:awlllb forHTTPHeaderField:@"Cookie"];
+            }
+            else{
+                [request addValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] forHTTPHeaderField:@"Cookie"];
+            }
+            
+        }
+        
         NSData *aData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-        if(aData)
+        if (response) {
+            [HttpClient filteringCookieValue:response];
+        }
+        
+        if (error) {
+             [Helper_activity stop_activity_animation:self];
+            [HttpClient createaAlertWithMsg:[error localizedDescription] andTitle:@""];
+        }
+        else if(aData)
         {
             NSMutableDictionary *json_DATA = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:aData options:NSASCIIStringEncoding error:&error];
             NSLog(@"The response Api post sighn up API %@",json_DATA);
             NSString *status = [NSString stringWithFormat:@"%@",[json_DATA valueForKey:@"success"]];
             NSString *msg = [json_DATA valueForKey:@"message"];
             
-           
-
             if([status isEqualToString:@"1"])
             {
                 
@@ -197,32 +217,19 @@
                 
                 [self dismissViewControllerAnimated:YES completion:nil];
                 
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:msg delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
-                [alert show];
+
+                [HttpClient createaAlertWithMsg:msg andTitle:@""];
                 
             }
             else
             {
                 [Helper_activity stop_activity_animation:self];
                 
-                if ([msg isEqualToString:@"User already exists"])
-                {
-                    msg = @"Email address already in use, Please try with different email.";
-                }
-                
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:msg delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
-                [alert show];
+                [HttpClient createaAlertWithMsg:msg andTitle:@""];
             }
             
         }
-        else
-        {
-            [Helper_activity stop_activity_animation:self];
-
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Connection Failed" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
-            [alert show];
-        }
+        
         
     }
     
@@ -231,7 +238,7 @@
         NSLog(@"The error is:%@",exception);
     }
     
-
+ 
 }
 
 /*

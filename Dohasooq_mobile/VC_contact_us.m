@@ -186,32 +186,56 @@
     if ([_TXT_F_name.text isEqualToString:@""])
     {
         [_TXT_F_name becomeFirstResponder];
-        msg = @"Please enter  Name field";
+        
+        if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
+        {
+
+            msg = @"من فضلك أدخل إسمك";
+        }
+        else{
+            msg = @"Please Enter Your Name";
+            
+        }
         
     }
     else if(_TXT_F_name.text.length < 3)
     {
         [_TXT_F_name becomeFirstResponder];
-        msg = @" Name should not be less than 3 characters";
+        if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
+        {
+            msg = @"يجب ألا يقل الاسم عن 3 أحرف";
+           
+        }else{
+             msg = @" Name should not be less than 3 characters";
+        }
+        
         
     }
-    else if([_TXT_F_name.text isEqualToString:@" "])
-    {
-        [_TXT_F_name becomeFirstResponder];
-        msg = @"Blank space are not allowed";
-        
-    }
+
     else if([_TXT_email.text isEqualToString:@""])
     {
         [_TXT_email becomeFirstResponder];
+        if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
+        {
+            msg = @"يرجى إدخال البريد الإلكتروني";
+
+        }else{
         msg = @"Please enter Email";
+        }
         
     }
     
     else if([emailTest evaluateWithObject:text_to_compare_email] == NO)
     {
         [_TXT_email becomeFirstResponder];
-        msg = @"Please enter valid email address";
+        if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
+        {
+           msg = @"الرجاء إدخال عنوان بريد إلكتروني صالح";
+               }
+        else{
+            msg = @"Please enter valid email address";
+
+        }
         
         
         
@@ -232,13 +256,26 @@
     else if([_TXT_message.text isEqualToString:@""])
     {
         [_TXT_message becomeFirstResponder];
+        if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
+        {
+            msg = @"يرجى إدخال الرسالة";
+        }
+        else{
         msg = @"Please enter Message";
+        }
         
     }
     else if(_TXT_message.text.length < 64)
     {
         [_TXT_message becomeFirstResponder];
-        msg = @" Message length should be more than 64 characters";
+        if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
+        {
+        msg = @" يجب أن يكون طول الرسالة 64 حرفًا كحد أدنى";
+        }
+        else{
+            msg = @" Message length should be minimum 64 characters";
+ 
+        }
     }
     else{
         [Helper_activity animating_images:self];
@@ -295,6 +332,23 @@
             NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
             [request setURL:[NSURL URLWithString:urlGetuser]];
             [request setHTTPMethod:@"POST"];
+            
+            // set Cookie and awllb......
+            if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
+                
+                NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
+                
+                if (![awlllb containsString:@"(null)"]) {
+                    awlllb = [NSString stringWithFormat:@"%@;%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"],awlllb];
+                    [request addValue:awlllb forHTTPHeaderField:@"Cookie"];
+                }
+                else{
+                    [request addValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] forHTTPHeaderField:@"Cookie"];
+                }
+                
+            }
+            
+
             
             NSString *boundary = @"---------------------------14737809831466499882746641449";
             NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];

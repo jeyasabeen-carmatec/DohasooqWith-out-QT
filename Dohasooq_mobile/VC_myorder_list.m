@@ -418,10 +418,31 @@
         [request setURL:urlProducts];
         [request setHTTPMethod:@"POST"];
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        
+        // set Cookie and awllb......
+        if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
+            
+            NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
+            
+            if (![awlllb containsString:@"(null)"]) {
+                awlllb = [NSString stringWithFormat:@"%@;%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"],awlllb];
+                [request addValue:awlllb forHTTPHeaderField:@"Cookie"];
+            }
+            else{
+                [request addValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] forHTTPHeaderField:@"Cookie"];
+            }
+            
+        }
+        
+
+        
         [request setHTTPBody:postData];
         //[request setAllHTTPHeaderFields:headers];
         [request setHTTPShouldHandleCookies:NO];
         NSData *aData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        if (response) {
+            [HttpClient filteringCookieValue:response];
+        }
         if(aData)
         {
           NSMutableDictionary *json_DAT = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:aData options:NSASCIIStringEncoding error:&error];

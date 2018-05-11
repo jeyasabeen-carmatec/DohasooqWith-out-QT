@@ -180,19 +180,29 @@
     phone_close.barStyle = UIBarStyleBlackTranslucent;
     [phone_close sizeToFit];
     
-    UIButton *done=[[UIButton alloc]init];
-    done.frame=CGRectMake(phone_close.frame.size.width - 100, 0, 100, phone_close.frame.size.height);
-    [done setTitle:@"Done" forState:UIControlStateNormal];
-    [done addTarget:self action:@selector(countrybuttonClick) forControlEvents:UIControlEventTouchUpInside];
-    [phone_close addSubview:done];
+//    UIButton *done=[[UIButton alloc]init];
+//    done.frame=CGRectMake(phone_close.frame.size.width - 100, 0, 100, phone_close.frame.size.height);
+//    [done setTitle:@"Done" forState:UIControlStateNormal];
+//    [done addTarget:self action:@selector(picker_done_btn_action) forControlEvents:UIControlEventTouchUpInside];
+//    [phone_close addSubview:done];
+//
+//
+//    UIButton *close=[[UIButton alloc]init];
+//    close.frame=CGRectMake(phone_close.frame.origin.x -20, 0, 100, phone_close.frame.size.height);
+//    [close setTitle:@"Close" forState:UIControlStateNormal];
+//    [close addTarget:self action:@selector(close_ACTION) forControlEvents:UIControlEventTouchUpInside];
+//    [phone_close addSubview:close];
+//
+    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(picker_done_btn_action)];
+    [doneBtn setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
+    
+    UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *cancelBtn = [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(close_ACTION)];
+    [cancelBtn setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
     
     
-    UIButton *close=[[UIButton alloc]init];
-    close.frame=CGRectMake(phone_close.frame.origin.x -20, 0, 100, phone_close.frame.size.height);
-    [close setTitle:@"Close" forState:UIControlStateNormal];
-    [close addTarget:self action:@selector(close_ACTION) forControlEvents:UIControlEventTouchUpInside];
-    [phone_close addSubview:close];
-    
+    NSMutableArray *barItems = [NSMutableArray arrayWithObjects:cancelBtn,flexibleItem,doneBtn, nil];
+    [phone_close setItems:barItems animated:YES];
 
     
     
@@ -258,7 +268,7 @@
     [_TXT_Dob resignFirstResponder];
     
 }
--(void)countrybuttonClick
+-(void)picker_done_btn_action
 {
     if (!isPickerViewScrolled) {
      [self pickerViewCustomAction:0];
@@ -297,10 +307,30 @@
             [request setURL:urlProducts];
             [request setHTTPMethod:@"POST"];
             [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-            //[request setHTTPBody:postData];
-            //[request setAllHTTPHeaderFields:headers];
+           
+            // set Cookie and awllb......
+            if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
+                
+                NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
+                
+                if (![awlllb containsString:@"(null)"]) {
+                    awlllb = [NSString stringWithFormat:@"%@;%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"],awlllb];
+                    [request addValue:awlllb forHTTPHeaderField:@"Cookie"];
+                }
+                else{
+                    [request addValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] forHTTPHeaderField:@"Cookie"];
+                }
+                
+            }
+            
+
+            
+            
             [request setHTTPShouldHandleCookies:NO];
             NSData *aData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+            if (response) {
+                [HttpClient filteringCookieValue:response];
+            }
             if(aData)
             {
                 
@@ -897,10 +927,28 @@
         [request setURL:urlProducts];
         [request setHTTPMethod:@"POST"];
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        // [request setHTTPBody:postData];
-        //[request setAllHTTPHeaderFields:headers];
+        
+        // set Cookie and awllb......
+        if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
+            
+            NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
+            
+            if (![awlllb containsString:@"(null)"]) {
+                awlllb = [NSString stringWithFormat:@"%@;%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"],awlllb];
+                [request addValue:awlllb forHTTPHeaderField:@"Cookie"];
+            }
+            else{
+                [request addValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] forHTTPHeaderField:@"Cookie"];
+            }
+            
+        }
+        
+
         [request setHTTPShouldHandleCookies:NO];
         NSData *aData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        if (response) {
+            [HttpClient filteringCookieValue:response];
+        }
         if(aData)
         {
            json_DATA = (NSArray *)[NSJSONSerialization JSONObjectWithData:aData options:NSASCIIStringEncoding error:&error];
@@ -997,10 +1045,28 @@
         [request setURL:urlProducts];
         [request setHTTPMethod:@"POST"];
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        // [request setHTTPBody:postData];
-        //[request setAllHTTPHeaderFields:headers];
+        
+        // set Cookie and awllb......
+        if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
+            
+            NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
+            
+            if (![awlllb containsString:@"(null)"]) {
+                awlllb = [NSString stringWithFormat:@"%@;%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"],awlllb];
+                [request addValue:awlllb forHTTPHeaderField:@"Cookie"];
+            }
+            else{
+                [request addValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] forHTTPHeaderField:@"Cookie"];
+            }
+            
+        }
+        
+
         [request setHTTPShouldHandleCookies:NO];
         NSData *aData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        if (response) {
+            [HttpClient filteringCookieValue:response];
+        }
         if(aData)
         {
             grouppicker = (NSDictionary *)[NSJSONSerialization JSONObjectWithData:aData options:NSASCIIStringEncoding error:&error];
@@ -1059,9 +1125,27 @@
         [request setURL:urlProducts];
         [request setHTTPMethod:@"POST"];
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        // set Cookie and awllb......
+        if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
+            
+            NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
+            
+            if (![awlllb containsString:@"(null)"]) {
+                awlllb = [NSString stringWithFormat:@"%@;%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"],awlllb];
+                [request addValue:awlllb forHTTPHeaderField:@"Cookie"];
+            }
+            else{
+                [request addValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] forHTTPHeaderField:@"Cookie"];
+            }
+            
+        }
+        
      
         [request setHTTPShouldHandleCookies:NO];
         NSData *aData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        if (response) {
+            [HttpClient filteringCookieValue:response];
+        }
         if(aData)
         {
             
@@ -1605,9 +1689,29 @@
         [request setHTTPMethod:@"POST"];
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         [request setHTTPBody:postData];
-        //[request setAllHTTPHeaderFields:headers];
-        [request setHTTPShouldHandleCookies:NO];
+      
+        // set Cookie and awllb......
+        if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
+            
+            NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
+            
+            if (![awlllb containsString:@"(null)"]) {
+                awlllb = [NSString stringWithFormat:@"%@;%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"],awlllb];
+                [request addValue:awlllb forHTTPHeaderField:@"Cookie"];
+            }
+            else{
+                [request addValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] forHTTPHeaderField:@"Cookie"];
+            }
+            
+        }
+        
+
+        
+        
         NSData *aData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        if (response) {
+            [HttpClient filteringCookieValue:response];
+        }
         if (error) {
             [Helper_activity stop_activity_animation:self];
         }
@@ -1845,6 +1949,24 @@
         [request setURL:[NSURL URLWithString:urlGetuser]];
         [request setHTTPMethod:@"POST"];
         
+        
+        // set Cookie and awllb......
+        if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
+            
+            NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
+            
+            if (![awlllb containsString:@"(null)"]) {
+                awlllb = [NSString stringWithFormat:@"%@;%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"],awlllb];
+                [request addValue:awlllb forHTTPHeaderField:@"Cookie"];
+            }
+            else{
+                [request addValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] forHTTPHeaderField:@"Cookie"];
+            }
+            
+        }
+        
+
+        
         NSString *boundary = @"---------------------------14737809831466499882746641449";
         NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
         [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
@@ -1900,12 +2022,8 @@
         [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
         
         
-        
-        //message
-        
-        //
        
-        //    NSHTTPURLResponse *response = nil;
+        NSHTTPURLResponse *response = nil;
         
         // close form
         [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
@@ -1913,7 +2031,10 @@
         // set request body
         [request setHTTPBody:body];
         
-        NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+        NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+        if (response) {
+            [HttpClient filteringCookieValue:response];
+        }
         
         if (returnData)
             
@@ -1966,71 +2087,7 @@
     
 
     
-//    @try
-//    {
-//    NSString *country = _TXT_country.text;
-//    NSString *state = _TXT_state.text;
-//    NSString *city = _TXT_city.text;
-//    NSString *address = _TXT_address1.text;
-//    NSString *zipcode = _TXT_zipcode.text;
-//    
-//    NSError *error;
-//    NSError *err;
-//    NSHTTPURLResponse *response = nil;
-//    
-//    NSDictionary *parameters = @{ @"country_id": country,
-//                                  @"state_id": state,
-//                                  @"city": city,
-//                                  @"address1": address,
-//                                  @"zip_code":zipcode
-//                                  };
-//    NSData *postData = [NSJSONSerialization dataWithJSONObject:parameters options:NSASCIIStringEncoding error:&err];
-//    NSLog(@"the posted data is:%@",parameters);
-//    NSDictionary *dict = [[NSUserDefaults standardUserDefaults] valueForKey:@"userdata"];
-//    NSString *user_id = [NSString stringWithFormat:@"%@",[dict valueForKey:@"id"]];
-//    NSString *urlGetuser =[NSString stringWithFormat:@"%@customers/my-account/3/%@.json",SERVER_URL,user_id];
-//    urlGetuser = [urlGetuser stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-//    NSURL *urlProducts=[NSURL URLWithString:urlGetuser];
-//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-//    [request setURL:urlProducts];
-//    [request setHTTPMethod:@"POST"];
-//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-//    [request setHTTPBody:postData];
-//    //[request setAllHTTPHeaderFields:headers];
-//    [request setHTTPShouldHandleCookies:NO];
-//    NSData *aData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-//    if(aData)
-//    {
-//        [HttpClient stop_activity_animation:self];
-//        NSMutableDictionary *json_DATA = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:aData options:NSASCIIStringEncoding error:&error];
-//        NSString *status = [NSString stringWithFormat:@"%@",[json_DATA valueForKey:@"success"]];
-//        if([status isEqualToString:@"1"])
-//        {
-//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:[json_DATA valueForKey:@"message"] delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
-//            [alert show];
-//             [self View_user_data];
-//            
-//        }
-//        else{
-//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:[json_DATA valueForKey:@"message"] delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
-//            [alert show];
-//            
-//        }
-//       
-//    }
-//    else
-//    {
-//        [HttpClient stop_activity_animation:self];
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Connection error" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
-//        [alert show];
-//    }
-//    }
-//
-//@catch(NSException *exception)
-//{
-//     [HttpClient stop_activity_animation:self];}
-//
-//}
+
 }
 
 -(void)take_Picture
@@ -2155,6 +2212,22 @@
     [request setURL:[NSURL URLWithString:urlString]];
     [request setHTTPMethod:@"POST"];
     
+    // set Cookie and awllb......
+    if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
+        
+        NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
+        
+        if (![awlllb containsString:@"(null)"]) {
+            awlllb = [NSString stringWithFormat:@"%@;%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"],awlllb];
+            [request addValue:awlllb forHTTPHeaderField:@"Cookie"];
+        }
+        else{
+            [request addValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] forHTTPHeaderField:@"Cookie"];
+        }
+        
+    }
+
+    
     NSString *boundary = @"---------------------------14737809831466499882746641449";
     NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
     [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
@@ -2172,9 +2245,12 @@
     [request setHTTPBody:body];
     
     NSError *err;
+    NSURLResponse *response;
     
-   NSData *data= [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&err];
-    
+   NSData *data= [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
+    if (response) {
+        [HttpClient filteringCookieValue:response];
+    }
     if (err) {
         
         [Helper_activity stop_activity_animation:self];
@@ -2193,6 +2269,7 @@
             [[NSUserDefaults standardUserDefaults] setObject:str_image_profile forKey:@"profile_image"];
             [[NSUserDefaults standardUserDefaults]synchronize];
         }
+        
     }
     
     [Helper_activity stop_activity_animation:self];

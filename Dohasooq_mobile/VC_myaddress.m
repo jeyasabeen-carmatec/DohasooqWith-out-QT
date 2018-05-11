@@ -107,19 +107,32 @@
     accessoryView.barStyle = UIBarStyleBlackTranslucent;
     [accessoryView sizeToFit];
     
-    UIButton *done=[[UIButton alloc]init];
-    done.frame=CGRectMake(accessoryView.frame.size.width - 100, 0, 100, accessoryView.frame.size.height);
-    [done setTitle:@"Done" forState:UIControlStateNormal];
-    [done addTarget:self action:@selector(picker_done_btn_action) forControlEvents:UIControlEventTouchUpInside];
-    [accessoryView addSubview:done];
+//    UIButton *done=[[UIButton alloc]init];
+//    done.frame=CGRectMake(accessoryView.frame.size.width - 100, 0, 100, accessoryView.frame.size.height);
+//    [done setTitle:@"Done" forState:UIControlStateNormal];
+//    [done addTarget:self action:@selector(picker_done_btn_action) forControlEvents:UIControlEventTouchUpInside];
+//    [accessoryView addSubview:done];
+//
+//
+//    UIButton *close=[[UIButton alloc]init];
+//    close.frame=CGRectMake(accessoryView.frame.origin.x -20 , 0, 100, accessoryView.frame.size.height);
+//    [close setTitle:@"Close" forState:UIControlStateNormal];
+//    [close addTarget:self action:@selector(close_ACTION) forControlEvents:UIControlEventTouchUpInside];
+//    [accessoryView addSubview:close];
+    
+    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(picker_done_btn_action)];
+    [doneBtn setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
+    
+    UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *cancelBtn = [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(close_ACTION)];
+    [cancelBtn setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
     
     
-    UIButton *close=[[UIButton alloc]init];
-    close.frame=CGRectMake(accessoryView.frame.origin.x -20 , 0, 100, accessoryView.frame.size.height);
-    [close setTitle:@"Close" forState:UIControlStateNormal];
-    [close addTarget:self action:@selector(close_ACTION) forControlEvents:UIControlEventTouchUpInside];
-    [accessoryView addSubview:close];
+    NSMutableArray *barItems = [NSMutableArray arrayWithObjects:cancelBtn,flexibleItem,doneBtn, nil];
+    [accessoryView setItems:barItems animated:YES];
     
+    
+//
     
     [self gettingCountryCodeForMobile];
      [Helper_activity stop_activity_animation:self];
@@ -507,7 +520,7 @@
             
             
             if ([str_country isEqualToString:@""] || [str_country isEqualToString:@"<nil>"]  || [str_country isEqual:[NSNull class]] ||[str_country isEqualToString:@"<null>"]) {
-                cell.TXT_country.placeholder = @"Select country*";
+                cell.TXT_country.text = @"";
             }
             else{
                 cell.TXT_country.text = str_country;
@@ -711,11 +724,11 @@
     UIAlertView *alert;
     if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
     {
-        alert = [[UIAlertView alloc] initWithTitle:@"" message:@"هل أنت متأكد أنك تريد حذف" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"إلغاء", nil];
+        alert = [[UIAlertView alloc] initWithTitle:@"" message:@"هل أنت متأكد أنك تريد حذف" delegate:self cancelButtonTitle:@"حسنا" otherButtonTitles:@"إلغاء", nil];
        
     }
     else{
-       alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Are you sure you want to Delete" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"Cancel", nil];
+       alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Are you sure you want to Delete?" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"Cancel", nil];
        
     }
     
@@ -1252,26 +1265,31 @@
                     if ([data isKindOfClass:[NSDictionary class]]) {
                         
                         
-                        NSString *succes = [NSString stringWithFormat:@"%@",[data valueForKey:@"success"]];
-                        if ([succes isEqualToString:@"success"]) {
+                        if ([[data valueForKey:@"success"] isEqualToString:@"success"]) {
                             i=i-1;
-                            NSString *str = @"Ok";
-                            NSString *str_msg = @"Shipping Address Updated Successfully.";
-                            if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
-                            {
-                                str = @"حسنا";
-                                str_msg =  @"عنوان الشحن تم تحديثه بنجاح.";
-                            }
+//                            NSString *str = @"Ok";
+//                            NSString *str_msg = @"Shipping Address Updated Successfully.";
+//                            if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
+//                            {
+//                                str = @"حسنا";
+//                                str_msg =  @"عنوان الشحن تم تحديثه بنجاح.";
+//                            }
+//                            
+//                            
+//                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:str_msg delegate:self cancelButtonTitle:nil otherButtonTitles:str, nil];
+//                            [alert show];
+                           
+                              [HttpClient createaAlertWithMsg:[data valueForKey:@"msg"] andTitle:@""];
                             
-                            
-                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:str_msg delegate:self cancelButtonTitle:nil otherButtonTitles:str, nil];
-                            [alert show];
-
-                            
-                            //عنوان الشحن تم تحديثه بنجاح.[HttpClient createaAlertWithMsg:@"Shipping Address Updated Successfully." andTitle:@""
-                             //];
                             [self Shipp_address_API];
                         }
+                        else{
+                             [HttpClient createaAlertWithMsg:[data valueForKey:@"msg"] andTitle:@""];
+                        }
+                        
+                        
+                        
+                        
                     }
                    
                 }
@@ -1342,22 +1360,16 @@
                             NSString *succs = [NSString stringWithFormat:@"%@",[data valueForKey:@"success"]];
                             if ([succs isEqualToString:@"success"] || [succs isEqualToString:@"1"] ) {
                                 i=i-1;
-                                NSString *str = @"Ok";
-                                NSString *str_msg = @"Billing Address Saved Successfully";
-                                if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
-                                {
-                                    str = @"حسنا";
-                                    str_msg =  @"تم حفظ عنوان إرسال الفواتير بنجاح.";
-                                }
                                 
-                                
-                                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:str_msg delegate:self cancelButtonTitle:nil otherButtonTitles:str, nil];
-                                [alert show];
+                                [HttpClient createaAlertWithMsg:[data valueForKey:@"message"] andTitle:@""];
                                 
 
-                                //[HttpClient createaAlertWithMsg:@"Billing Address saved successfully" andTitle:@""];
                                  [self Shipp_address_API];
                                }
+                            else{
+                                 [Helper_activity stop_activity_animation:self];
+                                 [HttpClient createaAlertWithMsg:[data valueForKey:@"message"] andTitle:@""];
+                            }
                             
                            
 
@@ -1597,19 +1609,33 @@ if (textField.tag == 8) {
             NSError *error;
            // NSError *err;
             NSHTTPURLResponse *response = nil;
-            
-            
-           // NSString *urlGetuser =[NSString stringWithFormat:@"%@customers/login/1.json",SERVER_URL];
-            // urlGetuser = [urlGetuser stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             NSURL *urlProducts=[NSURL URLWithString:urlGetuser];
             NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
             [request setURL:urlProducts];
             [request setHTTPMethod:@"POST"];
             [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-            //[request setHTTPBody:postData];
-            //[request setAllHTTPHeaderFields:headers];
+            
+            // set Cookie and awllb......
+            if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
+                
+                NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
+                
+                if (![awlllb containsString:@"(null)"]) {
+                    awlllb = [NSString stringWithFormat:@"%@;%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"],awlllb];
+                    [request addValue:awlllb forHTTPHeaderField:@"Cookie"];
+                }
+                else{
+                    [request addValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] forHTTPHeaderField:@"Cookie"];
+                }
+                
+            }
+            
+
             [request setHTTPShouldHandleCookies:NO];
             NSData *aData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+            if (response) {
+                [HttpClient filteringCookieValue:response];
+            }
             if (error) {
                 
                 
@@ -1623,61 +1649,6 @@ if (textField.tag == 8) {
                 response_picker_arr = (NSMutableArray *)[NSJSONSerialization JSONObjectWithData:aData options:NSJSONReadingAllowFragments error:&error];
                 //NSLog(@"The response Api post sighn up API %@",json_DATA);
                 
-                
-                
-               /* [response_countries_dic addEntriesFromDictionary:json_DATA];
-                [response_picker_arr removeAllObjects];
-                //[response_picker_arr addObjectsFromArray:[response_countries_dic allKeys]]
-                for (int x=0; x<[[response_countries_dic allKeys] count]; x++) {
-                    NSDictionary *dic = @{@"cntry_id":[[response_countries_dic allKeys] objectAtIndex:x],@"cntry_name":[response_countries_dic valueForKey:[[response_countries_dic allKeys] objectAtIndex:x]]};
-                    
-                    [response_picker_arr addObject:dic];
-                    
-                }
-                NSSortDescriptor *sortDescriptor;
-                sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"cntry_name"
-                                                             ascending:YES];
-                NSArray *sortedArr = [response_picker_arr sortedArrayUsingDescriptors:@[sortDescriptor]];
-                
-                
-                NSMutableArray  *required_format = [NSMutableArray array];
-                for (int l =0; l<sortedArr.count; l++) {
-                    
-                    if ([[[sortedArr objectAtIndex:l] valueForKey:@"cntry_name"] isEqualToString:@"Qatar"] ) {
-                        
-                        [required_format addObject:[sortedArr objectAtIndex:l]];
-                        
-                    }
-                    
-                }
-                for (int l =0; l<sortedArr.count; l++) {
-                    
-                    if ([[[sortedArr objectAtIndex:l] valueForKey:@"cntry_name"] isEqualToString:@"India"]) {
-                        
-                        [required_format addObject:[sortedArr objectAtIndex:l]];
-                        
-                    }
-                    
-                }
-                
-                for (int m =0; m<sortedArr.count; m++) {
-                    
-                    if (![[[sortedArr objectAtIndex:m] valueForKey:@"cntry_name"] isEqualToString:@"Qatar"] && ![[[sortedArr objectAtIndex:m] valueForKey:@"cntry_name"] isEqualToString:@"India"]) {
-                        
-                        [required_format addObject:[sortedArr objectAtIndex:m]];
-                        
-                    }
-                    
-                }
-                NSLog(@"sortedArr %@",sortedArr);
-                if (edit_tag!=999) {
-                    [response_picker_arr removeAllObjects];
-                    [response_picker_arr  addObject:[required_format objectAtIndex:0]];
-                }
-                else{
-                    [response_picker_arr removeAllObjects];
-                    [response_picker_arr addObjectsFromArray:required_format];
-                }*/
                 [_staes_country_pickr reloadAllComponents];
             }
             else
@@ -2026,7 +1997,7 @@ if (textField.tag == 8) {
         NSDictionary *params = @{@"customerId":cust_id,@"shipId":shipid};
         
         
-    NSString *urlGetuser =[NSString stringWithFormat:@"%@Apis/shipaddressdelete.json",SERVER_URL];
+        NSString *urlGetuser =[NSString stringWithFormat:@"%@Apis/shipaddressdelete.json",SERVER_URL];
         urlGetuser = [urlGetuser stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
         @try {
             
@@ -2038,12 +2009,17 @@ if (textField.tag == 8) {
                     if (data) {
                         @try {
                             NSLog(@"%@",data);
+                            
                             if ([data isKindOfClass:[NSDictionary class]]) {
+                                
                                 if ([[data valueForKey:@"msg"] isEqualToString:@"success"]) {
                                     
                                     [self Shipp_address_API];
                                     
                                 }
+                              
+                                    [HttpClient createaAlertWithMsg:[data valueForKey:@"multi_msg"] andTitle:@""];
+                             
                             }
                             else{
                                 [HttpClient createaAlertWithMsg:@"The Data could not be read" andTitle:@""];
@@ -2094,6 +2070,23 @@ if (textField.tag == 8) {
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
         [request setURL:[NSURL URLWithString:urlGetuser]];
         [request setHTTPMethod:@"POST"];
+        
+        // set Cookie and awllb......
+        if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
+            
+            NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
+            
+            if (![awlllb containsString:@"(null)"]) {
+                awlllb = [NSString stringWithFormat:@"%@;%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"],awlllb];
+                [request addValue:awlllb forHTTPHeaderField:@"Cookie"];
+            }
+            else{
+                [request addValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] forHTTPHeaderField:@"Cookie"];
+            }
+            
+        }
+        
+
         
         NSString *boundary = @"---------------------------14737809831466499882746641449";
         NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
@@ -2200,7 +2193,7 @@ if (textField.tag == 8) {
         
         //
         NSError *er;
-        //    NSHTTPURLResponse *response = nil;
+            NSHTTPURLResponse *response = nil;
         
         // close form
         [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
@@ -2208,7 +2201,10 @@ if (textField.tag == 8) {
         // set request body
         [request setHTTPBody:body];
         
-        NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&er];
+        NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&er];
+        if (response) {
+            [HttpClient filteringCookieValue:response];
+        }
         if (er) {
             NSLog(@"%@",[er localizedDescription]);
         }
@@ -2221,21 +2217,26 @@ if (textField.tag == 8) {
             json_DATA = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:returnData options:NSASCIIStringEncoding error:&er];
             NSLog(@"%@", [NSString stringWithFormat:@"JSON DATA OF ORDER DETAIL: %@", json_DATA]);
             
-            if ([[json_DATA valueForKey:@"success"] isEqualToString:@"success"]) {
+           if ([[json_DATA valueForKey:@"success"] isEqualToString:@"success"]) {
                
                 i= i-1;
-                if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
-                {  [HttpClient createaAlertWithMsg:@"تمت إضافة العنوان الجديد بنجاح." andTitle:nil];
-                }else{
-               
-                [HttpClient createaAlertWithMsg:@"New Address Added Successfully." andTitle:@""];
-                
-                }
+//                if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
+//                {  [HttpClient createaAlertWithMsg:@"تمت إضافة العنوان الجديد بنجاح." andTitle:nil];
+//                }else{
+//               
+//                [HttpClient createaAlertWithMsg:@"New Address Added Successfully." andTitle:@""];
+//                
+//                }
+                [HttpClient createaAlertWithMsg:[json_DATA valueForKey:@"msg"] andTitle:@""];
 
                  [self Shipp_address_API];
             }
+            else{
+                   [HttpClient createaAlertWithMsg:[json_DATA valueForKey:@"msg"] andTitle:@""];
+            }
+         
             
-           // [HttpClient createaAlertWithMsg:[json_DATA valueForKey:@"success"] andTitle:@""];
+            
         }
         
     }

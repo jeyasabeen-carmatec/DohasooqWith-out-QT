@@ -95,9 +95,24 @@
 {
     if (self = [super initWithFrame:frame])
     {
-        self.releaseText = NSLocalizedString(@"Release to refresh...", @"Release to refresh status");
-        self.pullDownText = NSLocalizedString(@"Pull down to refresh...", @"Pull down to refresh status");
-        self.loadingText = NSLocalizedString(@"Loading...", @"Loading Status");
+        
+        if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
+        {
+        self.releaseText = NSLocalizedString(@"الافراج عن تحديث...", @"Release to refresh status");
+        self.pullDownText = NSLocalizedString(@"للتحديث اسحب للأسفل...", @"Pull down to refresh status");
+            self.loadingText = NSLocalizedString(@"جار التحميل...", @"Loading Status");
+        }
+        else{
+            self.releaseText = NSLocalizedString(@"Release to refresh...", @"Release to refresh status");
+            self.pullDownText = NSLocalizedString(@"Pull down to refresh...", @"Pull down to refresh status");
+            self.loadingText = NSLocalizedString(@"Loading...", @"Loading Status");
+            
+        }
+        
+        
+        
+        
+        
         self.dateFormatterText = @"MM/dd/yyyy hh:mm:a";
         self.refreshDateFormatText = @"Last Updated: %@";
         

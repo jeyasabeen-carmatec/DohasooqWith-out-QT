@@ -134,7 +134,7 @@
     UIAlertView *alert;
     if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
     {
-         alert = [[UIAlertView alloc] initWithTitle:@"تنبيه الدفع" message:@"قد يؤدي إلغاء الطلب إلى الرجوع. هل أنت متأكد من أنك تريد العودة؟" delegate:self cancelButtonTitle:@"حسنا" otherButtonTitles:@"إلغاء", nil];
+         alert = [[UIAlertView alloc] initWithTitle:@"تنبيه الدفع" message:@"قد يؤدي الرجوع إلى إلغاء الطلب.هل تريد بالتأكيد العودة؟" delegate:self cancelButtonTitle:@"حسنا" otherButtonTitles:@"إلغاء", nil];
         
     }else{
     

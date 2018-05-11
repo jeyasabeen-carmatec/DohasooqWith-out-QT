@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17D47" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="fHS-7d-jcx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14101" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="fHS-7d-jcx">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14086"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -193,7 +193,7 @@
                         <leftBarButtonItems>
                             <barButtonItem title="" style="plain" id="Yf8-C1-rCc">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SM2-xx-vtY">
-                                    <rect key="frame" x="16" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="16" y="2.5" width="38.5" height="39"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="33"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -214,11 +214,11 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="XsX-lG-Xto">
                                 <view key="customView" contentMode="scaleToFill" id="bpo-TU-7G1">
-                                    <rect key="frame" x="44" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="62.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="r0q-wr-Hnx">
-                                            <rect key="frame" x="-4" y="8" width="86" height="23"/>
+                                            <rect key="frame" x="-8" y="2" width="86" height="23"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                             <state key="normal" backgroundImage="ds_logo.png">
@@ -601,10 +601,6 @@
                                 <rect key="frame" x="0.0" y="63" width="320" height="68"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="upload-3.png" id="wR4-fS-Zcd">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search by Order Id" minimumFontSize="17" clearButtonMode="unlessEditing" id="2gq-Li-OpV" customClass="TXT_Blck_field">
                                         <rect key="frame" x="20" y="14" width="279" height="40"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -616,6 +612,10 @@
                                             <outlet property="delegate" destination="TqD-sK-tgn" id="p9E-89-K0l"/>
                                         </connections>
                                     </textField>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="upload-3.png" id="wR4-fS-Zcd">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -638,7 +638,7 @@
                         <leftBarButtonItems>
                             <barButtonItem title="" style="plain" id="Ar3-Pl-8k6">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="h7D-gN-Ufe">
-                                    <rect key="frame" x="16" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="16" y="2.5" width="38.5" height="39"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="33"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -659,11 +659,11 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="CRM-yQ-crP">
                                 <view key="customView" contentMode="scaleToFill" id="A1E-Az-4jm">
-                                    <rect key="frame" x="44" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="62.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jZw-M3-DvS">
-                                            <rect key="frame" x="-4" y="7" width="86" height="23"/>
+                                            <rect key="frame" x="-7" y="2" width="86" height="23"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                             <state key="normal" backgroundImage="ds_logo.png">
@@ -722,7 +722,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-4895" y="1593"/>
+            <point key="canvasLocation" x="-4895" y="1548"/>
         </scene>
         <!--myorders-->
         <scene sceneID="8Ie-mh-JFO">
@@ -775,7 +775,7 @@
                         <leftBarButtonItems>
                             <barButtonItem title="" style="plain" id="7Ld-WV-ez1">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Umq-mj-Pyj">
-                                    <rect key="frame" x="16" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="16" y="2.5" width="38.5" height="39"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="33"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -793,11 +793,11 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="PID-Au-reD">
                                 <view key="customView" contentMode="scaleToFill" id="WPy-5F-w1L">
-                                    <rect key="frame" x="44" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="62.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5pC-f5-kBd">
-                                            <rect key="frame" x="-4" y="7" width="86" height="23"/>
+                                            <rect key="frame" x="-7" y="5" width="86" height="23"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                             <state key="normal" backgroundImage="ds_logo.png">
@@ -893,7 +893,7 @@
                         <leftBarButtonItems>
                             <barButtonItem title="" style="plain" id="d5K-Xg-q0L">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gr1-ED-Iaq">
-                                    <rect key="frame" x="16" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="16" y="2.5" width="38.5" height="39"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="33"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -914,11 +914,11 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="pEj-Be-Dxi">
                                 <view key="customView" contentMode="scaleToFill" id="GeS-a1-mly">
-                                    <rect key="frame" x="44" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="62.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="96v-AR-FW1">
-                                            <rect key="frame" x="-4" y="9" width="86" height="23"/>
+                                            <rect key="frame" x="-8" y="4" width="86" height="23"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                             <state key="normal" backgroundImage="ds_logo.png">
@@ -975,7 +975,7 @@
                         <leftBarButtonItems>
                             <barButtonItem title="" style="plain" id="05V-AL-cZP">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="REu-3J-xfL">
-                                    <rect key="frame" x="16" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="16" y="2.5" width="38.5" height="39"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="33"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -995,11 +995,11 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="SDR-Lv-pst">
                                 <view key="customView" contentMode="scaleToFill" id="q9f-OR-oNa">
-                                    <rect key="frame" x="44" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="62.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="x79-lL-9Vy">
-                                            <rect key="frame" x="-4" y="7" width="86" height="23"/>
+                                            <rect key="frame" x="-7" y="4" width="86" height="23"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                             <state key="normal" backgroundImage="ds_logo.png">
@@ -1039,7 +1039,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="KKy-AS-Wet">
-                                <rect key="frame" x="12" y="117" width="293" height="363"/>
+                                <rect key="frame" x="11" y="117" width="293" height="363"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
@@ -1051,7 +1051,7 @@
                         <leftBarButtonItems>
                             <barButtonItem title="" style="plain" id="EZF-Pc-G7h">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="b92-5L-HlL">
-                                    <rect key="frame" x="16" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="16" y="2.5" width="38.5" height="39"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="33"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1069,11 +1069,11 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="u6G-D0-9WF">
                                 <view key="customView" contentMode="scaleToFill" id="csL-Sb-ohU">
-                                    <rect key="frame" x="44" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="62.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Kwm-hG-NNk">
-                                            <rect key="frame" x="-4" y="8" width="86" height="23"/>
+                                            <rect key="frame" x="-14" y="4" width="86" height="23"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                             <state key="normal" backgroundImage="ds_logo.png">
@@ -1216,7 +1216,7 @@
                         <leftBarButtonItems>
                             <barButtonItem title="" style="plain" id="OLu-p6-cHK">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="s8X-lt-PZX">
-                                    <rect key="frame" x="16" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="16" y="2.5" width="38.5" height="39"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="33"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1235,11 +1235,11 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="Jf7-bS-I7Z">
                                 <view key="customView" contentMode="scaleToFill" id="4pe-bm-oXA">
-                                    <rect key="frame" x="44" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="62.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qAQ-Hf-67I">
-                                            <rect key="frame" x="-4" y="6" width="86" height="23"/>
+                                            <rect key="frame" x="-4" y="5" width="86" height="23"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                             <state key="normal" backgroundImage="ds_logo.png">
@@ -1298,7 +1298,7 @@
                         <leftBarButtonItems>
                             <barButtonItem title="" style="plain" id="FVe-fp-djq">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rXb-hD-MA1">
-                                    <rect key="frame" x="16" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="16" y="5.5" width="33.5" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1314,11 +1314,11 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="d8B-oj-2sV">
                                 <view key="customView" contentMode="scaleToFill" id="Oks-ko-9YN">
-                                    <rect key="frame" x="44" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="57.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LGz-FS-V0V">
-                                            <rect key="frame" x="-8" y="3" width="284" height="30"/>
+                                            <rect key="frame" x="-8" y="3" width="283" height="30"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                             <state key="normal" title="Button">
@@ -1925,7 +1925,6 @@
                             <rect key="frame" x="16" y="20" width="288" height="40"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="17"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
@@ -2096,7 +2095,7 @@
                         <leftBarButtonItems>
                             <barButtonItem title="" style="plain" id="lIo-hd-LqZ">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hxA-Aq-sS1">
-                                    <rect key="frame" x="16" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="16" y="3" width="37.5" height="38"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="32"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -2111,11 +2110,11 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="lWC-qu-gQO">
                                 <view key="customView" contentMode="scaleToFill" id="KMl-qi-4F7">
-                                    <rect key="frame" x="44" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="61.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FNv-PA-7S7">
-                                            <rect key="frame" x="-10" y="7" width="86" height="23"/>
+                                            <rect key="frame" x="-15" y="3" width="86" height="23"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
@@ -2133,7 +2132,7 @@
                         </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="5F8-lD-uNx">
                             <view key="customView" contentMode="scaleToFill" id="XgW-6k-9vl">
-                                <rect key="frame" x="233" y="5" width="71" height="33"/>
+                                <rect key="frame" x="233" y="5.5" width="71" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="B5H-t5-dEm">
@@ -2255,7 +2254,7 @@
                         <leftBarButtonItems>
                             <barButtonItem title="" style="plain" id="ynp-iM-A1R">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zkv-Wc-YDM">
-                                    <rect key="frame" x="16" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="16" y="2.5" width="38.5" height="39"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="33"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -2272,11 +2271,11 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="5k8-ZH-sEj">
                                 <view key="customView" contentMode="scaleToFill" id="EgG-PJ-gpL">
-                                    <rect key="frame" x="44" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="62.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GHm-Tt-dWV">
-                                            <rect key="frame" x="-4" y="7" width="86" height="23"/>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GHm-Tt-dWV">
+                                            <rect key="frame" x="-4" y="3" width="86" height="23"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
@@ -2534,7 +2533,7 @@
                         <leftBarButtonItems>
                             <barButtonItem title="" style="plain" id="xDc-2a-eYv">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oAs-ky-mMO">
-                                    <rect key="frame" x="16" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="16" y="2.5" width="38.5" height="39"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="33"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -2550,11 +2549,11 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="AIy-Ap-oGr">
                                 <view key="customView" contentMode="scaleToFill" id="d4x-Rl-cHl">
-                                    <rect key="frame" x="44" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="62.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fKe-5J-vJC">
-                                            <rect key="frame" x="-4" y="6" width="86" height="23"/>
+                                            <rect key="frame" x="-4" y="5" width="86" height="23"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                             <state key="normal" backgroundImage="ds_logo.png">
@@ -2750,7 +2749,7 @@
                         <leftBarButtonItems>
                             <barButtonItem title="" style="plain" id="VxE-ZM-Gdl">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uw3-Sp-lhn">
-                                    <rect key="frame" x="16" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="16" y="2.5" width="38.5" height="39"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="33"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -2766,7 +2765,7 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="Oko-l5-pzL">
                                 <view key="customView" contentMode="scaleToFill" id="qfJ-hP-Scp">
-                                    <rect key="frame" x="44" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="62.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QbF-Ln-1On">
@@ -2793,6 +2792,7 @@
                         <outlet property="TBL_wish_list_items" destination="705-1y-myG" id="kss-bq-dwb"/>
                         <outlet property="VW_empty" destination="3Yz-fl-lHe" id="svY-Yn-5jY"/>
                         <segue destination="h4H-xf-ZjH" kind="push" identifier="wish_product_detail" animates="NO" id="zQC-LI-4Dc"/>
+                        <segue destination="pbc-hN-8EP" kind="push" identifier="wish_to_cart" id="ATG-bU-chM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M5W-ZB-p4A" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2857,16 +2857,16 @@
                                         <color key="textColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" id="Bp4-zA-wJV">
-                                        <rect key="frame" x="104" y="4" width="111" height="36"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" id="Bp4-zA-wJV">
+                                        <rect key="frame" x="107" y="4" width="111" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clearcart.png" id="R3S-1y-mco">
-                                                <rect key="frame" x="94" y="12" width="16" height="16"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="clearcart.png" id="R3S-1y-mco">
+                                                <rect key="frame" x="101" y="12" width="16" height="16"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QDB-1d-w5H">
-                                                <rect key="frame" x="-1" y="8" width="91" height="25"/>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QDB-1d-w5H">
+                                                <rect key="frame" x="6" y="8" width="91" height="25"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                                 <state key="normal" title="CLEAR CART">
@@ -2903,7 +2903,7 @@
                         <leftBarButtonItems>
                             <barButtonItem title="" style="plain" id="6Dd-hN-K4y">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4LJ-95-be1">
-                                    <rect key="frame" x="16" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="16" y="2.5" width="38.5" height="39"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="33"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -2919,11 +2919,11 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="KdH-ff-yer">
                                 <view key="customView" contentMode="scaleToFill" id="S97-iz-1fj">
-                                    <rect key="frame" x="44" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="62.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xcj-aY-euk">
-                                            <rect key="frame" x="-6" y="5" width="95" height="28"/>
+                                            <rect key="frame" x="-12" y="1" width="95" height="28"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                             <state key="normal" backgroundImage="ds_logo.png">
@@ -3117,11 +3117,11 @@
                                     </label>
                                     <view contentMode="scaleToFill" misplaced="YES" id="FtF-P1-d9P">
                                         <rect key="frame" x="119" y="0.0" width="135" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ohA-O4-fx8">
-                                                <rect key="frame" x="-5" y="11" width="97" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="0.0" y="11" width="118" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                 <state key="normal" title="COUPON">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3131,7 +3131,7 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="apply_coupon.png" id="agh-j3-CzL">
-                                                <rect key="frame" x="80" y="16" width="23" height="20"/>
+                                                <rect key="frame" x="93" y="16" width="23" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
@@ -3148,7 +3148,7 @@
                         <leftBarButtonItems>
                             <barButtonItem title="" style="plain" id="KzT-p7-C2G">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Re3-Kg-PI4">
-                                    <rect key="frame" x="16" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="16" y="2.5" width="38.5" height="39"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="33"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -3165,11 +3165,11 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="ORA-1H-4OZ">
                                 <view key="customView" contentMode="scaleToFill" id="VXb-eJ-ml6">
-                                    <rect key="frame" x="44" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="62.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="11T-Z3-FrN">
-                                            <rect key="frame" x="-7" y="6" width="98" height="25"/>
+                                            <rect key="frame" x="-7" y="2" width="98" height="25"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                             <state key="normal" backgroundImage="ds_logo.png">
@@ -3982,7 +3982,7 @@
                         <leftBarButtonItems>
                             <barButtonItem title="" style="plain" id="Pfy-8n-IcH">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9UM-Ku-NHw">
-                                    <rect key="frame" x="16" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="16" y="2.5" width="38.5" height="39"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="33"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -4000,11 +4000,11 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="GY6-Fn-KbB">
                                 <view key="customView" contentMode="scaleToFill" id="ZUq-QZ-R9Z">
-                                    <rect key="frame" x="44" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="62.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cpc-1P-laf">
-                                            <rect key="frame" x="-7" y="6" width="98" height="28"/>
+                                            <rect key="frame" x="-7" y="2" width="98" height="28"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                             <state key="normal" backgroundImage="ds_logo.png">
@@ -4097,7 +4097,7 @@
                         <leftBarButtonItems>
                             <barButtonItem title="" style="plain" id="3yI-Mc-r84">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QeP-Vx-w2Y">
-                                    <rect key="frame" x="16" y="7" width="34" height="30"/>
+                                    <rect key="frame" x="16" y="4.5" width="35.5" height="35"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="30"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -4113,11 +4113,11 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="63j-iz-bCH">
                                 <view key="customView" contentMode="scaleToFill" id="0qm-Ze-B7M">
-                                    <rect key="frame" x="58" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="59.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="p2s-SN-LYv">
-                                            <rect key="frame" x="-23" y="5" width="86" height="23"/>
+                                            <rect key="frame" x="-8" y="4" width="86" height="23"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                             <state key="normal" backgroundImage="ds_logo.png">
@@ -4134,7 +4134,7 @@
                         </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="6rb-SP-p8L">
                             <view key="customView" contentMode="scaleToFill" id="Phn-p6-Btd">
-                                <rect key="frame" x="233" y="5" width="71" height="33"/>
+                                <rect key="frame" x="233" y="5.5" width="71" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TT7-Sj-7xL">
@@ -4536,7 +4536,7 @@
                         <leftBarButtonItems>
                             <barButtonItem title="" style="plain" id="BHg-Y1-WhR">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="X6a-R2-tgq">
-                                    <rect key="frame" x="16" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="16" y="5.5" width="33.5" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -4556,7 +4556,7 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="dNa-LB-Utd">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dL0-V1-fbd">
-                                    <rect key="frame" x="44" y="7" width="150" height="30"/>
+                                    <rect key="frame" x="57.5" y="2" width="150" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                     <state key="normal" title="STORE">
@@ -4689,7 +4689,7 @@
                         <leftBarButtonItems>
                             <barButtonItem title="" style="plain" id="o0w-re-xdE">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zDG-0v-e8C">
-                                    <rect key="frame" x="16" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="16" y="6.5" width="30.5" height="31"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="26"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -4852,7 +4852,7 @@
                         <leftBarButtonItems>
                             <barButtonItem title="" style="plain" id="UUp-0s-iuo">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IE5-TG-Kx4">
-                                    <rect key="frame" x="16" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="16" y="5.5" width="33.5" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -4868,11 +4868,11 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="DaR-Fp-jnj">
                                 <view key="customView" contentMode="scaleToFill" id="OV7-DH-Sz1">
-                                    <rect key="frame" x="44" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="57.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8wz-MB-rSa">
-                                            <rect key="frame" x="-4" y="5" width="86" height="23"/>
+                                            <rect key="frame" x="-4" y="3" width="86" height="23"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                             <state key="normal" backgroundImage="ds_logo.png">
@@ -4919,18 +4919,18 @@
                         <leftBarButtonItems>
                             <barButtonItem style="plain" id="eF9-UY-hzB">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yT5-YQ-IyS">
-                                    <rect key="frame" x="16" y="13" width="20" height="17"/>
+                                    <rect key="frame" x="16" y="0.0" width="64" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" backgroundImage="menu.png"/>
                                 </button>
                             </barButtonItem>
                             <barButtonItem style="plain" id="wAT-He-N4z">
                                 <view key="customView" contentMode="scaleToFill" misplaced="YES" id="Bqx-C8-8Dm">
-                                    <rect key="frame" x="44" y="5" width="320" height="33"/>
+                                    <rect key="frame" x="80" y="5.5" width="232" height="33"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uM6-Ea-f3t">
-                                            <rect key="frame" x="-5" y="3" width="88" height="25"/>
+                                            <rect key="frame" x="7" y="3" width="88" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                             <state key="normal" backgroundImage="ds_logo.png">
@@ -4938,7 +4938,7 @@
                                             </state>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RpR-dr-LKH">
-                                            <rect key="frame" x="200" y="7" width="20" height="22"/>
+                                            <rect key="frame" x="174" y="7" width="20" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="20"/>
                                             <state key="normal" backgroundImage="Search.png">
@@ -4946,7 +4946,7 @@
                                             </state>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QHO-LG-ZFt">
-                                            <rect key="frame" x="232" y="7" width="20" height="22"/>
+                                            <rect key="frame" x="212" y="7" width="20" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                             <inset key="imageEdgeInsets" minX="5" minY="6" maxX="5" maxY="5"/>
                                             <state key="normal" backgroundImage="online_shopping_cart.png"/>
@@ -4960,13 +4960,13 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="eDf-xh-Ohu">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HZQ-qQ-TD5">
-                                    <rect key="frame" x="372" y="14" width="20" height="15"/>
+                                    <rect key="frame" x="312" y="0.0" width="0.0" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
                                     <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
                                     <inset key="titleEdgeInsets" minX="20" minY="20" maxX="0.0" maxY="2"/>
                                     <inset key="imageEdgeInsets" minX="20" minY="20" maxX="0.0" maxY="2"/>
-                                    <state key="normal" backgroundImage="menu.png">
+                                    <state key="normal">
                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
@@ -5520,7 +5520,7 @@
                         <leftBarButtonItems>
                             <barButtonItem title="" style="plain" id="5xe-Rr-a4V">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bh4-Sk-GXc">
-                                    <rect key="frame" x="16" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="16" y="2.5" width="38.5" height="39"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="33"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -5536,11 +5536,11 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="EAt-tI-wT7">
                                 <view key="customView" contentMode="scaleToFill" id="8HW-Fp-61q">
-                                    <rect key="frame" x="44" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="62.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ilp-bp-iz7">
-                                            <rect key="frame" x="-4" y="9" width="86" height="23"/>
+                                            <rect key="frame" x="-4" y="5" width="86" height="23"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                             <state key="normal" backgroundImage="ds_logo.png">
@@ -5587,7 +5587,7 @@
                         <leftBarButtonItems>
                             <barButtonItem title="" style="plain" id="bv2-wn-VyD">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bbL-jg-mRa">
-                                    <rect key="frame" x="16" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="16" y="2.5" width="38.5" height="39"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="33"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -5603,11 +5603,11 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="SLk-fD-AZ5">
                                 <view key="customView" contentMode="scaleToFill" id="1YS-QI-Hk6">
-                                    <rect key="frame" x="44" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="62.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Iec-ow-Pqs">
-                                            <rect key="frame" x="-4" y="9" width="86" height="23"/>
+                                            <rect key="frame" x="-4" y="4" width="86" height="23"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                             <state key="normal" backgroundImage="ds_logo.png">
@@ -5641,7 +5641,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dCA-6F-dQg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </navigationBar>
@@ -5663,7 +5663,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Eqn-qb-vyB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -5683,7 +5683,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EKP-Aa-wZw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -5725,7 +5725,7 @@
                         <leftBarButtonItems>
                             <barButtonItem title="" style="plain" id="OKs-Rc-Yxx">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Tsg-K2-Kyp">
-                                    <rect key="frame" x="16" y="5" width="34" height="33"/>
+                                    <rect key="frame" x="16" y="2.5" width="38.5" height="39"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="33"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -5742,11 +5742,11 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="yEw-CH-CAw">
                                 <view key="customView" contentMode="scaleToFill" id="bDq-QX-pke">
-                                    <rect key="frame" x="58" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="62.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="z7f-Ge-9sn">
-                                            <rect key="frame" x="-20" y="5" width="86" height="23"/>
+                                            <rect key="frame" x="-6" y="5" width="86" height="23"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                             <state key="normal" backgroundImage="ds_logo.png">
@@ -5782,7 +5782,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rmh-Dm-dMb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5827,50 +5827,46 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="k0b-Vn-JYs">
-                        <leftBarButtonItems>
-                            <barButtonItem style="plain" id="Zgp-hO-a4m">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" lineBreakMode="middleTruncation" id="dei-Lm-TPd">
-                                    <rect key="frame" x="16" y="7" width="35" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="34"/>
-                                    <state key="normal" title="">
-                                        <color key="titleColor" red="0.27450980392156865" green="0.27450980392156865" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
-                                    </state>
-                                </button>
-                            </barButtonItem>
-                            <barButtonItem style="plain" id="kcq-Xs-rYQ">
-                                <view key="customView" contentMode="scaleToFill" misplaced="YES" id="cUw-tW-Mwn">
-                                    <rect key="frame" x="59" y="4" width="250" height="35"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search for products" textAlignment="natural" minimumFontSize="17" id="Wu3-JC-hqT" customClass="TXT_Blck_field">
-                                            <rect key="frame" x="-24" y="7" width="227" height="26"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                            <connections>
-                                                <outlet property="delegate" destination="cUw-tW-Mwn" id="yGg-Wk-3kG"/>
-                                            </connections>
-                                        </textField>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7vT-Th-nDP">
-                                            <rect key="frame" x="207" y="9" width="20" height="22"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="22"/>
-                                            <state key="normal" backgroundImage="Search.png">
-                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </barButtonItem>
-                        </leftBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="kcq-Xs-rYQ">
+                            <view key="customView" contentMode="scaleToFill" misplaced="YES" id="cUw-tW-Mwn">
+                                <rect key="frame" x="16" y="4.5" width="296" height="35"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dS2-Cb-jNi">
+                                        <rect key="frame" x="-14" y="4.5" width="33" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="30"/>
+                                        <state key="normal" title="">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search for products" textAlignment="natural" minimumFontSize="17" id="Wu3-JC-hqT" customClass="TXT_Blck_field">
+                                        <rect key="frame" x="23" y="7" width="218" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="cUw-tW-Mwn" id="yGg-Wk-3kG"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7vT-Th-nDP">
+                                        <rect key="frame" x="272" y="9" width="20" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="22"/>
+                                        <state key="normal" backgroundImage="Search.png">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="BTN_close" destination="dei-Lm-TPd" id="agQ-18-8P7"/>
+                        <outlet property="BTN_close" destination="dS2-Cb-jNi" id="H4U-JB-Rqm"/>
                         <outlet property="BTN_search" destination="7vT-Th-nDP" id="g9K-bA-YNf"/>
                         <outlet property="TBL_search_results" destination="LVQ-KO-jfE" id="BaG-ze-Kn9"/>
                         <outlet property="TXT_search" destination="Wu3-JC-hqT" id="FkK-zW-1HW"/>
@@ -5903,7 +5899,7 @@
                         <leftBarButtonItems>
                             <barButtonItem title="" style="plain" id="9sQ-Uy-S1H">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1kt-aN-ghq">
-                                    <rect key="frame" x="16" y="7" width="20" height="30"/>
+                                    <rect key="frame" x="16" y="2.5" width="38.5" height="39"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="33"/>
                                     <inset key="contentEdgeInsets" minX="0.5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -5919,11 +5915,11 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="fEF-1V-ACF">
                                 <view key="customView" contentMode="scaleToFill" id="YqH-rc-9cf">
-                                    <rect key="frame" x="44" y="5" width="71" height="33"/>
+                                    <rect key="frame" x="62.5" y="5.5" width="71" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lYV-YM-Qoy">
-                                            <rect key="frame" x="-4" y="9" width="86" height="23"/>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lYV-YM-Qoy">
+                                            <rect key="frame" x="-11" y="2" width="86" height="23"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                             <state key="normal" backgroundImage="ds_logo.png">
@@ -5992,24 +5988,19 @@
         <image name="wv5.jpg" width="350" height="1020"/>
         <image name="yell3.jpg" width="350" height="1030"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
-    </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Gbu-bd-OSk"/>
-        <segue reference="U1I-tg-KmK"/>
-        <segue reference="xKJ-sZ-hWs"/>
-        <segue reference="TQh-po-CZq"/>
+        <segue reference="yWr-Gw-exm"/>
+        <segue reference="faj-2O-9a0"/>
+        <segue reference="Cw8-vV-nPW"/>
+        <segue reference="Ktq-Dw-AQx"/>
+        <segue reference="6gT-Rb-aGG"/>
+        <segue reference="1fc-cP-jfH"/>
         <segue reference="thM-tK-ujK"/>
+        <segue reference="JjR-Qr-AQ0"/>
         <segue reference="hYs-TP-0oE"/>
         <segue reference="VlJ-8X-e9R"/>
-        <segue reference="yWr-Gw-exm"/>
-        <segue reference="Cw8-vV-nPW"/>
-        <segue reference="pDU-cD-KDi"/>
-        <segue reference="1fc-cP-jfH"/>
         <segue reference="PIq-gb-2yd"/>
-        <segue reference="faj-2O-9a0"/>
+        <segue reference="pDU-cD-KDi"/>
+        <segue reference="U1I-tg-KmK"/>
     </inferredMetricsTieBreakers>
 </document>

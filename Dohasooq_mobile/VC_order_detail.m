@@ -21,6 +21,7 @@
 
 {
     
+       
     NSArray *ARR_pdts;
     
     NSMutableArray *radioButtonArray,*deliverySlotPickerArray,*countryStatesArray,*shipping_Countries_array;//*stat_arr
@@ -29,7 +30,7 @@
 //   int j;
     NSInteger edit_tag,cntry_ID;
     
-    BOOL isAddClicked,is_Txt_date,isCountrySelected,isCash_on_delivary; //isfirstTimeTransform
+    BOOL isAddClicked,is_Txt_date,isCountrySelected,isCash_on_delivary; 
     float scroll_height,shiiping_ht;
     UIView *VW_overlay;
     NSMutableDictionary *jsonresponse_dic,*jsonresponse_dic_address,*delivary_slot_dic,*response_countries_dic;
@@ -78,6 +79,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
+    
     self.screenName = @"Order Checkout screen";
 
     _TXT_message_field.delegate= self;
@@ -362,7 +367,7 @@
     
     [_BTN_doha_bank_account addTarget:self action:@selector(doha_bank_action) forControlEvents:UIControlEventTouchUpInside];
 
-    
+    // Attributed text for Next Button....
     
     NSString *next = @"";
     
@@ -393,7 +398,7 @@
         }
         else
         {
-            [attributedText setAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"FontAwesome" size:12.0],NSForegroundColorAttributeName:[UIColor whiteColor]}
+            [attributedText setAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"FontAwesome" size:12.0],NSForegroundColorAttributeName:[UIColor colorWithRed:0.99 green:0.68 blue:0.16 alpha:1.0]}
                                     range:ename];
         }
         
@@ -407,7 +412,7 @@
     
     
     
-    //PickerView
+    //PickerView set Up.....
     
     _staes_country_pickr = [[UIPickerView alloc]init];
     _staes_country_pickr.delegate = self;
@@ -443,20 +448,30 @@
     _TXT_ship_country.inputView =_shipping_PickerView;
 
    //  Done Button  For Tool Bar
-    UIButton *done=[[UIButton alloc]init];
-    done.frame=CGRectMake(accessoryView.frame.size.width - 100, 0, 100, accessoryView.frame.size.height);
-    [done setTitle:@"Done" forState:UIControlStateNormal];
-    [done addTarget:self action:@selector(picker_done_btn_action:) forControlEvents:UIControlEventTouchUpInside];
-    [accessoryView addSubview:done];
+//    UIButton *done=[[UIButton alloc]init];
+//    done.frame=CGRectMake(accessoryView.frame.size.width - 100, 0, 100, accessoryView.frame.size.height);
+//    [done setTitle:@"Done" forState:UIControlStateNormal];
+//    [done addTarget:self action:@selector(picker_done_btn_action:) forControlEvents:UIControlEventTouchUpInside];
+//    [accessoryView addSubview:done];
+//
+//
+//    //Close ButtonFor ToolBar
+//    UIButton *close=[[UIButton alloc]init];
+//    close.frame=CGRectMake(accessoryView.frame.origin.x -20, 0, 100, accessoryView.frame.size.height);
+//    [close setTitle:@"Close" forState:UIControlStateNormal];
+//    [close addTarget:self action:@selector(picker_close_action) forControlEvents:UIControlEventTouchUpInside];
+//    [accessoryView addSubview:close];
+    
+    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(picker_done_btn_action:)];
+    [doneBtn setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
+    
+    UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *cancelBtn = [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(picker_close_action)];
+    [cancelBtn setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
     
     
-    //Close ButtonFor ToolBar
-    UIButton *close=[[UIButton alloc]init];
-    close.frame=CGRectMake(accessoryView.frame.origin.x -20, 0, 100, accessoryView.frame.size.height);
-    [close setTitle:@"Close" forState:UIControlStateNormal];
-    [close addTarget:self action:@selector(picker_close_action) forControlEvents:UIControlEventTouchUpInside];
-    [accessoryView addSubview:close];
-    
+    NSMutableArray *barItems = [NSMutableArray arrayWithObjects:cancelBtn,flexibleItem,doneBtn, nil];
+    [accessoryView setItems:barItems animated:YES];
     
     // Country Code Picker
     self.country_code_Pickerview = [[UIPickerView alloc]init];
@@ -483,6 +498,8 @@
     _TXT_country.inputAccessoryView =accessoryView;
     _TXT_state.inputAccessoryView =accessoryView;
 
+    
+    // Set actions to Buttons....
     [_BTN_next addTarget:self action:@selector(next_page) forControlEvents:UIControlEventTouchUpInside];
     [_BTN_Product_summary addTarget:self action:@selector(product_clicked) forControlEvents:UIControlEventTouchUpInside];
     [_BTN_done addTarget:self action:@selector(deliveryslot_action) forControlEvents:UIControlEventTouchUpInside];
@@ -493,16 +510,16 @@
     
     
 }
+
+// Set Data for Billing Address........
+
 -(void)set_DATA
 {
     @try {
         
         NSString *state = [[[jsonresponse_dic_address valueForKey:@"billaddress"] valueForKey:@"billingaddress"] valueForKey:@"state"];
         NSString *country = [[[jsonresponse_dic_address valueForKey:@"billaddress"] valueForKey:@"billingaddress"] valueForKey:@"country"];
-        //  state = [state stringByReplacingOccurrencesOfString:@"<null>" withString:@"Not mentioned"];
-        
-        //  country = [country stringByReplacingOccurrencesOfString:@"<null>" withString:@"Not mentioned"];
-        NSString *str_fname,*str_lname,*str_addr1,*str_addr2,*str_city,*str_zip_code,*str_phone,*str_country,*str_state,*str_cntry_code;
+                NSString *str_fname,*str_lname,*str_addr1,*str_addr2,*str_city,*str_zip_code,*str_phone,*str_country,*str_state,*str_cntry_code;
         
         //fnaem
         str_fname = [[[jsonresponse_dic_address valueForKey:@"billaddress"] valueForKey:@"billingaddress"] valueForKey:@"firstname"];
@@ -608,8 +625,7 @@
         // Country
         if ([str_country isKindOfClass:[NSNull class]]||[str_country isEqualToString:@"<null>"] ||[str_country isEqualToString:@"<nil>"]||[str_country isEqualToString:@"null"] ||[str_country isEqualToString:@""]) {
             str_country = @"";
-            _TXT_country.placeholder = @"Select Country";
-        }
+                   }
         _TXT_country.text =  str_country;
 
         
@@ -640,7 +656,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
             
         }
         
-// Shipping Country  ID Must Be  Related Country        
+// Shipping Country  ID Must Be  Related Local Country  ........
         
         
         @try {
@@ -656,17 +672,15 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         } @catch (NSException *exception) {
             
         }
-       
-        
-      
-        
-        
     }
     @catch(NSException *exception)
     {
     }
     
 }
+
+// Set Data to product view Summary(for Sub total and Shipping Charge label)........
+
 
 -(void)set_data_to_product_Summary_View{
   
@@ -716,6 +730,8 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
    }
 
 #pragma mark  LabelDohamiles And Total Amount in ProductSummaryView
+
+
 -(void)LBl_dohamilesAndTotalAmount:(float)TotalAmount{
     
     
@@ -792,14 +808,8 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         [attributedText setAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Poppins-Medium" size:16.0],NSForegroundColorAttributeName:[UIColor blackColor],}
                                 range:doha_va ];
         
-//        [attributedText setAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Poppins-Medium" size:12.0],NSForegroundColorAttributeName:[UIColor blackColor],}
-//                                range:[str_miles rangeOfString:str_or] ];
-        
-        
-        
         _LBL_summry_miles.attributedText = attributedText;
         
-         //_LBL_summry_miles.text = str_miles;
         
         
     }
@@ -812,7 +822,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
 
 
 
-// Data for LBL Summary
+// Data for LBL Summary with arrow
 #pragma mark Label ProductSummary(Footer Section) Custom Text
 -(void)fill_value_to_Lbl_product_summary:(NSString *)arrow{
     
@@ -868,11 +878,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                                     range:ename];
         }
         NSRange cmp = [text rangeOfString:price];
-        //        [attributedText addAttribute: NSStrikethroughStyleAttributeName value:[NSNumber numberWithInteger: NSUnderlineStyleSingle] range: NSMakeRange(0, [prec_price length])];
-        //
-        
-        
-        //        NSRange range_event_desc = [text rangeOfString:<#(nonnull NSString *)#>];
+       
         if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
         {
             [attributedText setAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"FontAwesome" size:21.0],NSForegroundColorAttributeName:[UIColor blackColor]}
@@ -1059,7 +1065,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                 
                 NSString *item_name =[NSString stringWithFormat:@"%@",[[ARR_CNNN objectAtIndex:indexPath.row] valueForKey:@"product_name"]];
                 
-                item_name = [item_name stringByReplacingOccurrencesOfString:@"<null>" withString:@"not mentioned"];
+                item_name = [item_name stringByReplacingOccurrencesOfString:@"<null>" withString:@" "];
                 
                 NSString *item_seller;
                 if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
@@ -1089,7 +1095,8 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                   }
                 
                 
-   // Product Quantity
+   // Product Quantity.....
+                
                 cell._TXT_count.text = [NSString stringWithFormat:@"%@",[[ARR_CNNN objectAtIndex:indexPath.row] valueForKey:@"product_qty"]];
                 NSString *qnty = [NSString stringWithFormat:@"%@",[[ARR_CNNN objectAtIndex:indexPath.row] valueForKey:@"product_qty"]];
                 if([qnty isEqualToString:@""]|| [qnty isEqualToString:@"null"]||[qnty isEqualToString:@"<null>"])
@@ -1099,8 +1106,8 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                 
                 TXT_count = cell._TXT_count.text;
                 
-#pragma mark Lbl_Price Attributed Text
-                
+  
+   // Custom text for Price ....
                 NSString *qr = [NSString stringWithFormat:@"%@",[[ARR_CNNN objectAtIndex:indexPath.row] valueForKey:@"currencycode"]];
                 qr_code = qr;
                 NSString *mils;
@@ -1154,7 +1161,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                             {
                                 
                             }
-                            else{
+                            else{// Special Price Calculation.....
                                 float spcl_prc = [price floatValue];
                                 spcl_prc = quantity * spcl_prc;
                                 
@@ -1369,9 +1376,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                 cell.BTN_stat.tag = [[NSString stringWithFormat:@"%@",[[ARR_CNNN objectAtIndex:indexPath.row] valueForKey:@"merchantId"]] integerValue];
                 cell.BTN_box.tag = cell.BTN_stat.tag;
                 
-               // cell.LBL_stat.tag =j;
-                
-                //                if(cell.BTN_stat.tag == 0)
+               
                 
                 cell._TXT_count.layer.borderWidth = 0.4f;
                 cell._TXT_count.layer.borderColor = [UIColor grayColor].CGColor;
@@ -1413,9 +1418,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                 
                 if(indexPath.row == totalRow -1){ //last row
                     
-                   // cell.seperator_view.hidden = NO;
-                    
-                    //[cell.seperator_view removeFromSuperview];
+                   
                      cell.CalenderHeight.constant = 50;
                     
                     if ([delivery_slot_available isEqualToString:@"No"] || [delivery_slot_available isEqualToString:@"<null>"])
@@ -1472,7 +1475,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                         if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                         {
                             
-                            text1 = [NSString stringWithFormat:@"ملحوظة: اختر التوقيت المناسب ومن ثم أنشأ طلبيتك "];
+                            text1 = [NSString stringWithFormat:@"أختر الوقت المناسب لتوصيل الطلب "];
                         }
                         else{
                             text1 = [NSString stringWithFormat:@"Note: Choose a time that works best for you and place your order."];
@@ -1577,7 +1580,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                 }
 
                 
-// Shipping Charge labelcustomization
+// Shipping Charge labelcustomization..........
                 NSString *CHRGE;
                 NSString *qrcode = [NSString stringWithFormat:@"%@",[[ARR_CNNN objectAtIndex:indexPath.row] valueForKey:@"currencycode"]];
                 NSString *shipping_type;
@@ -1599,6 +1602,12 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                                     CHRGE = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic valueForKey:@"shipcharge"] valueForKey:str] valueForKey:@"charge"]];
                                     
                                     shipping_type = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic valueForKey:@"shipcharge"] valueForKey:str] valueForKey:@"methodname"]];
+                                    
+                                    
+                                    if ([shipping_type isKindOfClass:[NSNull class]] || [shipping_type isEqualToString:@"(null)"] || [shipping_type isEqualToString:@"<null>"]) {
+                                        shipping_type = @"";
+                                    }
+                                    
                                     
                                 } @catch (NSException *exception) {
                                     
@@ -1629,7 +1638,9 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                 if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                 {
                     CHRGE = [CHRGE stringByReplacingOccurrencesOfString:@"<null>" withString:@"0"];
-                    text2 = [NSString stringWithFormat:@"%@    رسوم الشحن %@ %@",CHRGE,qr,shipping_type]
+//                    text2 = [NSString stringWithFormat:@"%@    رسوم الشحن %@ %@",CHRGE,qr,shipping_type]
+//                    ;.......
+                    text2 = [NSString stringWithFormat:@"%@    رسوم الشحن %@ %@",shipping_type,qr,CHRGE]
                     ;
                 }
                 else{
@@ -1750,13 +1761,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                 NSLog(@"%@",exception);
             }
         
-      //  }//
-        
-//        else{
-//            
-//            [HttpClient createaAlertWithMsg:@"No orders Found" andTitle:@""];
-//            
-//        }
+     
     
         return cell;
         
@@ -1989,22 +1994,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
 
 
 
-#pragma button_actions
-//-(void)stat_chenged
-//
-//{
-//    if(j == 1)
-//    {
-//        j =0;
-//        [self.TBL_orders reloadData];
-//    }
-//    else if(j == 0)
-//    {
-//        j = 1;
-//        [self.TBL_orders reloadData];
-//    }
-//  
-//}
+#pragma mark button_actions.....
 
 //SAME AS   BILLING ADDRESS CHECK BOX SELECTION
 -(void)BTN_check_clickd
@@ -2029,7 +2019,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
     else
     {
         [self collapse_TBL];
-        [self collapse_TBL];
+       // [self collapse_TBL];
     }
     [self viewDidLayoutSubviews];
 }
@@ -2052,7 +2042,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         
         [_TBL_address reloadData];
         [_TBL_address layoutIfNeeded];
-        [_TBL_address layoutIfNeeded];
+        //[_TBL_address layoutIfNeeded];
         
         NSLog(@"After lay Out frame%@",NSStringFromCGRect(_TBL_address.frame));
         NSLog(@"After lay Out frame Content Hesigtht%f",_TBL_address.contentSize.height);
@@ -2073,16 +2063,18 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         NSArray *keys_arr = [[jsonresponse_dic_address valueForKey:@"shipaddress"] allKeys];
         for (int keys=0; keys<[keys_arr count]; keys++)
         {
+                        // Checking Condition Which Shipping address is by default selected........
+
             if ( [[[[[jsonresponse_dic_address valueForKey:@"shipaddress"] valueForKey:[keys_arr objectAtIndex:keys]] valueForKey:@"shippingaddress"] valueForKey:@"default"] isEqualToString:@"Yes"])
             {
-                [self loadShippingAddress:keys];//Passing Parameter as 0 Bczby Default 0 th Index(address) has to load
+                [self loadShippingAddress:keys];
             }
         }
         
     }
     else
     {
-        //shipping address is nil load Empty Shipping address
+        //shipping address is nil load Empty Shipping address(Hide TableView)......
         billcheck_clicked = @"1";
         _TBL_address.hidden = YES;
         _VW_SHIIPING_ADDRESS.hidden = NO;
@@ -2123,7 +2115,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
     //_VW_delivery_slot.hidden = NO;
     
 }
-
+// Button Next Page Action.......
 -(void)next_page
 {
     
@@ -2131,7 +2123,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
     {
 
             VW_overlay.hidden = YES;
-//            [activityIndicatorView startAnimating];
+
         
             [self performSelector:@selector(move_to_shipping) withObject:nil afterDelay:0.01];
 
@@ -2144,7 +2136,6 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         
        
              VW_overlay.hidden = YES;
-//            [activityIndicatorView startAnimating];
         
             [self performSelector:@selector(validatingTextField) withObject:nil afterDelay:0.01];
            
@@ -2153,7 +2144,6 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
     
       else if ([title_page_str isEqualToString:@"PAYMENT"] && _VW_payment.hidden == NO) {
         VW_overlay.hidden = YES;
-//          [activityIndicatorView startAnimating];
           
           [self performSelector:@selector(move_to_payment_integration) withObject:nil afterDelay:0.01];
           
@@ -2162,6 +2152,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
     
 }
 
+// Loading Shipping Page(Billing ,Shipping address Views and MultipleShipping addresses in tableview...)
 -(void)move_to_shipping
 {
     _TBL_orders.hidden = NO;
@@ -2316,7 +2307,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
             }
         }
     }
-#pragma mark Timer Implementation
+#pragma mark Timer Implementation of OTP for Cash On Delivery......
 
 -(void)timerFired
 {
@@ -2388,13 +2379,20 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
             
             [Helper_activity stop_activity_animation:self];
             _TXT_message_field.text = @"";
-            [HttpClient createaAlertWithMsg:@"Please Enter Valid OTP" andTitle:@""];
+            if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
+            {
+            [HttpClient createaAlertWithMsg:@"يرجى إدخال كلمة المرور الصالحة لمرة واحدة" andTitle:@""];
+            }else{
+                [HttpClient createaAlertWithMsg:@"Please Enter Valid OTP" andTitle:@""];
+ 
+            }
+        
             [_TXT_message_field becomeFirstResponder];
         }
     }
 
 
-//resend_action
+//resend_action.......
 -(void)resend_action{
     
     
@@ -2412,31 +2410,31 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
     
 }
 
-
+// Loading Payment Page.......
 -(void)move_to_payment_types{
     
     [self performSelector:@selector(payment_methods_API) withObject:nil afterDelay:0.001];
     _TBL_address.hidden = YES;
     title_page_str =@"PAYMENT";
     
-    
+    // Showing Payment methods type.....
     _VW_payment.hidden =NO;
-    //_LBL_navigation.title = @"PAYMENT";
-    //  [_Collection_cards reloadData];
-    //[_TBL_orders removeFromSuperview];
+    
     CGRect frame_set = _VW_payment.frame;
     frame_set.origin.y = _VW_top.frame.origin.y + _VW_top.frame.size.height;
     frame_set.size.width = _TBL_orders.frame.size.width;
     frame_set.size.height = _VW_next.frame.origin.y - _TBL_orders.frame.origin.y;
     _VW_payment.frame = frame_set;
     [self.view addSubview:_VW_payment];
-    //_LBL_shipping.backgroundColor = _LBL_order_detail.backgroundColor;
+
+    // Filling Status of Payment in  Top View....
     _TXT_second.backgroundColor = _LBL_order_detail.backgroundColor;
     _LBL_Payment.backgroundColor=_LBL_order_detail.backgroundColor;
 
     
 }
 
+// Loading ProductSummaryView .......
 -(void)product_clicked
 {
     if([title_page_str isEqualToString:@"ORDER DETAIL"])
@@ -2459,9 +2457,10 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
     }
     
 }
+// Setting Frame for ProductSummaryView.....
 -(void)sumary_VIEW
 {
-    if([_LBL_arrow.text isEqualToString:@""])
+    if([_LBL_arrow.text isEqualToString:@""])  //Showing SummaryView
     {
         _LBL_arrow.text = @"";
         CGRect frameset = VW_overlay.frame;
@@ -2479,7 +2478,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         
         [self fill_value_to_Lbl_product_summary:@""];
     }
-    else
+    else         // Hiding Summary View....
     {
         _LBL_arrow.text =@"";
         CGRect frameset = VW_overlay.frame;
@@ -2494,6 +2493,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
     }
     
 }
+// PromoCode Button Action.......
 -(void)apply_promo_action{
     
     if ([self.TXT_cupon.text isEqualToString:@""]) {
@@ -2514,22 +2514,8 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
     }
 }
 
-//Tbl Orders Check Button Clicked
-//-(void)stat_chenged:(id)sender
-//
-//{
-//    if(j == 1)
-//    {
-//        j =0;
-//        [self.TBL_orders reloadData];
-//    }
-//    else if(j == 0)
-//    {
-//        j = 1;
-//        [self.TBL_orders reloadData];
-//    }
-//   
-//}
+
+// Loading Shipping Address in ShippingView.....
 -(void)loadShippingAddress:(NSInteger)edited_tag{
    
    
@@ -2596,7 +2582,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         str_zip_code = [str_zip_code stringByReplacingOccurrencesOfString:@"<null>" withString:@""];
         str_phone = [str_phone stringByReplacingOccurrencesOfString:@"<null>" withString:@""];
         
-        str_country = [str_country stringByReplacingOccurrencesOfString:@"<null>" withString:@"Select Country"];
+        str_country = [str_country stringByReplacingOccurrencesOfString:@"<null>" withString:@""];
         
         str_state = [str_state stringByReplacingOccurrencesOfString:@"<null>" withString:@""];
         str_email = [str_email stringByReplacingOccurrencesOfString:@"<null>" withString:@""];
@@ -2645,7 +2631,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
     
 }
 
-
+// Edit Shipping Address (TableViewShippingAddress).......
 
 -(void)BTN_edit_clickd:(UIButton*)sender
 {
@@ -2707,6 +2693,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
     }
     
 }
+// Add New Shipping Address when Shipping address count less than 3......
 -(void)add_new_address:(UIButton*)sender{
     
     //Shipping Address  For PAyment Paramater
@@ -2812,27 +2799,8 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
     
     
 }
-// Billing Address Check Button  Clicked
 
-//-(void)BTN_chek_action:(id)sender
-//{
-//    if([[stat_arr objectAtIndex:0] isEqualToString:@"1"])
-//    {
-//        [stat_arr replaceObjectAtIndex:0 withObject:@"0"];
-//        i= 1;
-//        
-//        
-//    }
-//    else
-//    {
-//        [stat_arr replaceObjectAtIndex:0 withObject:@"1"];
-//        i = 2;
-//        
-//    }
-//    [self.TBL_address reloadData];
-//}
-
-//Radio_button_action.......
+//Shipping address(address tableview) Radio_button_action.......
 -(void)radio_btn_action:(UIButton*)sender{
     
     
@@ -2919,7 +2887,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
 }
 
 
-// TableView orders Cell checkBox Clicked..........
+// TableView orders Cell checkBox Clicked(Pick Up From Merchant Location)..........
 
 -(void)BTN_check_clickds:(UIButton *)sender
 {
@@ -4509,14 +4477,17 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                                     
                                     _TXT_cupon.text=nil;
                                     
-                                    
+//                                    [HttpClient createaAlertWithMsg:arabicLabels.cuponInvalid andTitle:@"Cupon Alert"];
     
-                                     [HttpClient createaAlertWithMsg:[data valueForKey:@"message"] andTitle:@""];
-                                }
+                                   [HttpClient createaAlertWithMsg:[data valueForKey:@"message"] andTitle:@""];                                }
                                 
                                 else{
                                     promo_codeStr = @"";
-                                     [HttpClient createaAlertWithMsg:[data valueForKey:@"message"] andTitle:@""];
+                                  [HttpClient createaAlertWithMsg:[data valueForKey:@"message"] andTitle:@""];
+                                     // [HttpClient createaAlertWithMsg:arabicLabels.cuponInvalid andTitle:@"Cupon Alert"];
+                                    
+                                    
+                                    
                                 }
                             
                                 
@@ -5775,10 +5746,30 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
     
             [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
             [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+            
+            // set Cookie and awllb......
+            if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
+                
+                NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
+                
+                if (![awlllb containsString:@"(null)"]) {
+                    awlllb = [NSString stringWithFormat:@"%@;%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"],awlllb];
+                    [request addValue:awlllb forHTTPHeaderField:@"Cookie"];
+                }
+                else{
+                    [request addValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] forHTTPHeaderField:@"Cookie"];
+                }
+                
+            }
+            
+            
 
             [request setHTTPBody:postData];
-            [request setHTTPShouldHandleCookies:NO];
+            //[request setHTTPShouldHandleCookies:NO];
             NSData *aData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+            if (response) {
+                [HttpClient filteringCookieValue:response];
+            }
             if (err) {
                 [Helper_activity stop_activity_animation:self];
                 [err localizedDescription];
@@ -5898,6 +5889,24 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         NSString *urlString =[NSString stringWithFormat:@"%@apis/productOtpOfCod",SERVER_URL];
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:urlString]];
         
+        
+        // set Cookie and awllb......
+        if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
+            
+            NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
+            
+            if (![awlllb containsString:@"(null)"]) {
+                awlllb = [NSString stringWithFormat:@"%@;%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"],awlllb];
+                [request addValue:awlllb forHTTPHeaderField:@"Cookie"];
+            }
+            else{
+                [request addValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] forHTTPHeaderField:@"Cookie"];
+            }
+            
+        }
+        
+        
+        
         [request setHTTPMethod:@"POST"];
         
         NSString *boundary = @"---------------------------14737809831466499882746641449";
@@ -5916,6 +5925,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         
         
         //mobilenumber
+        
         [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
         [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"mobilenumber\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
         [body appendData:[[NSString stringWithFormat:@"%@-%@",_TXT_Cntry_code.text,_TXT_phone.text]dataUsingEncoding:NSUTF8StringEncoding]];
@@ -5931,22 +5941,20 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         
         // set request body
         [request setHTTPBody:body];
+        NSURLResponse *response = nil;
         
-        NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&er];
-        
+        NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&er];
+        if (response) {
+            [HttpClient filteringCookieValue:response];
+        }
         if (er) {
             [Helper_activity stop_activity_animation:self];
             
             VW_overlay.hidden = YES;
             _VW_otp_vw.hidden = YES;
+             
             
-            
-            
-            //[HttpClient createaAlertWithMsg:[er localizedDescription] andTitle:@""];
-        }
-        
-        
-        
+            }
         
         if (returnData) {
             
@@ -5954,9 +5962,12 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
             
             NSMutableDictionary   *json_DATA = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:returnData options:NSASCIIStringEncoding error:&er];
             
-            if (er) {
+            if (er) {  //Error While getting Data...
                
                  [Helper_activity stop_activity_animation:self];
+                VW_overlay.hidden = YES;
+                _VW_otp_vw.hidden = YES;
+                
                 if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                 {
                     

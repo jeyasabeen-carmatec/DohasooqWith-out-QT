@@ -116,19 +116,30 @@
     
     //********************* adding buttons for toolbar **********************//
 
-    UIButton *done=[[UIButton alloc]init];
-    done.frame=CGRectMake(accessoryView.frame.size.width - 100, 0, 100, accessoryView.frame.size.height);
-    [done setTitle:@"Done" forState:UIControlStateNormal];
-    [done addTarget:self action:@selector(picker_done_btn_action:) forControlEvents:UIControlEventTouchUpInside];
-    [accessoryView addSubview:done];
+//    UIButton *done=[[UIButton alloc]init];
+//    done.frame=CGRectMake(accessoryView.frame.size.width - 100, 0, 100, accessoryView.frame.size.height);
+//    [done setTitle:@"Done" forState:UIControlStateNormal];
+//    [done addTarget:self action:@selector(picker_done_btn_action:) forControlEvents:UIControlEventTouchUpInside];
+//    [accessoryView addSubview:done];
+//    
+//    
+//    UIButton *close=[[UIButton alloc]init];
+//    close.frame=CGRectMake(accessoryView.frame.origin.x -20 , 0, 100, accessoryView.frame.size.height);
+//    [close setTitle:@"Close" forState:UIControlStateNormal];
+//    [close addTarget:self action:@selector(close_ACTION) forControlEvents:UIControlEventTouchUpInside];
+//    [accessoryView addSubview:close];
+    
+    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(picker_done_btn_action)];
+    [doneBtn setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
+    
+    UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *cancelBtn = [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(close_ACTION)];
+    [cancelBtn setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
     
     
-    UIButton *close=[[UIButton alloc]init];
-    close.frame=CGRectMake(accessoryView.frame.origin.x -20 , 0, 100, accessoryView.frame.size.height);
-    [close setTitle:@"Close" forState:UIControlStateNormal];
-    [close addTarget:self action:@selector(close_ACTION) forControlEvents:UIControlEventTouchUpInside];
-    [accessoryView addSubview:close];
-    
+    NSMutableArray *barItems = [NSMutableArray arrayWithObjects:cancelBtn,flexibleItem,doneBtn, nil];
+    [accessoryView setItems:barItems animated:YES];
+
     
     _TXT_prefix.inputAccessoryView = accessoryView;
     _TXT_prefix.inputView = phone_picker;
@@ -139,7 +150,7 @@
     [_BTN_submit addTarget:self action:@selector(submit_Action) forControlEvents:UIControlEventTouchUpInside];
     
 }
--(void)picker_done_btn_action:(id)sender{
+-(void)picker_done_btn_action{
     
     [self.view endEditing:YES];
     //[textField setTintColor:[UIColor colorWithRed:0.00 green:0.18 blue:0.35 alpha:1.0]];
@@ -635,6 +646,21 @@
         [request setURL:[NSURL URLWithString:urlGetuser]];
         [request setHTTPMethod:@"POST"];
         
+        // set Cookie and awllb......
+        if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
+            
+            NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
+            
+            if (![awlllb containsString:@"(null)"]) {
+                awlllb = [NSString stringWithFormat:@"%@;%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"],awlllb];
+                [request addValue:awlllb forHTTPHeaderField:@"Cookie"];
+            }
+            else{
+                [request addValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] forHTTPHeaderField:@"Cookie"];
+            }
+            
+        }
+        
         NSString *boundary = @"---------------------------14737809831466499882746641449";
         NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
         [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
@@ -687,11 +713,7 @@
         [body appendData:[[NSString stringWithFormat:@"%@",prefix]dataUsingEncoding:NSUTF8StringEncoding]];
         [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
         
-        
-        
-        //
-   
-        //    NSHTTPURLResponse *response = nil;
+       NSHTTPURLResponse *response = nil;
         
         // close form
         [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
@@ -699,7 +721,11 @@
         // set request body
         [request setHTTPBody:body];
         
-        NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+        NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        if (response) {
+            [HttpClient filteringCookieValue:response];
+        }
+        
         
         if (returnData)
         
@@ -722,7 +748,14 @@
             [[NSUserDefaults standardUserDefaults]setObject:self.TXT_email.text forKey:@"email"];
             [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"user_email"];
             [[NSUserDefaults standardUserDefaults] synchronize];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Your Registration has been Successful" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
+            NSString *okBtn = @"OK";
+            if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
+            {
+                okBtn = @"حسنا";
+            }
+            
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:msg delegate:self cancelButtonTitle:nil otherButtonTitles:okBtn, nil];
             alert.tag = 1;
             [alert show];
 
@@ -738,22 +771,7 @@
         {
             [activityIndicatorView stopAnimating];
             VW_overlay.hidden = YES;
-//             [HttpClient stop_activity_animation:self];
-            if ([msg isEqualToString:@"User already exists"])
-            {
-                if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
-                {
-                    
-                    msg = @"عنوان البريد الإلكتروني المستخدم بالفعل ، يرجى المحاولة باستخدام بريد إلكتروني مختلف.";
-                }else{
-                    msg = @"Email address already in use, Please try with different email.";
-                    
-                }
-            }
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:msg delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
-            
-            [alert show];
+            [HttpClient createaAlertWithMsg:msg andTitle:@""];
         }
        
     }

@@ -35,12 +35,14 @@
 		73EE69F5204EBEF600BB600A /* VC_wish_list.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EE69F4204EBEF600BB600A /* VC_wish_list.m */; };
 		773AB3BB207DE40500FF5431 /* Arabic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 773AB3BA207DE40500FF5431 /* Arabic.storyboard */; };
 		773AB3BD207DE41C00FF5431 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 773AB3BC207DE41C00FF5431 /* Main.storyboard */; };
+		77523199207F56B1003697B2 /* arbic_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 77523198207F56B1003697B2 /* arbic_gray.png */; };
+		7752319B207F56CE003697B2 /* arbic_wish.png in Resources */ = {isa = PBXBuildFile; fileRef = 7752319A207F56CE003697B2 /* arbic_wish.png */; };
+		7779DB982099892F00C81BBA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE3065E81F74B0CE003F6C40 /* Info.plist */; };
 		BE04D8D91FC02000008926F6 /* orders_cell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE04D8D71FC02000008926F6 /* orders_cell.m */; };
 		BE04D8DD1FC021FB008926F6 /* track7.png in Resources */ = {isa = PBXBuildFile; fileRef = BE04D8DC1FC021FB008926F6 /* track7.png */; };
 		BE04D8E11FC026CC008926F6 /* first_top_cell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE04D8DF1FC026CC008926F6 /* first_top_cell.m */; };
 		BE04D8E61FC02804008926F6 /* cost_find_cell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE04D8E41FC02804008926F6 /* cost_find_cell.m */; };
 		BE04D8ED1FC2BC0D008926F6 /* Payment_summary_cell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE04D8EB1FC2BC0A008926F6 /* Payment_summary_cell.m */; };
-		BE10ABDA1FEBEB75000DA9C9 /* bookings_cell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE10ABD81FEBEB75000DA9C9 /* bookings_cell.m */; };
 		BE10ABE01FEE3800000DA9C9 /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE10ABDF1FEE37FE000DA9C9 /* Poppins-Italic.ttf */; };
 		BE10ABE31FEE6FE7000DA9C9 /* ZoomRotatePanImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE10ABE21FEE6FE7000DA9C9 /* ZoomRotatePanImageView.m */; };
 		BE14432E1FFE6E8D001ECDD8 /* upload-27.png in Resources */ = {isa = PBXBuildFile; fileRef = BE14432D1FFE6E8D001ECDD8 /* upload-27.png */; };
@@ -68,8 +70,6 @@
 		BE1D11C91F88B557003A3954 /* layer.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1D11C81F88B556003A3954 /* layer.png */; };
 		BE1D11CB1F88C72E003A3954 /* clearcart.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1D11CA1F88C72E003A3954 /* clearcart.png */; };
 		BE1E355C1FE288EE0059518E /* VC_product_search.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1E355B1FE288EE0059518E /* VC_product_search.m */; };
-		BE2B78B51FFFCA8300ACB3C9 /* bookings_cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE2B78B41FFFCA8300ACB3C9 /* bookings_cell.xib */; };
-		BE2B78C21FFFCB4500ACB3C9 /* VC_my_bookings.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2B78C11FFFCB4500ACB3C9 /* VC_my_bookings.m */; };
 		BE2B78D22000618000ACB3C9 /* profile_Hoshi_Billing_ADDR.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2B78D12000618000ACB3C9 /* profile_Hoshi_Billing_ADDR.m */; };
 		BE2B7915200075A100ACB3C9 /* DGActivityIndicatorBallPulseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2B7905200075A100ACB3C9 /* DGActivityIndicatorBallPulseAnimation.m */; };
 		BE2B7916200075A100ACB3C9 /* DGActivityIndicatorBallSpinFadeLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2B7907200075A100ACB3C9 /* DGActivityIndicatorBallSpinFadeLoader.m */; };
@@ -110,7 +110,6 @@
 		BE3069161F78D74F003F6C40 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE3069111F78D73F003F6C40 /* Poppins-Regular.ttf */; };
 		BE3069171F78D74F003F6C40 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE3069121F78D73F003F6C40 /* Poppins-Medium.ttf */; };
 		BE3069181F78D74F003F6C40 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE3069131F78D73F003F6C40 /* Poppins-SemiBold.ttf */; };
-		BE30691A1F78D841003F6C40 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE3065E81F74B0CE003F6C40 /* Info.plist */; };
 		BE3069201F78E7FB003F6C40 /* MIBadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BE30691D1F78E7FB003F6C40 /* MIBadgeButton.m */; };
 		BE3069211F78E7FB003F6C40 /* MIBadgeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE30691F1F78E7FB003F6C40 /* MIBadgeLabel.m */; };
 		BE339AD41FD6B10A00FC80DC /* VC_review_rating.m in Sources */ = {isa = PBXBuildFile; fileRef = BE339AD31FD6B10900FC80DC /* VC_review_rating.m */; };
@@ -253,8 +252,6 @@
 		D02AC6CD2069FF5600F47C93 /* cell_features.m in Sources */ = {isa = PBXBuildFile; fileRef = D02AC6CB2069FF5600F47C93 /* cell_features.m */; };
 		D02AC6CE2069FF5600F47C93 /* cell_features.xib in Resources */ = {isa = PBXBuildFile; fileRef = D02AC6CC2069FF5600F47C93 /* cell_features.xib */; };
 		D02AC6D1206B8E8900F47C93 /* Home_page_Qtickets.m in Sources */ = {isa = PBXBuildFile; fileRef = D02AC6D0206B8E8900F47C93 /* Home_page_Qtickets.m */; };
-		D07842BC201AEAC600E77C36 /* arbic_wish.png in Resources */ = {isa = PBXBuildFile; fileRef = D07842BA201AEAC600E77C36 /* arbic_wish.png */; };
-		D07842BD201AEAC600E77C36 /* arbic_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = D07842BB201AEAC600E77C36 /* arbic_gray.png */; };
 		D07842CD201CB75200E77C36 /* orders_not.png in Resources */ = {isa = PBXBuildFile; fileRef = D07842CC201CB75200E77C36 /* orders_not.png */; };
 		D0A283AC201746D60096D70F /* blue5.png in Resources */ = {isa = PBXBuildFile; fileRef = D0A283A9201746D60096D70F /* blue5.png */; };
 		D0A283AD201746D60096D70F /* wv5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D0A283AA201746D60096D70F /* wv5.jpg */; };
@@ -302,6 +299,8 @@
 		73EE69F4204EBEF600BB600A /* VC_wish_list.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VC_wish_list.m; sourceTree = "<group>"; };
 		773AB3BA207DE40500FF5431 /* Arabic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Arabic.storyboard; sourceTree = "<group>"; };
 		773AB3BC207DE41C00FF5431 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		77523198207F56B1003697B2 /* arbic_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arbic_gray.png; sourceTree = "<group>"; };
+		7752319A207F56CE003697B2 /* arbic_wish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arbic_wish.png; sourceTree = "<group>"; };
 		81AB41A92C59F23F463B0423 /* Pods-Dohasooq_mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dohasooq_mobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dohasooq_mobile/Pods-Dohasooq_mobile.debug.xcconfig"; sourceTree = "<group>"; };
 		BE04D8D21FC01FA7008926F6 /* VC_myorders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VC_myorders.h; sourceTree = "<group>"; };
 		BE04D8D61FC02000008926F6 /* orders_cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orders_cell.h; sourceTree = "<group>"; };
@@ -315,7 +314,6 @@
 		BE04D8EB1FC2BC0A008926F6 /* Payment_summary_cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Payment_summary_cell.m; sourceTree = "<group>"; };
 		BE058C131FADB1D800CBA0EE /* VC_ub_table_view.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VC_ub_table_view.h; sourceTree = "<group>"; };
 		BE058C331FB0982800CBA0EE /* VC_intial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VC_intial.h; sourceTree = "<group>"; };
-		BE10ABD81FEBEB75000DA9C9 /* bookings_cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bookings_cell.m; sourceTree = "<group>"; };
 		BE10ABDF1FEE37FE000DA9C9 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		BE10ABE11FEE6FE6000DA9C9 /* ZoomRotatePanImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomRotatePanImageView.h; sourceTree = "<group>"; };
 		BE10ABE21FEE6FE7000DA9C9 /* ZoomRotatePanImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomRotatePanImageView.m; sourceTree = "<group>"; };
@@ -356,11 +354,7 @@
 		BE1D11CA1F88C72E003A3954 /* clearcart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clearcart.png; sourceTree = "<group>"; };
 		BE1E355A1FE288ED0059518E /* VC_product_search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VC_product_search.h; sourceTree = "<group>"; };
 		BE1E355B1FE288EE0059518E /* VC_product_search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VC_product_search.m; sourceTree = "<group>"; };
-		BE2B78B41FFFCA8300ACB3C9 /* bookings_cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = bookings_cell.xib; sourceTree = "<group>"; };
-		BE2B78B61FFFCA9900ACB3C9 /* bookings_cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bookings_cell.h; sourceTree = "<group>"; };
 		BE2B78BD1FFFCB3100ACB3C9 /* VC_DS_Checkout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VC_DS_Checkout.h; sourceTree = "<group>"; };
-		BE2B78C01FFFCB4500ACB3C9 /* VC_my_bookings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VC_my_bookings.h; sourceTree = "<group>"; };
-		BE2B78C11FFFCB4500ACB3C9 /* VC_my_bookings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VC_my_bookings.m; sourceTree = "<group>"; };
 		BE2B78D02000618000ACB3C9 /* profile_Hoshi_Billing_ADDR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = profile_Hoshi_Billing_ADDR.h; sourceTree = "<group>"; };
 		BE2B78D12000618000ACB3C9 /* profile_Hoshi_Billing_ADDR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = profile_Hoshi_Billing_ADDR.m; sourceTree = "<group>"; };
 		BE2B7904200075A100ACB3C9 /* DGActivityIndicatorBallPulseAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGActivityIndicatorBallPulseAnimation.h; sourceTree = "<group>"; };
@@ -623,8 +617,6 @@
 		D02AC6CB2069FF5600F47C93 /* cell_features.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cell_features.m; sourceTree = "<group>"; };
 		D02AC6CC2069FF5600F47C93 /* cell_features.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = cell_features.xib; sourceTree = "<group>"; };
 		D02AC6D0206B8E8900F47C93 /* Home_page_Qtickets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Home_page_Qtickets.m; sourceTree = "<group>"; };
-		D07842BA201AEAC600E77C36 /* arbic_wish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arbic_wish.png; sourceTree = "<group>"; };
-		D07842BB201AEAC600E77C36 /* arbic_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arbic_gray.png; sourceTree = "<group>"; };
 		D07842BF201C47D600E77C36 /* paymentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = paymentCell.h; sourceTree = "<group>"; };
 		D07842CC201CB75200E77C36 /* orders_not.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orders_not.png; sourceTree = "<group>"; };
 		D0A283A9201746D60096D70F /* blue5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue5.png; sourceTree = "<group>"; };
@@ -705,18 +697,6 @@
 				D00CEDA4204D18FF004C12FE /* HttpClient.m */,
 			);
 			name = "API Integration";
-			sourceTree = "<group>";
-		};
-		BE04D8DB1FC02008008926F6 /* MY Bookings */ = {
-			isa = PBXGroup;
-			children = (
-				BE2B78C01FFFCB4500ACB3C9 /* VC_my_bookings.h */,
-				BE2B78C11FFFCB4500ACB3C9 /* VC_my_bookings.m */,
-				BE2B78B61FFFCA9900ACB3C9 /* bookings_cell.h */,
-				BE10ABD81FEBEB75000DA9C9 /* bookings_cell.m */,
-				BE2B78B41FFFCA8300ACB3C9 /* bookings_cell.xib */,
-			);
-			name = "MY Bookings";
 			sourceTree = "<group>";
 		};
 		BE04D8E91FC279EB008926F6 /* VC_home */ = {
@@ -864,7 +844,6 @@
 		BE1D11B11F8861CD003A3954 /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				BE04D8DB1FC02008008926F6 /* MY Bookings */,
 				BE6BA3E31FDA7E4100E41B2E /* My Address */,
 				BE7DA3F01FD50D5800295F77 /* Orders List */,
 				BE6BA4061FDBBC1D00E41B2E /* Order_detail */,
@@ -1488,6 +1467,8 @@
 				BEEAA5552003C968002823F5 /* VC_wish_list.h */,
 				73EE69F4204EBEF600BB600A /* VC_wish_list.m */,
 				BE1B68C91FE25E8000D84ACD /* wish_list_not_found.png */,
+				7752319A207F56CE003697B2 /* arbic_wish.png */,
+				77523198207F56B1003697B2 /* arbic_gray.png */,
 				BE7B9AE91F7BD23F00715216 /* wish_list_cell */,
 			);
 			name = "WISH LIST";
@@ -1496,8 +1477,6 @@
 		BE7B9AE91F7BD23F00715216 /* wish_list_cell */ = {
 			isa = PBXGroup;
 			children = (
-				D07842BA201AEAC600E77C36 /* arbic_wish.png */,
-				D07842BB201AEAC600E77C36 /* arbic_gray.png */,
 				BEEAA5562003C992002823F5 /* wish_list_cell.h */,
 				BE7B9AE51F7BD23600715216 /* wish_list_cell.m */,
 				BEEAA5572003C99C002823F5 /* wish_list_cell.xib */,
@@ -1852,12 +1831,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7779DB982099892F00C81BBA /* Info.plist in Resources */,
 				BE8338301FD1037600C5EB25 /* radio.png in Resources */,
 				BEC332AB1F8F640B00F0BAF9 /* menu.png in Resources */,
 				BE72D8BD1FCC3DCB0082E8D2 /* upload-15.png in Resources */,
 				BE4F0C391F8B93B60076AFB5 /* upload-5.png in Resources */,
 				BE6423341F84A57300BB1E02 /* online_shopping_cart.png in Resources */,
 				BE1D11141F84F884003A3954 /* edit.png in Resources */,
+				7752319B207F56CE003697B2 /* arbic_wish.png in Resources */,
 				BE6796AF1F976151007C45EC /* upload-7.png in Resources */,
 				BE4F0C2C1F8B87EA0076AFB5 /* offer_bg.png in Resources */,
 				BEEAA5B120048555002823F5 /* loader4.png in Resources */,
@@ -1876,6 +1857,7 @@
 				D02AC6AC2069FEBB00F47C93 /* categorie_cell.xib in Resources */,
 				BE2B793620011C0200ACB3C9 /* first_top_cell.xib in Resources */,
 				BE5A6CB41FFBA2850085D000 /* ds_logo.png in Resources */,
+				77523199207F56B1003697B2 /* arbic_gray.png in Resources */,
 				BE72D8BE1FCC3DCB0082E8D2 /* upload-14.png in Resources */,
 				D028B5D6202DBE6600A8DB6B /* address_cell.xib in Resources */,
 				BEEAA5A820048555002823F5 /* loader12.png in Resources */,
@@ -1885,7 +1867,6 @@
 				BEEAA5AB20048555002823F5 /* loader15.png in Resources */,
 				BEEAA5B520048555002823F5 /* loader8.png in Resources */,
 				BE2B794320011D1900ACB3C9 /* Transaction_Type_cell.xib in Resources */,
-				D07842BC201AEAC600E77C36 /* arbic_wish.png in Resources */,
 				731CCFF02061126200701CED /* filter_cell.xib in Resources */,
 				73AA06CD2011F7C9006EDCC7 /* product_cell.xib in Resources */,
 				BE4F0C371F8B8EFE0076AFB5 /* men_icon.png in Resources */,
@@ -1894,7 +1875,6 @@
 				BE4F0C3D1F8B9E5A0076AFB5 /* upload-4.png in Resources */,
 				BE72D8BF1FCC3DCB0082E8D2 /* upload-13.png in Resources */,
 				BE1B68CA1FE25E8000D84ACD /* wish_list_not_found.png in Resources */,
-				D07842BD201AEAC600E77C36 /* arbic_gray.png in Resources */,
 				BE10ABE01FEE3800000DA9C9 /* Poppins-Italic.ttf in Resources */,
 				BE84C5121F9B1AB400210ACC /* imdb.png in Resources */,
 				733559AF205A4024002F99F4 /* transaction_cell.xib in Resources */,
@@ -1925,7 +1905,6 @@
 				BE64232F1F849C2E00BB1E02 /* checked_order.png in Resources */,
 				73C0EA8B2046B1F3009AFB9F /* TOp_logo.png in Resources */,
 				D0A283AD201746D60096D70F /* wv5.jpg in Resources */,
-				BE30691A1F78D841003F6C40 /* Info.plist in Resources */,
 				BE6796A21F9726FE007C45EC /* square-2_2_60x60.png in Resources */,
 				BE339AD71FD6CB0500FC80DC /* GoogleService-Info.plist in Resources */,
 				BE7DA3F21FD5147600295F77 /* upload-16.png in Resources */,
@@ -1942,7 +1921,6 @@
 				D001220F203817400064ABFB /* empty_products.png in Resources */,
 				BE30662A1F7529A1003F6C40 /* cross.png in Resources */,
 				D028B54120298B0500A8DB6B /* special_cell.xib in Resources */,
-				BE2B78B51FFFCA8300ACB3C9 /* bookings_cell.xib in Resources */,
 				D0A283AC201746D60096D70F /* blue5.png in Resources */,
 				BEEAA5AA20048555002823F5 /* loader14.png in Resources */,
 				BE3069151F78D74F003F6C40 /* Poppins-Bold.ttf in Resources */,
@@ -2113,10 +2091,8 @@
 				731CCFED2061126200701CED /* Filter_cell_Arabic.m in Sources */,
 				BE3065DC1F74B0CD003F6C40 /* AppDelegate.m in Sources */,
 				BE3069201F78E7FB003F6C40 /* MIBadgeButton.m in Sources */,
-				BE10ABDA1FEBEB75000DA9C9 /* bookings_cell.m in Sources */,
 				731CCFEF2061126200701CED /* filter_cell.m in Sources */,
 				BE72D8851FC53DA70082E8D2 /* collection_variants_cell.m in Sources */,
-				BE2B78C21FFFCB4500ACB3C9 /* VC_my_bookings.m in Sources */,
 				D02AC6C32069FF1B00F47C93 /* Fashion_categorie_cell.m in Sources */,
 				D02AC6D1206B8E8900F47C93 /* Home_page_Qtickets.m in Sources */,
 				BEEAA54A2003AA31002823F5 /* paymentCell.h.m in Sources */,
@@ -2304,7 +2280,7 @@
 				CODE_SIGN_ENTITLEMENTS = Dohasooq_mobile/Dohasooq_mobile.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Carmatec IT Solutions Private Limited (4MCGAH3G26)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4MCGAH3G26;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2316,7 +2292,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				"GCC_WARN_64_TO_32_BIT_CONVERSION[arch=*64]" = YES;
 				INFOPLIST_FILE = Dohasooq_mobile/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.carmatec.Dohasooq;
@@ -2336,7 +2312,7 @@
 				CODE_SIGN_ENTITLEMENTS = Dohasooq_mobile/Dohasooq_mobile.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Carmatec IT Solutions Private Limited (4MCGAH3G26)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4MCGAH3G26;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2348,7 +2324,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				"GCC_WARN_64_TO_32_BIT_CONVERSION[arch=*64]" = YES;
 				INFOPLIST_FILE = Dohasooq_mobile/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.carmatec.Dohasooq;

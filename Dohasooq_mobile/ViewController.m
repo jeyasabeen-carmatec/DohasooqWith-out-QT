@@ -55,6 +55,12 @@
     self.screenName = @"Login screen";
     [self set_UP_View];
     
+    
+    
+//     self.TXT_username.text = @"venu1@mailinator.com";
+//    self.TXT_password.text = @"Qazplm123";
+    
+    
 }
 - (void)signInWillDispatch:(GIDSignIn *)signIn error:(NSError *)error {
     
@@ -492,23 +498,64 @@ error:(NSError *)error{
         [request setHTTPMethod:@"POST"];
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         [request setHTTPBody:postData];
-        //[request setAllHTTPHeaderFields:headers];
-        [request setHTTPShouldHandleCookies:NO];
+            
+            // set Cookie VAlue as Header when it is not Null.........1
+            if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
+                
+                NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
+                
+                if (![awlllb containsString:@"(null)"]) {
+                    awlllb = [NSString stringWithFormat:@"%@;%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"],awlllb];
+                    [request addValue:awlllb forHTTPHeaderField:@"Cookie"];
+                }
+                else{
+                    [request addValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] forHTTPHeaderField:@"Cookie"];
+                }
+                
+            }
+            
+            
+            
         NSData *aData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+            
+            if (response) {
+                [HttpClient filteringCookieValue:response];
+            }
+            
+            if (err) {
+                NSLog(@"%@",[err localizedDescription]);
+            }
+            
         if(aData)
         {
             NSMutableDictionary *json_DATA = [[NSMutableDictionary alloc]init];
             
            json_DATA = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:aData options:NSASCIIStringEncoding error:&error];
             NSLog(@"The response Api post sighn up API %@",json_DATA);
+            
+//            [[NSUserDefaults standardUserDefaults]setObject:[json_DATA valueForKey:@"session_id"] forKey:@"Cookie"];
+//            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            
+    
+            
             NSString *status = [NSString stringWithFormat:@"%@",[json_DATA valueForKey:@"success"]];
             NSString *msg = [json_DATA valueForKey:@"message"];
+            VW_overlay.hidden = YES;
+            [activityIndicatorView stopAnimating];
             
             
             if([status isEqualToString:@"1"])
             {
-                VW_overlay.hidden = YES;
-                [activityIndicatorView stopAnimating];
+            
+                
+                // Storing Session ID
+                
+                NSString *cookie_value = [NSString stringWithFormat:@"CAKEPHP=%@",[json_DATA valueForKey:@"session_id"]];
+                
+                [[NSUserDefaults standardUserDefaults]setObject:cookie_value forKey:@"Cookie"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+
                 
                 //********************* Removing Null Values form Dictionary **********************//
 
@@ -522,27 +569,10 @@ error:(NSError *)error{
                 
                 [self cart_count];
                 
-                
-                
             }
             else
             {
-                VW_overlay.hidden = YES;
-                [activityIndicatorView stopAnimating];
-                if ([msg isEqualToString:@"User already exists"])
-                {
-                    if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
-                    {
-                    
-                    msg = @"عنوان البريد الإلكتروني المستخدم بالفعل ، يرجى المحاولة باستخدام بريد إلكتروني مختلف.";
-                    }else{
-                        msg = @"Email address already in use, Please try with different email.";
-
-                    }
-                }
-//                
-//                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:msg delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
-//                [alert show];
+             
                 [HttpClient createaAlertWithMsg:msg andTitle:@""];
             }
             
@@ -604,23 +634,63 @@ error:(NSError *)error{
         [request setHTTPMethod:@"POST"];
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         [request setHTTPBody:postData];
-        //[request setAllHTTPHeaderFields:headers];
-        [request setHTTPShouldHandleCookies:NO];
+        // set Cookie VAlue as Header when it is not Null.........1
+        if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
+            
+            NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
+            
+            if (![awlllb containsString:@"(null)"]) {
+                awlllb = [NSString stringWithFormat:@"%@;%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"],awlllb];
+                [request addValue:awlllb forHTTPHeaderField:@"Cookie"];
+            }
+            else{
+                [request addValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] forHTTPHeaderField:@"Cookie"];
+            }
+            
+        }
+        
+        
         NSData *aData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+       
+        
+        if (response) {
+            [HttpClient filteringCookieValue:response];
+        }
+        
+        
+        if (err) {
+            NSLog(@"%@",[err localizedDescription]);
+        }
+        
+                
         if(aData)
         {
             NSMutableDictionary *json_DATA = [[NSMutableDictionary alloc]init];
             
             json_DATA = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:aData options:NSASCIIStringEncoding error:&error];
             NSLog(@"The response Api post sighn up API %@",json_DATA);
+            
+            
+            
+            
             NSString *status = [NSString stringWithFormat:@"%@",[json_DATA valueForKey:@"success"]];
+            
             NSString *msg = [json_DATA valueForKey:@"message"];
+            VW_overlay.hidden = YES;
+            [activityIndicatorView stopAnimating];
             
             
             if([status isEqualToString:@"1"])
             {
-                VW_overlay.hidden = YES;
-                [activityIndicatorView stopAnimating];
+              
+                // Storing Session ID
+                
+                NSString *cookie_value = [NSString stringWithFormat:@"CAKEPHP=%@",[json_DATA valueForKey:@"session_id"]];
+                
+                [[NSUserDefaults standardUserDefaults]setObject:cookie_value forKey:@"Cookie"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+
+                
                 
                 //********************* Removing Null Values form Dictionary **********************//
 
@@ -639,21 +709,6 @@ error:(NSError *)error{
             }
             else
             {
-                VW_overlay.hidden = YES;
-                [activityIndicatorView stopAnimating];
-               
-                if ([msg isEqualToString:@"User already exists"])
-                {
-                    if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
-                    {
-                        
-                        msg = @"عنوان البريد الإلكتروني المستخدم بالفعل ، يرجى المحاولة باستخدام بريد إلكتروني مختلف.";
-                    }else{
-                        msg = @"Email address already in use, Please try with different email.";
-                        
-                    }
-                }
-                
 
                 [HttpClient createaAlertWithMsg:msg andTitle:@""];
             }
@@ -770,20 +825,47 @@ error:(NSError *)error{
         [request setHTTPMethod:@"POST"];
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         [request setHTTPBody:postData];
-        //[request setAllHTTPHeaderFields:headers];
-        [request setHTTPShouldHandleCookies:NO];
+        
+        // set Cookie VAlue as Header when it is not Null.........1
+        if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
+            
+            NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
+            
+            if (![awlllb containsString:@"(null)"]) {
+                awlllb = [NSString stringWithFormat:@"%@;%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"],awlllb];
+                [request addValue:awlllb forHTTPHeaderField:@"Cookie"];
+            }
+            else{
+                [request addValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] forHTTPHeaderField:@"Cookie"];
+            }
+            
+        }
+        
+        
         NSData *aData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-        if(aData)
+               if(aData)
         {
             NSMutableDictionary *json_DATA = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:aData options:NSASCIIStringEncoding error:&error];
             NSLog(@"The response Api post sighn up API %@",json_DATA);
+            
+
+            if (response) {
+                [HttpClient filteringCookieValue:response];
+            }
+            
+            
             NSString *status = [NSString stringWithFormat:@"%@",[json_DATA valueForKey:@"success"]];
             NSString *msg = [json_DATA valueForKey:@"message"];
-            
-            
-            if([status isEqualToString:@"1"])
+        if([status isEqualToString:@"1"])
             {
                
+                // Storing Session ID
+                
+                NSString *cookie_value = [NSString stringWithFormat:@"CAKEPHP=%@",[json_DATA valueForKey:@"session_id"]];
+                
+                [[NSUserDefaults standardUserDefaults]setObject:cookie_value forKey:@"Cookie"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                
                 
                 VW_overlay.hidden = YES;
                 [activityIndicatorView stopAnimating];
@@ -797,12 +879,8 @@ error:(NSError *)error{
                 [[NSUserDefaults standardUserDefaults]setObject:self.TXT_username.text forKey:@"email"];
                 [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"user_email"];
                 [[NSUserDefaults standardUserDefaults] synchronize];
-               // [self MENU_api_call];
+                 [self cart_count];
 
-                [self cart_count];
-                
-                
-                
                 
             }
             else
@@ -938,6 +1016,72 @@ error:(NSError *)error{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
+// Filtering CookieValue
+/* -(void)filteringCookieValue:(NSURLResponse *)response{
+    
+    @try {
+        
+        NSLog(@".......... %@",[[response valueForKey:@"allHeaderFields"] valueForKey:@"Set-Cookie"]);
+        
+        
+        NSString *responseString = [[response valueForKey:@"allHeaderFields"] valueForKey:@"Set-Cookie"];
+        //NSArray *responseArray = [responseString componentsSeparatedByString:@";"];
+        NSArray *responseArray = [responseString componentsSeparatedByString:@";"];
+        
+        NSLog(@"%@",responseArray);
+        NSLog(@"==============");
+        
+        
+        NSMutableArray *cookieArray = [NSMutableArray arrayWithArray:responseArray];
+        
+        NSString *cookieValue;
+        NSString *awsStr;
+        for (int i = 0; i<cookieArray.count; i++) {
+            
+            responseString = [cookieArray objectAtIndex:i];
+            
+            if ([responseString containsString:@"CAKEPHP="]) {
+                
+                if (![responseString containsString:@"deleted"]) {
+                    responseArray = [responseString componentsSeparatedByString:@"="];
+                    
+                    cookieValue = [responseArray objectAtIndex:1];
+                    
+                }
+                else{
+                    [cookieArray removeObjectAtIndex:i];
+                    
+                }
+                
+                
+            }
+            else if ([responseString containsString:@"AWSALB"]){
+              
+                responseArray = [responseString componentsSeparatedByString:@"="];
+                
+                awsStr = [responseArray lastObject];
+            }
+            
+        }
+        
+        
+        NSLog(@"cookieValue........   %@",cookieValue);
+          NSLog(@"AwsValue........   %@",awsStr);
+        
+        cookieValue = [NSString stringWithFormat:@"CAKEPHP=%@",cookieValue];
+//        [[NSUserDefaults standardUserDefaults]setObject:cookieValue forKey:@"Cookie"];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        awsStr = [NSString stringWithFormat:@"AWSALB=%@",awsStr];
+          if (![awsStr isKindOfClass:[NSNull class]] || ![awsStr isEqualToString:@"<nil>"] || ![awsStr valueForKey:@"(null)"]) {
+        
+        [[NSUserDefaults standardUserDefaults]setObject:awsStr forKey:@"Aws"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+          }
+        
+    } @catch (NSException *exception) {
+        NSLog(@"...........Cookie Exception............");
+    }
+}
+*/
 @end

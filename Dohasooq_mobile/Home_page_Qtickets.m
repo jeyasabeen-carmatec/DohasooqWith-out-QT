@@ -14,16 +14,11 @@
 #import "categorie_cell.h"
 #import "dynamic_categirie_cell.h"
 #import "menu_cell.h"
-//#import "events_cell.h"
 #import "UIImageView+WebCache.h"
 #import "XMLDictionary/XMLDictionary.h"
 #import "HMSegmentedControl.h"
-//#import "Movies_cell.h"
-//#import "qtickets_cell.h"
-//#import "events_cell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "HttpClient.h"
-//#import "upcoming_cell.h"
 #import "product_cell.h"
 #import "VC_intial.h"
 #import "collection_MENU.h"
@@ -50,7 +45,7 @@
     NSString *halls_text,*leng_text;
     int statusbar_HEIGHT;
     NSDictionary *temp_dicts;
-    NSString *language,*language_str,*id_language;
+    NSString *language,*language_str,*id_language,*language_code;
     
     int mn;
 
@@ -72,11 +67,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   // _BTN_menu.translatesAutoresizingMaskIntoConstraints =true;
+    if (@available(iOS 9, *)) {
+        [_BTN_menu.widthAnchor constraintEqualToConstant:20].active = YES;
+        [_BTN_menu.heightAnchor constraintEqualToConstant:17].active = YES;
+    }
+    
     // Do any additional setup after loading the view.
     
     self.screenName = @"HomePage ";
     
-    
+    // Callling Language Switch APi First Time.......
+
+    //[self language_switch_API];
         
     [self API_call];
     
@@ -99,10 +102,10 @@
                                                   forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     
-    
     self.Scroll_contents.hidden = YES;
     [self cart_count];
     [Helper_activity animating_images:self];
+    
     [self performSelector:@selector(API_CALL_FETCH) withObject:nil afterDelay:0.01];
    // [self set_up_VIEW];
 
@@ -964,7 +967,7 @@
     else if(collectionView == _collection_features)
     {
         //return temp_arr.count;
-        NSLog(@"Max count feautures %lu",[[json_Response_Dic valueForKey:@"bannerLarge"]count]);
+       // NSLog(@"Max count feautures %lu",[[json_Response_Dic valueForKey:@"bannerLarge"]count]);
         NSInteger count = 0;
         @try
         {
@@ -1143,7 +1146,7 @@
                     pro_cell.LBL_stock.text =[str uppercaseString];
                     if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                     {
-                        pro_cell.LBL_stock.text = @"غير متوفّر";
+                        pro_cell.LBL_stock.text = @"نفد المخزون";
                     }
 
                 }
@@ -1269,7 +1272,7 @@
                     if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                     {
                         
-                        str = @"% إيقاف";
+                        str = @"% خصم";
                         pro_cell.LBL_discount.text = [NSString stringWithFormat:@"%@%@",str_discount,str];
                     }
                     else{
@@ -1556,7 +1559,7 @@
                     if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                     {
                         
-                        str = @"% إيقاف";
+                        str = @"% خصم";
                         pro_cell.LBL_discount.text = [NSString stringWithFormat:@"%@%@",str_discount,str];
                     }
                     else{
@@ -2432,11 +2435,27 @@
             conutry_close.barStyle = UIBarStyleBlackTranslucent;
             [conutry_close sizeToFit];
             
-            UIButton *close=[[UIButton alloc]init];
-            close.frame=CGRectMake(conutry_close.frame.origin.x -20, 0, 100, conutry_close.frame.size.height);
-            [close setTitle:@"Close" forState:UIControlStateNormal];
-            [close addTarget:self action:@selector(close_action) forControlEvents:UIControlEventTouchUpInside];
-            [conutry_close addSubview:close];
+           
+            
+            UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(done_action)];
+             [doneBtn setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
+            
+           UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+            UIBarButtonItem *cancelBtn = [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(close_action)];
+            [cancelBtn setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
+        
+            
+            NSMutableArray *barItems = [NSMutableArray arrayWithObjects:cancelBtn,flexibleItem,doneBtn, nil];
+            [conutry_close setItems:barItems animated:YES];
+
+            
+            
+            
+//            UIButton *close=[[UIButton alloc]init];
+//            close.frame=CGRectMake(conutry_close.frame.origin.x -20, 0, 100, conutry_close.frame.size.height);
+//            [close setTitle:@"Close" forState:UIControlStateNormal];
+//            [close addTarget:self action:@selector(close_action) forControlEvents:UIControlEventTouchUpInside];
+//            [conutry_close addSubview:close];
             
             UITapGestureRecognizer *tapToSelect = [[UITapGestureRecognizer alloc]initWithTarget:self
                                                   action:@selector(tappedToSelectRow:)];
@@ -2445,13 +2464,13 @@
             [_lang_pickers addGestureRecognizer:tapToSelect];
 
             
-            UIButton *done=[[UIButton alloc]init];
-            done.frame=CGRectMake(conutry_close.frame.size.width - 100, 0, 100, conutry_close.frame.size.height);
-            [done setTitle:@"Done" forState:UIControlStateNormal];
-            [done addTarget:self action:@selector(done_action) forControlEvents:UIControlEventTouchUpInside];
-            [conutry_close addSubview:done];
-            
-            done.tag = indexPath.row;
+//            UIButton *done=[[UIButton alloc]init];
+//            done.frame=CGRectMake(conutry_close.frame.size.width - 100, 0, 100, conutry_close.frame.size.height);
+//            [done setTitle:@"Done" forState:UIControlStateNormal];
+//            [done addTarget:self action:@selector(done_action) forControlEvents:UIControlEventTouchUpInside];
+//            [conutry_close addSubview:done];
+//
+//            done.tag = indexPath.row;
             
             cell.TXT_lang.inputAccessoryView=conutry_close;
             cell.TXT_lang.inputView = _lang_pickers;
@@ -2469,10 +2488,10 @@
             NSArray *ARR_info;
             if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
             {
-                NSString *about_us = @"مكتب المساعدة";
-                  NSString *contact_us = @"سياسة الخصوصية";
+                NSString *about_us = @"معلومات عنا";
+                  NSString *contact_us = @"اتصل بنا";
                 NSString *terms =@"الأحكام والشروط";
-                NSString *privacy =@"اتصل بنا";
+                NSString *privacy =@"سياسة الخصوصية";
                // NSString *help =@"مكتب الخدمات";
                 
                 
@@ -3789,9 +3808,13 @@
         }
         NSString *str_deals =[NSString stringWithFormat:@"%@",[[[json_Response_Dic valueForKey:@"dealSection"] valueForKey:@"two"]  valueForKey:@"widgetTitle"]];
         _LBL_best_selling.text = str_deals;
+        
+        
         _Hot_deals_banner.text = [NSString stringWithFormat:@"%@",[[[json_Response_Dic valueForKey:@"dealSection"] valueForKey:@"one"]  valueForKey:@"widgetTitle"]];
-        _Hot_deals.text = [NSString stringWithFormat:@"%@ %@",str,[json_Response_Dic valueForKey:@"fashion_name"]];
-    NSLog(@"the api_collection_product%@",json_Response_Dic);
+        _Hot_deals.text = [NSString stringWithFormat:@"%@ %@",str,[json_Response_Dic valueForKey:@"fashion_name"]];// Banner Fashion Title Setting
+    
+        
+    NSLog(@"API Call Fetch%@",json_Response_Dic);
         [[NSUserDefaults standardUserDefaults] setValue:[json_Response_Dic valueForKey:@"default_time_zone"] forKey:@"time_zone"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     for(int  i= 0; i<[[json_Response_Dic valueForKey:@"banners"]count];i++)
@@ -4006,8 +4029,8 @@
             
         }
         
-        NSString *urlGetuser =[NSString stringWithFormat:@"%@apis/home/%ld/%ld/%@/Customer.json",SERVER_URL,(long)[user_defaults   integerForKey:@"country_id"],[user_defaults integerForKey:@"language_id"],user_id];
-        NSLog(@"country id %ld ,language id %ld",[user_defaults integerForKey:@"country_id"],[user_defaults integerForKey:@"language_id"]);
+        NSString *urlGetuser =[NSString stringWithFormat:@"%@apis/home/%ld/%ld/%@/Customer.json",SERVER_URL,(long)[user_defaults   integerForKey:@"country_id"],(long)[user_defaults integerForKey:@"language_id"],user_id];
+       // NSLog(@"country id %ld ,language id %ld",[user_defaults integerForKey:@"country_id"],[user_defaults integerForKey:@"language_id"]);
         
         
         
@@ -4062,6 +4085,8 @@
                             
                         }
      
+                        [self language_switch_API];
+                        
                         
                     [self view_appear];
                     }
@@ -4227,9 +4252,7 @@
    
     id_language = [NSString stringWithFormat:@"%@",[[[[NSUserDefaults standardUserDefaults] valueForKey:@"language_arr"]objectAtIndex:row] valueForKey:@"id"]];
     
-    
-//        [[NSUserDefaults standardUserDefaults]setValue:[[[[NSUserDefaults standardUserDefaults] valueForKey:@"language_arr"]objectAtIndex:row] valueForKey:@"id"] forKey:@"language_id"];
-//        [[NSUserDefaults standardUserDefaults]synchronize];
+    language_code = [NSString stringWithFormat:@"%@",[[[[NSUserDefaults standardUserDefaults] valueForKey:@"language_arr"]objectAtIndex:row] valueForKey:@"language_code"]];
     
 
 }
@@ -4242,8 +4265,16 @@
         
         @try {
             
+             language_code = [NSString stringWithFormat:@"%@",[[[[NSUserDefaults standardUserDefaults] valueForKey:@"language_arr"]objectAtIndex:0] valueForKey:@"language_code"]];
+            
             language = [[[[NSUserDefaults standardUserDefaults] valueForKey:@"language_arr"]objectAtIndex:0] valueForKey:@"language_name"];
             [[NSUserDefaults standardUserDefaults]setValue:[[[[NSUserDefaults standardUserDefaults] valueForKey:@"language_arr"]objectAtIndex:0] valueForKey:@"id"] forKey:@"language_id"];
+             [[NSUserDefaults standardUserDefaults]setValue:[[[[NSUserDefaults standardUserDefaults] valueForKey:@"language_arr"]objectAtIndex:0] valueForKey:@"language_code"] forKey:@"code_language"];
+            
+            
+//             [[NSUserDefaults standardUserDefaults] setObject:[[lang_arr objectAtIndex:j] valueForKey:@"language_code"] forKey:@"code_language"];
+            
+            
             [[NSUserDefaults standardUserDefaults]synchronize];
             
             
@@ -4256,7 +4287,7 @@
         //                [[NSUserDefaults standardUserDefaults]setValue:[[[[NSUserDefaults standardUserDefaults] valueForKey:@"language_arr"]objectAtIndex:row] valueForKey:@"id"] forKey:@"language_id"];
         //                [[NSUserDefaults standardUserDefaults]synchronize];
         [[NSUserDefaults  standardUserDefaults] setValue:id_language forKey:@"language_id"];
-        
+        [[NSUserDefaults standardUserDefaults]setValue:language_code forKey:@"code_language"];
     }
     
     
@@ -4545,19 +4576,24 @@ NSString *str_status_text;
                         
                         
                         @try {
-                            if ([[json_Response valueForKey:@"msg"] isEqualToString:@"Added to your Wishlist"])
-                            {
+                           
+                            if ([[NSString stringWithFormat:@"%@",[json_Response valueForKey:@"msg"]] isEqualToString:@"Added to your Wishlist"]) {
+                                
+                                
+//                            if ([[json_Response valueForKey:@"status"] isEqualToString:@"Added to your Wishlist"])
+//                            {
                                 
                                 
                                 [cell.BTN_fav setTitle:@"" forState:UIControlStateNormal];
                                 [cell.BTN_fav setTitleColor: [UIColor redColor] forState:UIControlStateNormal];
-                                [HttpClient createaAlertWithMsg:@"Added to your wishlist" andTitle:@""];
+                                [HttpClient createaAlertWithMsg:[json_Response valueForKey:@"multi_msg"] andTitle:@""];
                                 
                                 
                             }
                             else
                             {
-                                if ([[json_Response valueForKey:@"msg"] isEqualToString:@"Customer wishlist already saved"])
+                                if ([[json_Response valueForKey:@"msg"] isEqualToString:@"Customer wishlist already saved"] || [[json_Response valueForKey:@"msg"] isEqualToString:@"تم حفظ قائمة رغبات العميل"])
+                                
                                 {
                                     NSString *str_id = [NSString stringWithFormat:@"%@",[[hot_deals_ARR objectAtIndex:sender.tag] valueForKey:@"product_id"]];
                                     
@@ -4647,7 +4683,7 @@ NSString *str_status_text;
                     
                         @try {
                             
-                            [HttpClient createaAlertWithMsg:[temp_dict valueForKey:@"msg"] andTitle:@""];
+                            [HttpClient createaAlertWithMsg:[temp_dict valueForKey:@"multi_msg"] andTitle:@""];
                             
                         } @catch (NSException *exception) {
                             NSLog(@"sdfsd sdf sdf %@",exception);
@@ -4756,34 +4792,53 @@ NSString *str_status_text;
             [request setURL:urlProducts];
             [request setHTTPMethod:@"POST"];
             [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        // set Cookie VAlue as Header when it is not Null.........1
+        if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
             
-            [request setHTTPShouldHandleCookies:NO];
+            NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
+            
+            if (![awlllb containsString:@"(null)"]) {
+                awlllb = [NSString stringWithFormat:@"%@;%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"],awlllb];
+                [request addValue:awlllb forHTTPHeaderField:@"Cookie"];
+            }
+            else{
+                [request addValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] forHTTPHeaderField:@"Cookie"];
+            }
+            
+        }
             NSData *aData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        if (response) {
+            [HttpClient filteringCookieValue:response];
+        }
             if(aData)
             {
                 
                 
-                NSMutableArray *json_DATA = (NSMutableArray *)[NSJSONSerialization JSONObjectWithData:aData options:NSJSONReadingAllowFragments error:&error];
+                NSMutableDictionary *json_DATA = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:aData options:NSJSONReadingAllowFragments error:&error];
                 
                 NSIndexPath *index = [NSIndexPath indexPathForRow:sender.tag inSection:0];
                 product_cell *cell = (product_cell *)[self.collection_best_deals cellForItemAtIndexPath:index];
                 
                 
                 @try {
-                    if ([[json_DATA valueForKey:@"msg"] isEqualToString:@"Added to your Wishlist"]) {
+                    
+                    if ([[NSString stringWithFormat:@"%@",[json_DATA valueForKey:@"msg"]] isEqualToString:@"Added to your Wishlist"]) {
+//                    if ([[json_DATA valueForKey:@"status"] isEqualToString:@"Added to your Wishlist"]) {
                         
-                        //  [self startAnimation:sender];
-                         [Helper_activity stop_activity_animation:self];
+                        [Helper_activity stop_activity_animation:self];
                         [cell.BTN_fav setTitle:@"" forState:UIControlStateNormal];
                         
                         [cell.BTN_fav setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-                        [HttpClient createaAlertWithMsg:@"Added to your wishlist" andTitle:@""];
+                        //[HttpClient createaAlertWithMsg:@"Added to your wishlist" andTitle:@""];
+                        [HttpClient createaAlertWithMsg:[json_DATA valueForKey:@"multi_msg"] andTitle:@
+                         ""];
                         
                         
                     }
                     else{
                         
-                        if ([[json_DATA valueForKey:@"msg"] isEqualToString:@"Customer wishlist already saved"])
+                        if ([[json_DATA valueForKey:@"msg"] isEqualToString:@"Customer wishlist already saved"] || [[json_DATA valueForKey:@"msg"] isEqualToString:@"تم حفظ قائمة رغبات العميل"])
                         {
                             NSString *str_id = [NSString stringWithFormat:@"%@",[[deals_ARR objectAtIndex:sender.tag] valueForKey:@"product_id"]];
                              [Helper_activity stop_activity_animation:self];
@@ -4803,7 +4858,7 @@ NSString *str_status_text;
                 
                   [Helper_activity stop_activity_animation:self];
                 
-                NSLog(@"the api_collection_product %@",json_DATA);
+                NSLog(@"Best Deals Wishlist %@",json_DATA);
                 
             }
         }
@@ -4822,12 +4877,12 @@ NSString *str_status_text;
     
 }
 
-#pragma Deals Image action homepage to Product List
+#pragma mark Deals Image action homepage to Product List
 -(void)hot_deals_action
 {
      TIMER_countdown = [[NSTimer alloc]init];
-    [[NSUserDefaults standardUserDefaults] setValue:[[[json_Response_Dic valueForKey:@"dealSection" ] valueForKey:@"one"]  valueForKey:@"widgetTitle"] forKey:@"item_name"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+//    [[NSUserDefaults standardUserDefaults] setValue:[[[json_Response_Dic valueForKey:@"dealSection" ] valueForKey:@"one"]  valueForKey:@"widgetEnglishTitle"] forKey:@"item_name"];
+    //[[NSUserDefaults standardUserDefaults] synchronize];
     
     NSString *country = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"country_id"]];
     NSString *languge = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"language_id"]];
@@ -4866,7 +4921,7 @@ NSString *str_status_text;
     }
     
     
-    NSString *url_key = [NSString stringWithFormat:@"%@",[[[json_Response_Dic valueForKey:@"dealSection" ] valueForKey:@"one"]  valueForKey:@"widgetTitle"]];
+    NSString *url_key = [NSString stringWithFormat:@"%@",[[[json_Response_Dic valueForKey:@"dealSection" ] valueForKey:@"one"]  valueForKey:@"widgetEnglishTitle"]];
     NSString *list_TYPE = @"dealsList";
     url_key = [NSString stringWithFormat:@"%@/%@",list_TYPE,url_key];
     NSString * urlGetuser =[NSString stringWithFormat:@"%@apis/%@/%@/%@/%@/Customer/1.json",SERVER_URL,url_key,country,languge,user_id];
@@ -4885,8 +4940,8 @@ NSString *str_status_text;
 -(void)best_deals_action
 {
      TIMER_countdown = [[NSTimer alloc]init];
-    [[NSUserDefaults standardUserDefaults] setValue:[[[json_Response_Dic valueForKey:@"dealSection" ] valueForKey:@"two"]  valueForKey:@"widgetTitle"] forKey:@"item_name"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+//    [[NSUserDefaults standardUserDefaults] setValue:[[[json_Response_Dic valueForKey:@"dealSection" ] valueForKey:@"two"]  valueForKey:@"widgetTitle"] forKey:@"item_name"];
+    //[[NSUserDefaults standardUserDefaults] synchronize];
    // http://192.168.0.171/dohasooq/apis/dealsList/Best%20Selling%20Products/(null)/(null)/27/Customer.json
     
     NSString *country = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"country_id"]];
@@ -4926,7 +4981,7 @@ NSString *str_status_text;
     }
     
     
-    NSString *url_key = [NSString stringWithFormat:@"%@",[[[json_Response_Dic valueForKey:@"dealSection" ] valueForKey:@"two"]  valueForKey:@"widgetTitle"]];
+    NSString *url_key = [NSString stringWithFormat:@"%@",[[[json_Response_Dic valueForKey:@"dealSection" ] valueForKey:@"two"]  valueForKey:@"widgetEnglishTitle"]];
     NSString *list_TYPE = @"dealsList";
     url_key = [NSString stringWithFormat:@"%@/%@",list_TYPE,url_key];
     NSString * urlGetuser =[NSString stringWithFormat:@"%@apis/%@/%@/%@/%@/Customer/1.json",SERVER_URL,url_key,country,languge,user_id];
@@ -4969,8 +5024,29 @@ NSString *str_status_text;
         [request setHTTPMethod:@"POST"];
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         
-        [request setHTTPShouldHandleCookies:NO];
+        
+        // set Cookie and awllb....
+        if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
+            
+            NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
+            
+            if (![awlllb containsString:@"(null)"]) {
+                awlllb = [NSString stringWithFormat:@"%@;%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"],awlllb];
+                [request addValue:awlllb forHTTPHeaderField:@"Cookie"];
+            }
+            else{
+                [request addValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] forHTTPHeaderField:@"Cookie"];
+            }
+            
+        }
+        
+        //[request setHTTPShouldHandleCookies:NO];
         NSData *aData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        if (response) {
+            [HttpClient filteringCookieValue:response];
+        }
+        
+        
         if(aData)
         {
             [Helper_activity stop_activity_animation:self];
@@ -5030,7 +5106,7 @@ NSString *str_status_text;
         NSString *str = @"Women's";
         if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
         {
-            str = @"للنساء";
+            str = @"للسيدات";
             
         }
 
@@ -5548,7 +5624,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
             cell.LBL_stock.text = [str uppercaseString];
             if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
             {
-                cell.LBL_stock.text = @"غير متوفّر";
+                cell.LBL_stock.text = @"نفد المخزون";
             }
             
         }
@@ -5764,9 +5840,8 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     
                 }
     
-                NSString *urlGetuser =[NSString stringWithFormat:@"%@apis/home/%ld/%ld/%@/Customer.json",SERVER_URL,(long)[user_defaults   integerForKey:@"country_id"],[user_defaults integerForKey:@"language_id"],user_id];
-               NSLog(@"country id %ld ,language id %ld",[user_defaults integerForKey:@"country_id"],[user_defaults integerForKey:@"language_id"]);
-    
+                NSString *urlGetuser =[NSString stringWithFormat:@"%@apis/home/%ld/%ld/%@/Customer.json",SERVER_URL,(long)[user_defaults integerForKey:@"country_id"],(long)[user_defaults integerForKey:@"language_id"],user_id];
+                
     
     
                 urlGetuser = [urlGetuser stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
@@ -5855,9 +5930,25 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         [request setHTTPMethod:@"POST"];
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         
-        [request setHTTPShouldHandleCookies:NO];
+        // set Cookie and awllb..
+        if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
+            
+            NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
+            
+            if (![awlllb containsString:@"(null)"]) {
+                awlllb = [NSString stringWithFormat:@"%@;%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"],awlllb];
+                [request addValue:awlllb forHTTPHeaderField:@"Cookie"];
+            }
+            else{
+                [request addValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] forHTTPHeaderField:@"Cookie"];
+            }
+            
+        }
+        //[request setHTTPShouldHandleCookies:NO];
         NSData *aData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-        
+        if (response) {
+            [HttpClient filteringCookieValue:response];
+        }
         
         if (error) {
             [HttpClient createaAlertWithMsg:[error localizedDescription] andTitle:@""];
@@ -5952,7 +6043,55 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark language_switch_API
+-(void)language_switch_API{
+    @try
+    {
+        
+        [Helper_activity animating_images:self];
+        
+        NSString *country = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"country_id"]];
+        NSString *languge_str = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"language_id"]];
+   
+         language_code = [[NSUserDefaults standardUserDefaults] valueForKey:@"code_language"];
+        
+        
+        NSString *urlGetuser =[NSString stringWithFormat:@"%@users/switch-language/%@/%@/%@/Mobile",SERVER_URL,country,languge_str,language_code];
+        
+       
+        
+        urlGetuser = [urlGetuser stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+        [HttpClient postServiceCall:urlGetuser andParams:nil completionHandler:^(id  _Nullable data, NSError * _Nullable error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (error) {
+                    [HttpClient createaAlertWithMsg:[error localizedDescription] andTitle:@""];
+                    
+                    [Helper_activity stop_activity_animation:self];
+                }
+                @try
+                {
+                    if (data) {
+                        
+                        NSLog(@"%@",data);
+                        
+                    }
+                    
+                }
+                @catch(NSException *exception)
+                {
+                    
+                }
+                
+                
+            });
+        }];
+    }
+    @catch(NSException *exception)
+    {
+        
+    }
 
+}
 
 
 @end

@@ -33,27 +33,26 @@
 
 
     CGRect frame_nav = _VW_navMenu.frame;
-    frame_nav.origin.x = 0.0f;
-    frame_nav.size.width = self.navigationController.navigationBar.frame.size.width - _BTN_search.frame.size.width;
+    frame_nav.origin.x = _BTN_close.frame.origin.x+_BTN_close.frame.size.width;
+    frame_nav.size.width = self.navigationController.navigationBar.frame.size.width ;
     _VW_navMenu.frame = frame_nav;
-    
-    frame_nav = _TXT_search.frame;
-    frame_nav.size.width = _VW_navMenu.frame.size.width - _BTN_search.frame.size.width- _BTN_close.frame.size.width;
-    _TXT_search.frame = frame_nav;
-    
-    frame_nav = _BTN_search.frame;
-    if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
-    {
-         frame_nav.origin.x = _TXT_search.frame.origin.x- _BTN_search.frame.size.width-2;
-    }
-    else
-    {
-         frame_nav.origin.x = _TXT_search.frame.size.width - _BTN_search.frame.size.width-2;
-    }
-   // frame_nav.origin.x = _TXT_search.frame.size.width - _BTN_search.frame.size.width-2;
-    _BTN_search.frame =  frame_nav;
-   //  _TBL_search_results.hidden = YES;
-    
+
+//    frame_nav = _TXT_search.frame;
+//    frame_nav.size.width = _VW_navMenu.frame.size.width - _BTN_search.frame.size.width;
+//    _TXT_search.frame = frame_nav;
+//
+//    frame_nav = _BTN_search.frame;
+//    if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
+//    {
+//         frame_nav.origin.x = _TXT_search.frame.origin.x- _BTN_search.frame.size.width-2;
+//    }
+//    else
+//    {
+//         frame_nav.origin.x = _TXT_search.frame.size.width - _BTN_search.frame.size.width;
+//    }
+//
+//    _BTN_search.frame =  frame_nav;
+  
     _TXT_search.delegate = self;
     [_BTN_close addTarget:self action:@selector(Close_Action) forControlEvents:UIControlEventTouchUpInside];
     [_TXT_search addTarget:self action:@selector(search_API) forControlEvents:UIControlEventEditingChanged];
@@ -225,9 +224,20 @@
     [request setURL:urlProducts];
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    // [request setHTTPBody:postData];
-    //[request setAllHTTPHeaderFields:headers];
-    [request setHTTPShouldHandleCookies:NO];
+        // set Cookie and awllb...
+        if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
+            
+            NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
+            
+            if (![awlllb containsString:@"(null)"]) {
+                awlllb = [NSString stringWithFormat:@"%@;%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"],awlllb];
+                [request addValue:awlllb forHTTPHeaderField:@"Cookie"];
+            }
+            else{
+                [request addValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] forHTTPHeaderField:@"Cookie"];
+            }
+            
+        }
     NSData *aData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     if(aData)
     {

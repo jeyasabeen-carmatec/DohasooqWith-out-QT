@@ -249,11 +249,16 @@
     /************************************** Number of products **************************************/
     
     NSString *prodct_count = [NSString stringWithFormat:@"%@",[json_DATA valueForKey:@"totalCount"]];
+    if([prodct_count isKindOfClass:[NSNull class]]||[prodct_count isEqualToString:@""] ||[prodct_count isEqualToString:@"(null)"] ||[prodct_count isEqualToString:@"<null>"])
+    {
+       prodct_count = @"";
+    }
+    
     NSString *products = @"PRODUCTS";//منتجات
     NSString *text;
     if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
     {
-        products = @"منتجات";
+        products = @"منتج";
         text = [NSString stringWithFormat:@"%@ %@",products,prodct_count];
 
         
@@ -321,18 +326,33 @@
     conutry_close.barStyle = UIBarStyleBlackTranslucent;
     [conutry_close sizeToFit];
     
-    UIButton *close=[[UIButton alloc]init];
-    close.frame=CGRectMake(conutry_close.frame.origin.x -20, 0, 100, conutry_close.frame.size.height);
-    [close setTitle:@"Close" forState:UIControlStateNormal];
-    [close addTarget:self action:@selector(close_action) forControlEvents:UIControlEventTouchUpInside];
-    [conutry_close addSubview:close];
-
+//    UIButton *close=[[UIButton alloc]init];
+//    close.frame=CGRectMake(conutry_close.frame.origin.x -20, 0, 100, conutry_close.frame.size.height);
+//    [close setTitle:@"Close" forState:UIControlStateNormal];
+//    [close addTarget:self action:@selector(close_action) forControlEvents:UIControlEventTouchUpInside];
+//    [conutry_close addSubview:close];
+//
+//
+//    UIButton *done=[[UIButton alloc]init];
+//    done.frame=CGRectMake(conutry_close.frame.size.width - 100, 0, 100, conutry_close.frame.size.height);
+//    [done setTitle:@"Done" forState:UIControlStateNormal];
+//    [done addTarget:self action:@selector(countrybuttonClick) forControlEvents:UIControlEventTouchUpInside];
+//    [conutry_close addSubview:done];
+//
+    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(countrybuttonClick)];
+    [doneBtn setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
     
-    UIButton *done=[[UIButton alloc]init];
-    done.frame=CGRectMake(conutry_close.frame.size.width - 100, 0, 100, conutry_close.frame.size.height);
-    [done setTitle:@"Done" forState:UIControlStateNormal];
-    [done addTarget:self action:@selector(countrybuttonClick) forControlEvents:UIControlEventTouchUpInside];
-    [conutry_close addSubview:done];
+    UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *cancelBtn = [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(close_action)];
+    [cancelBtn setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
+    
+    
+    NSMutableArray *barItems = [NSMutableArray arrayWithObjects:cancelBtn,flexibleItem,doneBtn, nil];
+    [conutry_close setItems:barItems animated:YES];
+    
+    
+    
+    
     
     _BTN_sort.inputAccessoryView=conutry_close;
     _BTN_sort_deals.inputAccessoryView = conutry_close;
@@ -699,7 +719,7 @@
            if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
             {
                
-                str = @"% إيقاف";
+                str = @"% خصم";
             }
             else{
                 
@@ -798,7 +818,7 @@
                         
                         @try {
                             
-                            if ([[dict valueForKey:@"msg"] isEqualToString:@"Removed from your Wishlist"]) {
+                            if ([[NSString stringWithFormat:@"%@",[dict valueForKey:@"msg"]] isEqualToString:@"Removed from your Wishlist"]) {
                                 
                                       // Updating Array after Remove zfrom Wishlist;
     
@@ -824,7 +844,7 @@
                             }
                             
                             
-                            [HttpClient createaAlertWithMsg:[dict valueForKey:@"msg"]andTitle:@""];
+                            [HttpClient createaAlertWithMsg:[dict valueForKey:@"multi_msg"]andTitle:@""];
                             
                             
                         } @catch (NSException *exception) {
@@ -975,14 +995,18 @@
                                 @try {
                                    if (json_Response_Dic ) {
                                        
-                                      
+                                       NSLog(@"%@",json_Response_Dic);
                                        
-                                       if ([[json_Response_Dic valueForKey:@"msg"] isEqualToString:@"Added to your Wishlist"]) {
+                                       
+                                       if ([[NSString stringWithFormat:@"%@",[json_Response_Dic valueForKey:@"msg"]] isEqualToString:@"Added to your Wishlist"]) {
+                                           
+                                       
+//                                       if ([[json_Response_Dic valueForKey:@"msg"] isEqualToString:@"Added to your Wishlist"]) {
                                            [cell.BTN_fav setTitle:@"" forState:UIControlStateNormal];
                                            
                                            [cell.BTN_fav setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
                                            
-                                           [HttpClient createaAlertWithMsg:[json_Response_Dic valueForKey:@"msg"] andTitle:@""];
+                                           [HttpClient createaAlertWithMsg:[json_Response_Dic valueForKey:@"multi_msg"] andTitle:@""];
                                            
                                            
                                            @try {
@@ -1440,7 +1464,7 @@
                                 @try
                                 {
                                 NSString *str_name =[NSString stringWithFormat:@"%@",[json_DATA valueForKey:@"displayName"]];
-                                str_name = [str_name stringByReplacingOccurrencesOfString:@"<null>" withString:@""];
+                                str_name = [str_name stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
                                 self.LBL_product_name.text = [NSString stringWithFormat:@"%@",str_name];
                                     
                                 }
@@ -1499,8 +1523,9 @@
         else{
             [HttpClient createaAlertWithMsg:@"Connection error" andTitle:@""];
         }
-      //  [HttpClient createaAlertWithMsg:[NSString stringWithFormat:@"%@",exception] andTitle:@"Exception"];
-       
+
+        NSLog(@"........................");
+        
     }
 
 }
@@ -2521,7 +2546,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
             {
                 // STR_timeRe = [NSString stringWithFormat:@"%02d: %02d: %02d ينتهي بـ",(int)[breakdownInfo second], (int)[breakdownInfo minute], (int)[breakdownInfo hour]];
                 
-                STR_timeRe = [NSString stringWithFormat:@"ينتهي بـ%02d: %02d: %02d",(int)[breakdownInfo hour], (int)[breakdownInfo minute], (int)[breakdownInfo second]];
+                STR_timeRe = [NSString stringWithFormat:@"ينتهي في%02d: %02d: %02d",(int)[breakdownInfo hour], (int)[breakdownInfo minute], (int)[breakdownInfo second]];
             }
             
             
@@ -2534,7 +2559,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
             {
                 //  STR_timeRe = [NSString stringWithFormat:@"%02d: %02d ينتهي بـ",(int)[breakdownInfo second], (int)[breakdownInfo minute]];
                 
-                STR_timeRe = [NSString stringWithFormat:@"ينتهي بـ %02d: %02d",(int)[breakdownInfo minute], (int)[breakdownInfo second]];
+                STR_timeRe = [NSString stringWithFormat:@"ينتهي في %02d: %02d",(int)[breakdownInfo minute], (int)[breakdownInfo second]];
             }
             
             
@@ -2546,7 +2571,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
             if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
             {
                 //STR_timeRe = [NSString stringWithFormat:@"%02d ينتهي بـ",(int)[breakdownInfo second]];
-                STR_timeRe = [NSString stringWithFormat:@"ينتهي بـ %02d", (int)[breakdownInfo second]];
+                STR_timeRe = [NSString stringWithFormat:@"ينتهي في %02d", (int)[breakdownInfo second]];
                 
             }
             
@@ -2562,7 +2587,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
             {
                 //  STR_timeRe = [NSString stringWithFormat:@"%02d: %02d: %02d:الأيام %2d ينتهي بـ",(int)[breakdownInfo second], (int)[breakdownInfo minute], (int)[breakdownInfo hour], (int)[breakdownInfo day]];
                 
-                STR_timeRe = [NSString stringWithFormat:@" ينتهي بـ: %2d الأيام: %02d: %02d: %02d", (int)[breakdownInfo day], (int)[breakdownInfo hour], (int)[breakdownInfo minute], (int)[breakdownInfo second]];
+                STR_timeRe = [NSString stringWithFormat:@" ينتهي في: %2d الأيام: %02d: %02d: %02d", (int)[breakdownInfo day], (int)[breakdownInfo hour], (int)[breakdownInfo minute], (int)[breakdownInfo second]];
             }
             
         }
@@ -2598,7 +2623,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         cell.LBL_stock.text = [str uppercaseString];
         if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
         {
-            cell.LBL_stock.text = @"غير متوفّر";
+            cell.LBL_stock.text = @"نفد المخزون";
         }
 
     }

@@ -182,7 +182,16 @@
         {
         
         cell._TXT_count.delegate = self;
-        cell.LBL_item_name.text = [NSString stringWithFormat:@"%@",[[[cart_array objectAtIndex:indexPath.row] valueForKey:@"productDetails"] valueForKey:@"pname"]];
+            
+            NSString *pName = [NSString stringWithFormat:@"%@",[[[cart_array objectAtIndex:indexPath.row] valueForKey:@"productDetails"] valueForKey:@"pname"]];
+            
+            if ([pName isKindOfClass:[NSNull class]] || [pName isEqualToString:@"(null)"] || [pName isEqualToString:@"<null>"]) {
+                pName = @"";
+            }
+            
+            cell.LBL_item_name.text = pName;
+            
+            
         NSString *img_url = [NSString stringWithFormat:@"%@",[[[cart_array objectAtIndex:indexPath.row] valueForKey:@"productDetails"] valueForKey:@"product_image_path"]];
         @try
         {
@@ -410,7 +419,7 @@
                 if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                 {
                     
-                    str = @"إيقاف";
+                    str = @"خصم";
                     cell.LBL_discount.text = [NSString stringWithFormat:@"%@ %@",[[[cart_array objectAtIndex:indexPath.row] valueForKey:@"productDetails"] valueForKey:@"discount"],str];
                 }
                 else{
@@ -492,7 +501,7 @@
             cell.LBL_current_price.textAlignment = NSTextAlignmentRight;
         }
        
-            [NSString stringWithFormat:@"%@",[[[cart_array objectAtIndex:indexPath.row] valueForKey:@"productDetails"] valueForKey:@"pname"]];
+            //[NSString stringWithFormat:@"%@",[[[cart_array objectAtIndex:indexPath.row] valueForKey:@"productDetails"] valueForKey:@"pname"]];
         // Stock Status
             if ([[NSString stringWithFormat:@"%@",[[[cart_array objectAtIndex:indexPath.row] valueForKey:@"productDetails"] valueForKey:@"StockStatus"]] isEqualToString:@"Out of stock"]) {
                 cell.LBL_stockStatus.text = @"OUT OF STOCK";
@@ -794,7 +803,7 @@
 #pragma mark Delete Item From Cart
 
 -(void)tapGesture_close:(UITapGestureRecognizer *)tapgstr{
-    CGPoint location = [tapGesture1 locationInView:_TBL_cart_items];
+    CGPoint location = [tapgstr locationInView:_TBL_cart_items];
     NSIndexPath *indexPath = [_TBL_cart_items indexPathForRowAtPoint:location];
 
    product_id = [NSString stringWithFormat:@"%@",[[[cart_array objectAtIndex:indexPath.row] valueForKey:@"productDetails"] valueForKey:@"productid"]];
@@ -966,13 +975,32 @@ params.put("customerId",customerid);
         
         
         NSURL *urlProducts=[NSURL URLWithString:[NSString stringWithFormat:@"%@apis/shoppingcartapi.json",SERVER_URL]];
-        
+     
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
         [request setURL:urlProducts];
         [request setHTTPMethod:@"POST"];
         [request setHTTPBody:postData];
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        
+        // set Cookie and awllb......
+        if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
+            
+            NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
+            
+            if (![awlllb containsString:@"(null)"]) {
+                awlllb = [NSString stringWithFormat:@"%@;%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"],awlllb];
+                [request addValue:awlllb forHTTPHeaderField:@"Cookie"];
+            }
+            else{
+                [request addValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] forHTTPHeaderField:@"Cookie"];
+            }
+            
+        }
+        
         NSData *aData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        if (response) {
+            [HttpClient filteringCookieValue:response];
+        }
         if (error) {
             [HttpClient createaAlertWithMsg:[error localizedDescription] andTitle:@""];
             
@@ -1087,10 +1115,6 @@ params.put("customerId",customerid);
 
  */
 -(void)clear_cart_action:(UIButton*)sender{
-//    [self clear_cart_api];
-    
-    
-    //[self performSelector:@selector(clear_cart_api) withObject:activityIndicatorView afterDelay:0.01];
     
      [Helper_activity animating_images:self];
     [self clear_cart_api];
@@ -1117,8 +1141,12 @@ params.put("customerId",customerid);
                 if (data) {
                     NSLog(@"%@",data);
                     [HttpClient createaAlertWithMsg:[data valueForKey:@"message"] andTitle:@""];
-                    [self cartList_api_calling];
-                    [self.TBL_cart_items reloadData];
+                    
+                    if ([[NSString stringWithFormat:@"%@",[data valueForKey:@"success"]]isEqualToString:@"1"]) {
+                        [self cartList_api_calling];
+                        [self.TBL_cart_items reloadData];
+                    }
+                   
                     
 //                    
 //                    VW_overlay.hidden=YES;
@@ -1279,7 +1307,7 @@ params.put("customerId",customerid);
         
         if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"]){
             
-            plans =[NSString stringWithFormat:@"%@ أميال الدوحة",plans];
+            plans =[NSString stringWithFormat:@"%@ أميال الدوحة",plans];//أميالالدوحة
         }
         
         
@@ -1340,7 +1368,10 @@ params.put("customerId",customerid);
     NSString *custmr_id = [NSString stringWithFormat:@"%@",[dict valueForKey:@"customer_id"]];
     
     NSString *urlGetuser =[NSString stringWithFormat:@"%@apis/deletepdtcartapi/%@/%@/%@/%@.json",SERVER_URL,product_id,custmr_id,variantCombinationID,cartCustomOptionId];
+    
     urlGetuser = [urlGetuser stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    
+    NSLog(@"******** %@",urlGetuser);
     @try {
         [HttpClient postServiceCall:urlGetuser andParams:nil completionHandler:^(id  _Nullable data, NSError * _Nullable error) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -1352,9 +1383,14 @@ params.put("customerId",customerid);
                     [Helper_activity stop_activity_animation:self];
                     NSLog(@"%@",data);
                     @try {
+                        
+                        if ([[NSString stringWithFormat:@"%@",[data valueForKey:@"success"]] isEqualToString:@"1"]) {
+                            [self cartList_api_calling];
+                            [self.TBL_cart_items reloadData];
+                        }
+                        
                         [HttpClient createaAlertWithMsg:[data valueForKey:@"message"] andTitle:@""];
-                        [self cartList_api_calling];
-                        [self.TBL_cart_items reloadData];
+                        
                         status = NO;
                         
 //                        VW_overlay.hidden=YES;

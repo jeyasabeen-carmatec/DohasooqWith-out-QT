@@ -22,10 +22,11 @@
 //#define IMG_URL @"https://pilot.dohasooq.com/"
 
 //test dohasooq
-#define SERVER_URL @"http://test2.dohasooq.com/"
-#define IMG_URL @"http://test2.dohasooq.com"
+//#define SERVER_URL @"http://test2.dohasooq.com/"
+//#define IMG_URL @"http://test2.dohasooq.com"
 
 //dohasooq carmatec
+
 //#define SERVER_URL @"https://dohasooq.carmatec.com/"
 //#define IMG_URL @"https://dohasooq.carmatec.com"
 
@@ -38,13 +39,15 @@
 //#define IMG_URL @"http://192.168.0.171"
 
 // Production server
+#define SERVER_URL @"https://www.dohasooq.com/"
+#define IMG_URL @"https://www.dohasooq.com/"
 
 
-//#define SERVER_URL @"https://www.dohasooq.com/"
-//#define IMG_URL @"https://www.dohasooq.com/"
 
 
-//#define language_Url @"Languages/getLangByCountry/"
+//Lijith System
+//#define SERVER_URL @"http://192.168.3.108/dohasooq/"
+//#define IMG_URL @"http://192.168.3.108/dohasooq/"
 
 
 

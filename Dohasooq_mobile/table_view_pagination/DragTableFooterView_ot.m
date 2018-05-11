@@ -79,9 +79,18 @@
 {
     if (self = [super initWithFrame:frame])
     {
-        self.releaseText = NSLocalizedString(@"Release to load more...", @"Release to load more Events");
-        self.pullUpText = NSLocalizedString(@"Pull up to load more...", @"Pull down to load more Events");
-        self.loadingText = NSLocalizedString(@"Loading...", @"Loading Events");
+        
+        if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
+        {
+        self.releaseText = NSLocalizedString(@"الافراج لتحميل أكثر...", @"Release to load more Events");
+        self.pullUpText = NSLocalizedString(@"اسحب لتحميل المزيد...", @"Pull down to load more Events");
+        self.loadingText = NSLocalizedString(@"جار التحميل...", @"Loading Events");
+        }
+        else{
+            self.releaseText = NSLocalizedString(@"Release to load more...", @"Release to load more Events");
+            self.pullUpText = NSLocalizedString(@"Pull up to load more...", @"Pull down to load more Events");
+            self.loadingText = NSLocalizedString(@"Loading...", @"Loading Events");
+        }
         
         _isLoading = NO;
         
