@@ -413,19 +413,21 @@
 
                 NSString *str_discount =[NSString stringWithFormat:@"%@",[[[cart_array objectAtIndex:indexPath.row] valueForKey:@"productDetails"] valueForKey:@"discount"]];
                 str_discount = [str_discount stringByReplacingOccurrencesOfString:@"<null>" withString:@""];
+                str_discount = [str_discount stringByReplacingOccurrencesOfString:@"%" withString:@""];
+                
                 
                 NSString *str;
                 
                 if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                 {
                     
-                    str = @"خصم";
-                    cell.LBL_discount.text = [NSString stringWithFormat:@"%@ %@",[[[cart_array objectAtIndex:indexPath.row] valueForKey:@"productDetails"] valueForKey:@"discount"],str];
+                    str = @"%خصم";
+                    cell.LBL_discount.text = [NSString stringWithFormat:@"%@ %@",str,str_discount];
                 }
                 else{
                     
-                    str = @"off";
-                   cell.LBL_discount.text =[NSString stringWithFormat:@"%@ %@",[[[cart_array objectAtIndex:indexPath.row] valueForKey:@"productDetails"] valueForKey:@"discount"],str];
+                    str = @"% off";
+                   cell.LBL_discount.text =[NSString stringWithFormat:@"%@ %@",str_discount,str];
                     
                 }
 

@@ -536,14 +536,16 @@
 //                NSString *str;
                 if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                 {
-                    of = @"% خصم";
+                    of =  @"%خصم";
+                    _LBL_discount.text =[NSString stringWithFormat:@"%@ %@",of,str_discount];
                 }
                 else
                 {
                     of = @"% off";
+                    _LBL_discount.text =[NSString stringWithFormat:@"%@%@",str_discount,of];
                 }
                 
-                _LBL_discount.text =[NSString stringWithFormat:@"%@%@",str_discount,of];
+                
             }
             
             
@@ -630,7 +632,7 @@
                 str_cod =  @"Cash-On-Delivery is available";
                 if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                 {
-                     str_cod =  @"يتوفر خيار السداد نقداً عند التسليم";
+                    str_cod =@"الدفع عند التوصيل  متوفر لهذا المنتج";
                 }
                 
                 
@@ -640,7 +642,7 @@
                 str_cod =  @"Cash-On-Delivery is not available";
                 if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                 {
-                    str_cod = @"الدفع عند التوصيل غير متوفر لهذا المنت";
+                    str_cod =@"الدفع عند التوصيل غير متوفر لهذا المنتج";
                 }
 
             }
@@ -653,18 +655,18 @@
             
             else
             {
-                if (![str_shipp isKindOfClass:[NSNull class]] || [str_shipp isEqualToString:@"(null)"]) {
+                if ([str_shipp isKindOfClass:[NSNull class]] || [str_shipp isEqualToString:@"(null)"]) {
                     str_shipp = @"";
                 }
                 
-                if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
-                {
-                str_shipp = [NSString stringWithFormat:@"الشحن المجاني هو %@",str_shipp];
-                }
-                else{
-                    str_shipp = [NSString stringWithFormat:@"Free shipping is %@",str_shipp];
-
-                }
+//                if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
+//                {
+//                str_shipp = [NSString stringWithFormat:@"الشحن المجاني هو %@",str_shipp];
+//                }
+//                else{
+//                    str_shipp = [NSString stringWithFormat:@"Free shipping is %@",str_shipp];
+//
+//                }
                 
                 
             }
@@ -2715,7 +2717,7 @@
             if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
             {
                 str = @"حسنا";
-                str_stat = @"نفد المخزون ";
+                str_stat = @"غير متوفّر ";
             }
             
 
@@ -2740,7 +2742,7 @@
                 if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                 {
                     str = @"حسنا";
-                    str_stat = @"نفد المخزون ";
+                    str_stat = @"غير متوفّر ";
                 }
                 
                 
@@ -3082,7 +3084,7 @@
 
                             if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                              {
-                             [HttpClient createaAlertWithMsg:@"نفد المخزون" andTitle:@""];
+                             [HttpClient createaAlertWithMsg:@"غير متوفّر" andTitle:@""];
                              }
                             else{
                                 [HttpClient createaAlertWithMsg:@"Out of Stock." andTitle:@""];
@@ -3101,7 +3103,7 @@
              {
                  if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                  {
-                     [HttpClient createaAlertWithMsg:@"نفد المخزون" andTitle:@""];
+                     [HttpClient createaAlertWithMsg:@"غير متوفّر" andTitle:@""];
                  }
                  else{
                      [HttpClient createaAlertWithMsg:@"Out of Stock." andTitle:@""];
@@ -5024,14 +5026,17 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
             
             if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
             {
-                of = @"% خصم";
+                of =  @"%خصم";
+                _LBL_discount.text = [NSString stringWithFormat:@"%@ %.2f",of,discount];
+
             }
             else
             {
                 of = @"% off";
+                _LBL_discount.text = [NSString stringWithFormat:@"%.2f%@",discount,of];
+
             }
             
-            _LBL_discount.text = [NSString stringWithFormat:@"%.2f%@",discount,of];
             
             
             
@@ -5195,14 +5200,16 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
              NSString *str;
              if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
              {
-                 str = @"% خصم";
+                 str =  @"%خصم";
+                  _LBL_discount.text = [NSString stringWithFormat:@"%@ %@",str,[[update_dic valueForKey:@"variant"] valueForKey:@"discount"]];
              }
              else
              {
                  str = @"% off";
+                  _LBL_discount.text = [NSString stringWithFormat:@"%@%@",[[update_dic valueForKey:@"variant"] valueForKey:@"discount"],str];
              }
              
-             _LBL_discount.text = [NSString stringWithFormat:@"%@%@",[[update_dic valueForKey:@"variant"] valueForKey:@"discount"],str];
+            
              
          }
         

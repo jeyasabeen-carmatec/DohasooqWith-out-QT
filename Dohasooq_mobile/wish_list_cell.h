@@ -22,7 +22,7 @@
 //@property(nonatomic,strong) IBOutlet UIButton *BTN_ADD_cart;
 @property (weak, nonatomic) IBOutlet UIButton *Btn_add_cart;
 
-@property(nonatomic,weak) IBOutlet UILabel *LBL_ad_to_cart;
+@property(nonatomic,weak) IBOutlet UILabel *outOfStock_LBL;
 
 
 

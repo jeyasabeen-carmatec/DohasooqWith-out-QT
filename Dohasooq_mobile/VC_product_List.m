@@ -719,15 +719,17 @@
            if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
             {
                
-                str = @"% خصم";
+               str = @"%خصم";
+                 pro_cell.LBL_discount.text = [NSString stringWithFormat:@"%@ %@",str,[[productDataArray objectAtIndex:indexPath.row] valueForKey:@"discount"]];
             }
             else{
                 
                  str = @"% off";
+                 pro_cell.LBL_discount.text = [NSString stringWithFormat:@"%@ %@",[[productDataArray objectAtIndex:indexPath.row] valueForKey:@"discount"],str];
               
  
             }
-              pro_cell.LBL_discount.text = [NSString stringWithFormat:@"%@%@",[[productDataArray objectAtIndex:indexPath.row] valueForKey:@"discount"],str];
+            
         }
         
         [pro_cell.BTN_fav setTag:indexPath.row];//wishListStatus
@@ -2623,7 +2625,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         cell.LBL_stock.text = [str uppercaseString];
         if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
         {
-            cell.LBL_stock.text = @"نفد المخزون";
+            cell.LBL_stock.text = @"غير متوفّر";
         }
 
     }

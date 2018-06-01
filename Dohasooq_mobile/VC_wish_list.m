@@ -167,12 +167,11 @@
     else
     {
     
-        
         if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
         {
             
             str = @"% خصم";
-            cell.LBL_discount.text = [NSString stringWithFormat:@"%@%@",[[response_Arr objectAtIndex:indexPath.section]valueForKey:@"product_discount"],str];
+            cell.LBL_discount.text = [NSString stringWithFormat:@"%@ %@",str,[[response_Arr objectAtIndex:indexPath.section]valueForKey:@"product_discount"]];
         }
         else{
             
@@ -189,6 +188,14 @@
         if([[[response_Arr objectAtIndex:indexPath.section] valueForKey:@"stock_status"] isEqualToString:@"Out of stock"] )
         {
             cell.Btn_add_cart.enabled = NO;
+           
+            if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
+            {
+                cell.outOfStock_LBL.text = @"غير متوفّر";
+            }
+            else{
+                 cell.outOfStock_LBL.text = @"Out Of Stock";
+            }
             
             [cell.Btn_add_cart setBackgroundImage:[UIImage imageNamed:@"out-of-stock-2.png"] forState:UIControlStateNormal];
             if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
@@ -199,6 +206,7 @@
         }
         else
         {
+            cell.outOfStock_LBL.text = @"";
             cell.Btn_add_cart.enabled = YES;
             [cell.Btn_add_cart setBackgroundImage:[UIImage imageNamed:@"Add-to-cart.png"] forState:UIControlStateNormal];
             if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
@@ -206,6 +214,7 @@
                 [cell.Btn_add_cart setBackgroundImage:[UIImage imageNamed:@"arbic_gray.png"] forState:UIControlStateNormal];
                 
             }
+            
 
         }
     

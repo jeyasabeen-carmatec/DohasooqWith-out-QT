@@ -142,7 +142,7 @@
 //special instructions view
 
 @property(nonatomic,weak) IBOutlet UIView *VW_special;
-@property(nonatomic,weak) IBOutlet Hoshi_Billing_ADDR *TXT_instructions;
+@property(nonatomic,weak) IBOutlet UITextView *TXT_instructions;
 
 
 

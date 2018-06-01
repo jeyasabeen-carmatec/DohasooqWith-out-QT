@@ -1259,7 +1259,7 @@
 //    STR_country = [STR_country stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
     
     if ([STR_country containsString:@"<null>"] || [STR_country containsString:@"<nil>"] ||[STR_country isEqualToString:@"<null>"]) {
-        _TXT_country.placeholder = @"Select Country*";
+        _TXT_country.text = @"";
     }
     else{
          _TXT_country.text = STR_country;
@@ -1951,7 +1951,7 @@
         
         
         // set Cookie and awllb......
-        if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[NSUserDefaults standardUserDefaults] valueForKey:@"(null)"]) {
+        if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isKindOfClass:[NSNull class]] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"<nil>"] || ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Cookie"] isEqualToString:@"(null)"]) {
             
             NSString *awlllb = [[NSUserDefaults standardUserDefaults] valueForKey:@"Aws"];
             
