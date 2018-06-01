@@ -24,7 +24,7 @@
     
     if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
     {
-         [super drawTextInRect:UIEdgeInsetsInsetRect(CGRectMake(rect.size.width - 20, rect.origin.y + 10 , rect.size.width - 40, rect.size.height - 20), insets)];
+        // [super drawTextInRect:UIEdgeInsetsInsetRect(CGRectMake(rect.size.width - 20, rect.origin.y + 10 , rect.size.width - 40, rect.size.height - 20), insets)];
 
     }
     else{

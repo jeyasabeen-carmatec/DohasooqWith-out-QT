@@ -823,7 +823,9 @@ int j ,i;
             {
                 str  = @"";
             }
+            cell.LBL_instructions.textAlignment = NSTextAlignmentRight;
             cell.LBL_instructions.text = str;
+           
             }
             @catch(NSException *exception)
             {

@@ -466,9 +466,7 @@
     [_BTN_address addTarget:self action:@selector(btn_address_action) forControlEvents:UIControlEventTouchUpInside];
     [_BTN_myorder addTarget:self action:@selector(btn_orders_action) forControlEvents:UIControlEventTouchUpInside];
     [_BTN_wishlist addTarget:self action:@selector(_BTN_wishlist_action) forControlEvents:UIControlEventTouchUpInside];
-    
   
-    
 }
 
 -(void)set_up_VIEW
@@ -486,7 +484,7 @@
     {
         if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
         {
-             [_BTN_log_out setTitle:@"أنثى" forState:UIControlStateNormal];
+             [_BTN_log_out setTitle:@"تسجيل الدخول" forState:UIControlStateNormal];
         }
         else
         {
@@ -1146,7 +1144,7 @@
                     pro_cell.LBL_stock.text =[str uppercaseString];
                     if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                     {
-                        pro_cell.LBL_stock.text = @"نفد المخزون";
+                        pro_cell.LBL_stock.text = @"غير متوفّر";
                     }
 
                 }
@@ -1272,8 +1270,8 @@
                     if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                     {
                         
-                        str = @"% خصم";
-                        pro_cell.LBL_discount.text = [NSString stringWithFormat:@"%@%@",str_discount,str];
+                        str = @"%خصم";
+                        pro_cell.LBL_discount.text = [NSString stringWithFormat:@"%@ %@",str,str_discount];
                     }
                     else{
                         
@@ -1553,14 +1551,11 @@
                     
                     NSString *str = @"% off";
                     pro_cell.LBL_discount.text = [NSString stringWithFormat:@"%@%@",str_discount,str];
-                    
-                    
-                    
                     if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                     {
                         
-                        str = @"% خصم";
-                        pro_cell.LBL_discount.text = [NSString stringWithFormat:@"%@%@",str_discount,str];
+                        str = @"%خصم";
+                        pro_cell.LBL_discount.text = [NSString stringWithFormat:@"%@ %@",str,str_discount];
                     }
                     else{
                         
@@ -1568,10 +1563,6 @@
                         pro_cell.LBL_discount.text = [NSString stringWithFormat:@"%@%@",str_discount,str];
                         
                     }
-                    
-
-                  
-                    
                     
                     if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                     {
@@ -3803,7 +3794,7 @@
         NSString *str = @"Women's";
         if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
         {
-            str = @"للنساء";
+            str = @"للنساء "; 
             
         }
         NSString *str_deals =[NSString stringWithFormat:@"%@",[[[json_Response_Dic valueForKey:@"dealSection"] valueForKey:@"two"]  valueForKey:@"widgetTitle"]];
@@ -4131,7 +4122,7 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
      if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
      {
-         if([_BTN_log_out.titleLabel.text isEqualToString:@"أنثى"])
+         if([_BTN_log_out.titleLabel.text isEqualToString:@"تسجيل الدخول"])
          {
              [self swipe_left];
              ViewController *login = [self.storyboard instantiateViewControllerWithIdentifier:@"login_VC"];
@@ -5106,7 +5097,7 @@ NSString *str_status_text;
         NSString *str = @"Women's";
         if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
         {
-            str = @"للسيدات";
+            str = @"للنساء ";
             
         }
 
@@ -5131,7 +5122,7 @@ NSString *str_status_text;
       NSString *str = @"Men's";
       if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
       {
-          str = @"للرجال";
+          str = @"للرجال ";
           
       }
       _Hot_deals.text = [NSString stringWithFormat:@"%@ %@",str,[json_Response_Dic valueForKey:@"fashion_name"]];//@"MEN'S FASHION ACCESORIES";
@@ -5427,7 +5418,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         {
          //  STR_timeRe = [NSString stringWithFormat:@"%02d: %02d: %02d:الأيام %2d ينتهي بـ",(int)[breakdownInfo second], (int)[breakdownInfo minute], (int)[breakdownInfo hour], (int)[breakdownInfo day]];
             
-              STR_timeRe = [NSString stringWithFormat:@" ينتهي بـ: %2d الأيام: %02d: %02d: %02d", (int)[breakdownInfo day], (int)[breakdownInfo hour], (int)[breakdownInfo minute], (int)[breakdownInfo second]];
+              STR_timeRe = [NSString stringWithFormat:@"  ينتهي في:%2d الأيام: %02d: %02d: %02d", (int)[breakdownInfo day], (int)[breakdownInfo hour], (int)[breakdownInfo minute], (int)[breakdownInfo second]];
         }
 
     }
@@ -5581,7 +5572,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
             if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
             {
                // STR_timeRe = [NSString stringWithFormat:@"%02d: %02d: %02d:الأيام %2d ينتهي بـ",(int)[breakdownInfo second], (int)[breakdownInfo minute], (int)[breakdownInfo hour], (int)[breakdownInfo day]];
-                  STR_timeRe = [NSString stringWithFormat:@" ينتهي بـ: %2d الأيام: %02d: %02d: %02d", (int)[breakdownInfo day], (int)[breakdownInfo hour], (int)[breakdownInfo minute], (int)[breakdownInfo second]];
+                  STR_timeRe = [NSString stringWithFormat:@"  ينتهي في:%2d الأيام: %02d: %02d: %02d", (int)[breakdownInfo day], (int)[breakdownInfo hour], (int)[breakdownInfo minute], (int)[breakdownInfo second]];
             }
             
         }
@@ -5624,7 +5615,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
             cell.LBL_stock.text = [str uppercaseString];
             if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
             {
-                cell.LBL_stock.text = @"نفد المخزون";
+                cell.LBL_stock.text = @"غير متوفّر";
             }
             
         }

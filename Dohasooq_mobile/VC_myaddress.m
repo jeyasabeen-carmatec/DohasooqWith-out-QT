@@ -300,6 +300,7 @@
             cell = [nib objectAtIndex:index];
         }
         cell.Btn_close.hidden = NO;
+        cell.Btn_close_width.constant = 30;
         cell.BTN_edit_addres.hidden = YES;
         cell.VW_layer.layer.borderColor = [UIColor lightGrayColor].CGColor;
         cell.VW_layer.layer.borderWidth = 0.5f;
@@ -528,7 +529,7 @@
             
             
             if ([str_state isEqualToString:@""] || [str_state isEqualToString:@"<nil>"]  || [str_state isEqual:[NSNull class]]||[str_state isEqualToString:@"<null>"]) {
-                cell.TXT_state.placeholder = @"Select state*";
+                cell.TXT_state.placeholder =@"";
             }
             else{
                 cell.TXT_state.text = str_state;

@@ -61,18 +61,26 @@
     NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[description dataUsingEncoding:NSUTF8StringEncoding]  options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)}documentAttributes:nil  error:nil];
     
     _TXT_text.attributedText = attributedString;
-    NSString *str = _TXT_text.text;
-    str = [str stringByReplacingOccurrencesOfString:@"/" withString:@"\n"];
-    
-    _TXT_text.text = str;
+//    NSString *str = _TXT_text.text;
+//    str = [str stringByReplacingOccurrencesOfString:@"/" withString:@"\n"];
+//
+//    _TXT_text.text = str;
     
 
     [_TXT_text sizeToFit];
     CGRect frameset = _VW_contact.frame;
-    frameset.size.height = _TXT_text.frame.origin.y + _TXT_text.frame.size.height;
+    frameset.size.height = _TXT_text.frame.origin.y + _TXT_text.contentSize.height;
     _VW_contact.frame =frameset;
     
-    _LBL_address.text = [json_dic valueForKey:@"fullAdress"];
+    //_LBL_address.text
+    NSString *visitStr= [json_dic valueForKey:@"fullAdress"];
+   visitStr=[visitStr stringByAppendingString:[NSString stringWithFormat:@"<style>body{font-family: 'Poppins-Regular'; font-size:%dpx;}</style>",17]];
+    
+    attributedString = [[NSAttributedString alloc] initWithData:[visitStr dataUsingEncoding:NSUTF8StringEncoding]  options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)}documentAttributes:nil  error:nil];
+    
+    _LBL_address.attributedText = attributedString;
+    
+    
     if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
     {
         _LBL_address.textAlignment = NSTextAlignmentRight;
@@ -297,7 +305,7 @@
         NSString *languge = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"language_id"]];
 
 
-    NSString *urlGetuser =[NSString stringWithFormat:@"%@apis/contactInfo/%@/%@.json",SERVER_URL,country,languge];
+    NSString *urlGetuser =[NSString stringWithFormat:@"%@apis/contact-info-with-visit-us-cms/%@/%@.json",SERVER_URL,country,languge];
 
     NSURL *URL = [[NSURL alloc] initWithString:urlGetuser];
     
@@ -309,7 +317,7 @@
         NSData *data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
         json_dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     [self set_up_VIEW];
-     [self set_up_VIEW];
+     //[self set_up_VIEW];
  [Helper_activity stop_activity_animation:self];    }
     @catch(NSException *exception)
     {

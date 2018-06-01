@@ -17,7 +17,7 @@
 #import "Helper_activity.h"
 
 
-@interface VC_order_detail ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate,UIGestureRecognizerDelegate>
+@interface VC_order_detail ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate,UIGestureRecognizerDelegate,UITextViewDelegate>
 
 {
     
@@ -81,6 +81,10 @@
     [super viewDidLoad];
     
     
+    [_TXT_instructions setDelegate:self];
+    // border for textview
+    self.TXT_instructions.layer.borderWidth = 1.0f;
+    self.TXT_instructions.layer.borderColor = [[UIColor grayColor] CGColor];
     
     
     self.screenName = @"Order Checkout screen";
@@ -2339,7 +2343,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
             if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
             {
                 
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"نتهت صلاحية مكتب المدعي العام، الرجاء إعادة المحاولة" delegate:self cancelButtonTitle:@"حسنا" otherButtonTitles:nil, nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@" انتهت صلاحية OTP ، يرجى المحاولة مرة أخرى" delegate:self cancelButtonTitle:@"حسنا" otherButtonTitles:nil, nil];
                 alert.tag = 1;
                 [alert show];
                 
@@ -3286,7 +3290,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         
     }
     
-    if(textField == _TXT_phone ||textField == _TXT_Cntry_code || textField ==_TXT_ship_cntry_code || textField ==_TXT_country || textField ==_TXT_state||textField == _TXT_ship_phone||textField == _TXT_city||textField == _TXT_zip||textField == _TXT_ship_zip||textField == _TXT_ship_city||textField == _TXT_ship_country||textField == _TXT_ship_state||textField == _TXT_ship_addr2 || textField == _TXT_instructions)
+    if(textField == _TXT_phone ||textField == _TXT_Cntry_code || textField ==_TXT_ship_cntry_code || textField ==_TXT_country || textField ==_TXT_state||textField == _TXT_ship_phone||textField == _TXT_city||textField == _TXT_zip||textField == _TXT_ship_zip||textField == _TXT_ship_city||textField == _TXT_ship_country||textField == _TXT_ship_state||textField == _TXT_ship_addr2 )//|| textField == _TXT_instructions
     {
 
         
@@ -3350,6 +3354,30 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
 }
     
 }
+
+#pragma mark - textView Delegates
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+   // [textView becomeFirstResponder];
+    return YES;
+}
+-(void)textViewDidBeginEditing:(UITextView *)textView{
+     [self view_animation:-190];
+    [textView becomeFirstResponder];
+}
+
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if ([text isEqualToString:@"\n"]) {
+        NSLog(@"Return pressed, do whatever you like here");
+        [textView resignFirstResponder];
+        [self stope_animating_view_for_textField];
+        return NO; // or true, whetever you's like
+    }
+    
+    return YES;
+}
+
 
 #pragma mark View Animations While TextField Editing Time
 -(void)view_animation:(CGFloat)yaxis{
@@ -5379,7 +5407,14 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         NSDictionary *Formpaymenthidden;
         @try {
             
-            Formpaymenthidden = @{@"amount":sub_total,@"locale":@"en",@"version":@"1"};
+           NSString*language_code =  [[NSUserDefaults standardUserDefaults] valueForKey:@"code_language"];
+            if ([language_code isKindOfClass:[NSNull class]]|| [language_code isEqualToString:@""]|| language_code == nil) {
+                language_code = @"en";
+            }
+            
+            //Formpaymenthidden = @{@"amount":sub_total,@"locale":@"en",@"version":@"1"};
+            Formpaymenthidden = @{@"amount":sub_total,@"locale":language_code,@"version":@"1"};
+
             
         } @catch (NSException *exception) {
             
