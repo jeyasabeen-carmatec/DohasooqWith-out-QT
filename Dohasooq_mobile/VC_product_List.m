@@ -719,13 +719,14 @@
            if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
             {
                
-               str = @"%خصم";
-                 pro_cell.LBL_discount.text = [NSString stringWithFormat:@"%@ %@",str,[[productDataArray objectAtIndex:indexPath.row] valueForKey:@"discount"]];
+              // str = @"%خصم";
+                str = @"خصم %";
+                 pro_cell.LBL_discount.text = [NSString stringWithFormat:@"%@%@",str,[[productDataArray objectAtIndex:indexPath.row] valueForKey:@"discount"]];
             }
             else{
                 
                  str = @"% off";
-                 pro_cell.LBL_discount.text = [NSString stringWithFormat:@"%@ %@",[[productDataArray objectAtIndex:indexPath.row] valueForKey:@"discount"],str];
+                 pro_cell.LBL_discount.text = [NSString stringWithFormat:@"%@%@",[[productDataArray objectAtIndex:indexPath.row] valueForKey:@"discount"],str];
               
  
             }

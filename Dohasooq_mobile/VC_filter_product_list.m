@@ -140,8 +140,8 @@
             
             if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
             {
-                self.LBL_max.text = [NSString stringWithFormat:@"%d %@ دقيقة",(int)self.LBL_slider.selectedMaximum,[[NSUserDefaults standardUserDefaults] valueForKey:@"currency"]];
-                self.LBL_min.text = [NSString stringWithFormat:@"%d %@ ماكس",(int)self.LBL_slider.selectedMinimum, [[NSUserDefaults standardUserDefaults] valueForKey:@"currency"]];
+                self.LBL_max.text = [NSString stringWithFormat:@"%d %@ الحد الأقصى",(int)self.LBL_slider.selectedMaximum,[[NSUserDefaults standardUserDefaults] valueForKey:@"currency"]];
+                self.LBL_min.text = [NSString stringWithFormat:@"%d %@ الحد الأدنى",(int)self.LBL_slider.selectedMinimum, [[NSUserDefaults standardUserDefaults] valueForKey:@"currency"]];
             }
             
             NSLog(@"%@ /n %@",lower,upper);

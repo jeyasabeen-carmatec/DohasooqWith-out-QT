@@ -4281,7 +4281,7 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="GJK-0Q-k7J">
                                 <view key="customView" contentMode="scaleToFill" misplaced="YES" id="Qho-EZ-bok">
-                                    <rect key="frame" x="163" y="6" width="100" height="33"/>
+                                    <rect key="frame" x="162.5" y="5.5" width="100" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gr5-qS-QKl">
@@ -4590,7 +4590,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="229" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select" minimumFontSize="17" id="idh-1I-Fa7" customClass="variant_ARBC">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select" textAlignment="right" minimumFontSize="17" id="idh-1I-Fa7">
                                                 <rect key="frame" x="0.0" y="30" width="224" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5535,12 +5535,12 @@
         <image name="yell3.jpg" width="350" height="1030"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="k6U-K0-idt"/>
+        <segue reference="Ah8-We-7n4"/>
         <segue reference="DKv-Be-S41"/>
         <segue reference="lT4-28-Wjm"/>
         <segue reference="2i6-zz-H96"/>
         <segue reference="wZ3-07-46C"/>
-        <segue reference="JjR-Qr-AQ0"/>
+        <segue reference="s4c-Qx-Ots"/>
         <segue reference="LJJ-ad-5gJ"/>
         <segue reference="a0t-dX-VXu"/>
         <segue reference="UCK-dQ-vRE"/>

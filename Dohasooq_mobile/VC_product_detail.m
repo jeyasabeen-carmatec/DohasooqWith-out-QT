@@ -536,8 +536,8 @@
 //                NSString *str;
                 if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                 {
-                    of =  @"%خصم";
-                    _LBL_discount.text =[NSString stringWithFormat:@"%@ %@",of,str_discount];
+                     of = @"خصم %";
+                    _LBL_discount.text =[NSString stringWithFormat:@"%@%@",of,str_discount];
                 }
                 else
                 {
@@ -5026,8 +5026,8 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
             
             if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
             {
-                of =  @"%خصم";
-                _LBL_discount.text = [NSString stringWithFormat:@"%@ %.2f",of,discount];
+                of = @"خصم %";
+                _LBL_discount.text = [NSString stringWithFormat:@"%@%.2f",of,discount];
 
             }
             else
@@ -5200,8 +5200,8 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
              NSString *str;
              if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
              {
-                 str =  @"%خصم";
-                  _LBL_discount.text = [NSString stringWithFormat:@"%@ %@",str,[[update_dic valueForKey:@"variant"] valueForKey:@"discount"]];
+                str = @"خصم %";
+                  _LBL_discount.text = [NSString stringWithFormat:@"%@%@",str,[[update_dic valueForKey:@"variant"] valueForKey:@"discount"]];
              }
              else
              {
