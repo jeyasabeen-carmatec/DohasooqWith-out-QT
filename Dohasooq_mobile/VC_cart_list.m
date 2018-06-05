@@ -421,13 +421,13 @@
                 if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                 {
                     
-                    str = @"%خصم";
-                    cell.LBL_discount.text = [NSString stringWithFormat:@"%@ %@",str,str_discount];
+                     str = @"خصم %";
+                    cell.LBL_discount.text = [NSString stringWithFormat:@"%@%@",str,str_discount];
                 }
                 else{
                     
                     str = @"% off";
-                   cell.LBL_discount.text =[NSString stringWithFormat:@"%@ %@",str_discount,str];
+                   cell.LBL_discount.text =[NSString stringWithFormat:@"%@%@",str_discount,str];
                     
                 }
 

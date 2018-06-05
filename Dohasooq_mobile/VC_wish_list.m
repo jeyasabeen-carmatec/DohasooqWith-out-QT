@@ -170,8 +170,8 @@
         if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
         {
             
-            str = @"% خصم";
-            cell.LBL_discount.text = [NSString stringWithFormat:@"%@ %@",str,[[response_Arr objectAtIndex:indexPath.section]valueForKey:@"product_discount"]];
+            str = @"خصم %";
+            cell.LBL_discount.text = [NSString stringWithFormat:@"%@%@",str,[[response_Arr objectAtIndex:indexPath.section]valueForKey:@"product_discount"]];
         }
         else{
             

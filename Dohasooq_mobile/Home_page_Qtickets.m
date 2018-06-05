@@ -1270,8 +1270,8 @@
                     if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                     {
                         
-                        str = @"%خصم";
-                        pro_cell.LBL_discount.text = [NSString stringWithFormat:@"%@ %@",str,str_discount];
+                         str = @"خصم %";
+                        pro_cell.LBL_discount.text = [NSString stringWithFormat:@"%@%@",str,str_discount];
                     }
                     else{
                         
@@ -1279,12 +1279,7 @@
                         pro_cell.LBL_discount.text = [NSString stringWithFormat:@"%@%@",str_discount,str];
                         
                     }
-                    
-
-                
-                    
-                   
-                    
+        
                     
                     if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                     {
@@ -1542,8 +1537,7 @@
                     pro_cell.LBL_discount.text = @"";
                     
                 }
-                
-                
+// @"% خصم";
                 else{
                     
                     
@@ -1554,8 +1548,8 @@
                     if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                     {
                         
-                        str = @"%خصم";
-                        pro_cell.LBL_discount.text = [NSString stringWithFormat:@"%@ %@",str,str_discount];
+                       str = @"خصم %";
+                        pro_cell.LBL_discount.text = [NSString stringWithFormat:@"%@%@",str,str_discount];
                     }
                     else{
                         
@@ -3785,7 +3779,7 @@
     @try
     {
         
-        [self movie_API_CALL];
+       // [self movie_API_CALL];
     }
     @catch(NSException *exception)
     {
@@ -3794,15 +3788,19 @@
         NSString *str = @"Women's";
         if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
         {
-            str = @"للنساء "; 
+            str = @"للسيدات";
+             _Hot_deals.text = [NSString stringWithFormat:@"%@ %@",[json_Response_Dic valueForKey:@"fashion_name"],str];// Banner Fashion Title Setting
             
+        }
+        else{
+             _Hot_deals.text = [NSString stringWithFormat:@"%@ %@",str,[json_Response_Dic valueForKey:@"fashion_name"]];// Banner Fashion Title Setting
         }
         NSString *str_deals =[NSString stringWithFormat:@"%@",[[[json_Response_Dic valueForKey:@"dealSection"] valueForKey:@"two"]  valueForKey:@"widgetTitle"]];
         _LBL_best_selling.text = str_deals;
         
         
         _Hot_deals_banner.text = [NSString stringWithFormat:@"%@",[[[json_Response_Dic valueForKey:@"dealSection"] valueForKey:@"one"]  valueForKey:@"widgetTitle"]];
-        _Hot_deals.text = [NSString stringWithFormat:@"%@ %@",str,[json_Response_Dic valueForKey:@"fashion_name"]];// Banner Fashion Title Setting
+       
     
         
     NSLog(@"API Call Fetch%@",json_Response_Dic);
@@ -5097,11 +5095,16 @@ NSString *str_status_text;
         NSString *str = @"Women's";
         if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
         {
-            str = @"للنساء ";
+            str = @"للسيدات";
+            _Hot_deals.text = [NSString stringWithFormat:@"%@ %@",[json_Response_Dic valueForKey:@"fashion_name"],str];
+
             
         }
+        else{
+            _Hot_deals.text = [NSString stringWithFormat:@"%@ %@",str,[json_Response_Dic valueForKey:@"fashion_name"]];
 
-        _Hot_deals.text = [NSString stringWithFormat:@"%@ %@",str,[json_Response_Dic valueForKey:@"fashion_name"]];
+        }
+
         [_collection_brands reloadData];
 
 
@@ -5122,10 +5125,14 @@ NSString *str_status_text;
       NSString *str = @"Men's";
       if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
       {
-          str = @"للرجال ";
+          str = @" للرجال";
+           _Hot_deals.text = [NSString stringWithFormat:@"%@ %@",[json_Response_Dic valueForKey:@"fashion_name"],str];//@"MEN'S FASHION ACCESORIES";
           
       }
-      _Hot_deals.text = [NSString stringWithFormat:@"%@ %@",str,[json_Response_Dic valueForKey:@"fashion_name"]];//@"MEN'S FASHION ACCESORIES";
+      else{
+           _Hot_deals.text = [NSString stringWithFormat:@"%@ %@",str,[json_Response_Dic valueForKey:@"fashion_name"]];//@"MEN'S FASHION ACCESORIES";
+      }
+     
       [_collection_brands reloadData];
       
 

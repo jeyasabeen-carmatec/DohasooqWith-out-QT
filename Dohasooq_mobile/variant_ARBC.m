@@ -14,7 +14,7 @@
     if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
     {
         //return CGRectMake(bounds.size.width - 10  ,bounds.origin.y ,bounds.origin.y- bounds.size.width -5, bounds.size.height);
-        return CGRectMake(bounds.size.width-30, bounds.origin.y, bounds.size.width-10, bounds.size.height);
+        return CGRectMake(bounds.size.width-10, bounds.origin.y, bounds.size.width-10, bounds.size.height);
         
     }
     else
@@ -30,7 +30,7 @@
     if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
     {
         // return CGRectMake(bounds.size.width - 10  ,bounds.origin.y ,bounds.origin.y- bounds.size.width -5, bounds.size.height);
-        return CGRectMake(bounds.size.width-30, bounds.origin.y, bounds.size.width, bounds.size.height);
+        return CGRectMake(bounds.size.width-70, bounds.origin.y, bounds.size.width, bounds.size.height);
         
         
     }
