@@ -331,7 +331,7 @@ int j ,i;
                 if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                 {
                     
-                    shipping_text = [NSString stringWithFormat:@"فتحة التسليم : %@",shipping_method];
+                    shipping_text = [NSString stringWithFormat:@"فترة التسليم:%@",shipping_method];
                 }
                 else{
                     
@@ -369,7 +369,7 @@ int j ,i;
                     if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
                     {
 
-                    shipping_text = [NSString stringWithFormat:@"فتحة التسليم : %@",shipping_method];
+                        shipping_text = [NSString stringWithFormat:@"فترة التسليم : %@",shipping_method];
                     }
                     else{
               
