@@ -3475,9 +3475,15 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
             
             if (equalRange.location != NSNotFound) {
                 
-                NSString *result_before = [str substringWithRange:NSMakeRange(0, equalRange.location)];
-                NSDate *time1 = [dateFormatter dateFromString:result_before];
-                [deliverySlotPickerArray addObject: @{@"time":[[delivary_slot_dic valueForKey:@"delivery"] valueForKey:[slot_keys_arr objectAtIndex:slot]],@"id":[slot_keys_arr objectAtIndex:slot],@"strt_time_to_sort":time1}];
+                @try{
+                 
+                      NSString *result_before = [str substringWithRange:NSMakeRange(0, equalRange.location)];
+                      NSDate *time1 = [dateFormatter dateFromString:result_before];
+                
+                     [deliverySlotPickerArray addObject: @{@"time":[[delivary_slot_dic valueForKey:@"delivery"] valueForKey:[slot_keys_arr objectAtIndex:slot]],@"id":[slot_keys_arr objectAtIndex:slot],@"strt_time_to_sort":time1}];
+                 }@catch(NSException *exception){
+                    NSLog(@"delivery slot picker exception for time ....");
+                }
             }//Close If
             
         }//close for
@@ -3575,7 +3581,8 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         
         if([[[NSUserDefaults standardUserDefaults] valueForKey:@"story_board_language"] isEqualToString:@"Arabic"])
         {
-            [HttpClient createaAlertWithMsg:@"لا تتوفر فتحات لهذا اليوم." andTitle:@""];
+//            [HttpClient createaAlertWithMsg:@"لا تتوفر فتحات لهذا اليوم." andTitle:@""];
+            [HttpClient createaAlertWithMsg:@"لاتتوفر فترات تسليم لهذا اليوم" andTitle:@""];
 
         }
         else
