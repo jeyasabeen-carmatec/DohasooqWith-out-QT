@@ -4930,7 +4930,7 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="wAT-He-N4z">
                                 <view key="customView" contentMode="scaleToFill" misplaced="YES" id="Bqx-C8-8Dm">
-                                    <rect key="frame" x="80" y="6" width="232" height="33"/>
+                                    <rect key="frame" x="80" y="5.5" width="232" height="33"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uM6-Ea-f3t">
@@ -5833,7 +5833,7 @@
                     <navigationItem key="navigationItem" id="k0b-Vn-JYs">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="kcq-Xs-rYQ">
                             <view key="customView" contentMode="scaleToFill" misplaced="YES" id="cUw-tW-Mwn">
-                                <rect key="frame" x="16" y="5" width="296" height="35"/>
+                                <rect key="frame" x="16" y="4.5" width="296" height="35"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dS2-Cb-jNi">
