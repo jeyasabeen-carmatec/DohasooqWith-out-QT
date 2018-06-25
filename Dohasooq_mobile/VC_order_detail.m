@@ -2041,15 +2041,15 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
     if([[jsonresponse_dic_address valueForKey:@"shipaddress"] isKindOfClass:[NSDictionary class]])
     {
         _TBL_address.hidden = NO;
-        NSLog(@"Before lay Out frame%@",NSStringFromCGRect(_TBL_address.frame));
-        NSLog(@"Before lay Out frame Content Hesigtht%f",_TBL_address.contentSize.height);
+//        NSLog(@"Before lay Out frame%@",NSStringFromCGRect(_TBL_address.frame));
+//        NSLog(@"Before lay Out frame Content Hesigtht%f",_TBL_address.contentSize.height);
         
         [_TBL_address reloadData];
         [_TBL_address layoutIfNeeded];
         //[_TBL_address layoutIfNeeded];
         
-        NSLog(@"After lay Out frame%@",NSStringFromCGRect(_TBL_address.frame));
-        NSLog(@"After lay Out frame Content Hesigtht%f",_TBL_address.contentSize.height);
+//        NSLog(@"After lay Out frame%@",NSStringFromCGRect(_TBL_address.frame));
+//        NSLog(@"After lay Out frame Content Hesigtht%f",_TBL_address.contentSize.height);
         
         CGRect frame_set = _TBL_address.frame;
         //frame_set.size.height =_TBL_address.contentSize.height; //+ _VW_special.frame.size.height-30;
@@ -2253,7 +2253,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
    
     
     
-        NSLog(@"%@",payment_type_str);
+        //NSLog(@"%@",payment_type_str);
     
         if ([payment_type_str isEqualToString:@"1"]||[payment_type_str isEqualToString:@"2"] ||[payment_type_str isEqualToString:@"3"] ||[payment_type_str isEqualToString:@"4"] || [payment_type_str isEqualToString:@"5"]) {
             
@@ -2376,7 +2376,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
     
     
         if ([_TXT_message_field.text isEqualToString:otp_str]) {
-            NSLog(@"Validate");
+          //  NSLog(@"Validate");
             [self place_oredr_parameters_parsing];
         }
         else{
@@ -2536,7 +2536,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         
         
             
-           NSLog(@"===========%@==========", [[[jsonresponse_dic_address valueForKey:@"shipaddress"]valueForKey:[keys_arr objectAtIndex:edit_tag]]valueForKey:@"shippingaddress"]);
+       //    NSLog(@"===========%@==========", [[[jsonresponse_dic_address valueForKey:@"shipaddress"]valueForKey:[keys_arr objectAtIndex:edit_tag]]valueForKey:@"shippingaddress"]);
             
             
         NSString *state = [[[[jsonresponse_dic_address valueForKey:@"shipaddress"]valueForKey:[keys_arr objectAtIndex:edit_tag]] valueForKey:@"shippingaddress"]  valueForKey:@"state"];
@@ -2777,7 +2777,8 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                 [date_time_merId_Arr replaceObjectAtIndex:m withObject:dic];
                 
             }
-        }NSLog(@"@@@@@@@@@@ %@",date_time_merId_Arr);
+        }
+        //NSLog(@"@@@@@@@@@@ %@",date_time_merId_Arr);
         
         
         VW_overlay.hidden = YES;
@@ -2882,7 +2883,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                 
                 
             }
-            NSLog(@"radioButtonArray ::::%@",radioButtonArray);
+           // NSLog(@"radioButtonArray ::::%@",radioButtonArray);
         }
     } @catch (NSException *exception) {
         NSLog(@"%@",exception);
@@ -3030,7 +3031,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         
         merchent_id = [NSString stringWithFormat:@"%ld",cell.BTN_calendar.tag]; //Getting Mer Id
         
-        NSLog(@"id_m %@  id_p %@",product_id,merchent_id);
+      //  NSLog(@"id_m %@  id_p %@",product_id,merchent_id);
         
        
         @try {
@@ -3063,7 +3064,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
     
     merchent_id = [NSString stringWithFormat:@"%ld",cell.BTN_calendar.tag];
     
-    NSLog(@"id_m %@  id_p %@",product_id,merchent_id);
+   // NSLog(@"id_m %@  id_p %@",product_id,merchent_id);
     
     
     @try {
@@ -3369,7 +3370,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     if ([text isEqualToString:@"\n"]) {
-        NSLog(@"Return pressed, do whatever you like here");
+       // NSLog(@"Return pressed, do whatever you like here");
         [textView resignFirstResponder];
         [self stope_animating_view_for_textField];
         return NO; // or true, whetever you's like
@@ -3424,7 +3425,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
             NSSortDescriptor *descriptor=[[NSSortDescriptor alloc] initWithKey:@"key1" ascending:YES];
             NSArray *descriptors=[NSArray arrayWithObject: descriptor];
             NSArray *reverseOrder=[deliverySlotPickerArray sortedArrayUsingDescriptors:descriptors];
-            NSLog(@" After sorting%@",reverseOrder);
+          //  NSLog(@" After sorting%@",reverseOrder);
             [deliverySlotPickerArray removeAllObjects];
             [deliverySlotPickerArray addObjectsFromArray:reverseOrder];
             
@@ -3492,7 +3493,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         NSSortDescriptor *descriptor=[[NSSortDescriptor alloc] initWithKey:@"strt_time_to_sort" ascending:YES];
         NSArray *descriptors=[NSArray arrayWithObject: descriptor];
         NSArray *reverseOrder=[deliverySlotPickerArray sortedArrayUsingDescriptors:descriptors];
-        NSLog(@" After sorting%@",reverseOrder);
+      //  NSLog(@" After sorting%@",reverseOrder);
         [deliverySlotPickerArray removeAllObjects];
         [deliverySlotPickerArray addObjectsFromArray:reverseOrder];
     }
@@ -3543,7 +3544,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                 
                 //Converting starting time into NSDate
                 NSDate *time1 = [dateFormatter dateFromString:result_before];
-                NSLog(@" %d::::b  %@  ------- %@",b,time1,current_time);
+               // NSLog(@" %d::::b  %@  ------- %@",b,time1,current_time);
                 
                 @try {
                     NSComparisonResult result = [current_time compare:time1];
@@ -3551,17 +3552,17 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                     //Comparing Starting Time with Current time
                     if(result == NSOrderedDescending)
                     {
-                        NSLog(@"Current Time %@ is later than time1 %@",current_date,result_before);
+                       // NSLog(@"Current Time %@ is later than time1 %@",current_date,result_before);
                         
                         //[deliverySlotPickerArray removeObjectAtIndex:b];
                         [data_arr removeObject:[deliverySlotPickerArray objectAtIndex:b]];
                     }
                     else if (result == NSOrderedAscending){
                         
-                        NSLog(@"Current Time %@ is less than time1 %@",current_date,result_before);
+                      //  NSLog(@"Current Time %@ is less than time1 %@",current_date,result_before);
                     }
                     else{
-                        NSLog(@"Current Time %@  time1 %@ are equal",current_date,result_before);
+                      //  NSLog(@"Current Time %@  time1 %@ are equal",current_date,result_before);
                     }
                 } @catch (NSException *exception) {
                     NSLog(@"**********");
@@ -3569,7 +3570,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                 
                 
             } else {
-                NSLog(@"There is no = in the string");
+              //  NSLog(@"There is no = in the string");
             } //eof If
             
             
@@ -3590,7 +3591,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
             [HttpClient createaAlertWithMsg:@"No Slots Available For This Day." andTitle:@""];
  
         }
-        NSLog(@"Sorry! There is no options,Please Select Another Day" );
+      //  NSLog(@"Sorry! There is no options,Please Select Another Day" );
         [textfield resignFirstResponder];
     }else{
         [self.pickerView becomeFirstResponder];
@@ -3661,7 +3662,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
     //Product Summary View setting Ship Charge
    // self.LBL_shipping_charge.text = [NSString stringWithFormat:@"%@ %f",[[NSUserDefaults standardUserDefaults] valueForKey:@"currency"],charge_ship];
     
-    NSLog(@"charge for all products %.2f %@",charge_ship,date_time_merId_Arr);
+   // NSLog(@"charge for all products %.2f %@",charge_ship,date_time_merId_Arr);
     }
 }
 
@@ -3680,13 +3681,13 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         NSString *languge = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"language_id"]];
         
         NSString *urlGetuser =[NSString stringWithFormat:@"%@apis/orderdetailsapi/%@/%@/%@/iOS.json",SERVER_URL,user_id,languge,country];
-        NSLog(@"order_detail_API URL::::::%@",urlGetuser);
+       // NSLog(@"order_detail_API URL::::::%@",urlGetuser);
         urlGetuser = [urlGetuser stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
         @try {
             [HttpClient postServiceCall:urlGetuser andParams:nil completionHandler:^(id  _Nullable data, NSError * _Nullable error) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (error) {
-                        NSLog(@"%@",[error localizedDescription]);
+                      //  NSLog(@"%@",[error localizedDescription]);
                         [Helper_activity stop_activity_animation:self];
                         
                     }
@@ -3700,14 +3701,14 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                                
                                 jsonresponse_dic = data;
                                 
-                                NSLog(@"order_detail_API Response:::%@*********",data);
+                             //   NSLog(@"order_detail_API Response:::%@*********",data);
                                 
                                 
                                
                                 @try {
                                     ARR_pdts = [[jsonresponse_dic valueForKey:@"data"]valueForKey:@"pdts"];
                                     if (!ARR_pdts.count) {
-                                        NSLog(@" .................................");
+                                      
                                         
                                         NSString *msg;
                                         NSString *ok_btn;
@@ -3814,7 +3815,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                         } @catch (NSException *exception) {
                             NSLog(@"%@",exception);
                         }
-                        NSLog(@"Shipp_address_API:::%@*********",data);
+                      //  NSLog(@"Shipp_address_API:::%@*********",data);
                     }
                     
                 });
@@ -3862,7 +3863,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         NSDictionary *parameters = @{@"productId":product_id,@"customerId":custmr_id,@"quantity":item_count,@"merchantId":merchent_id,@"subttl":sbttl};
         
         
-        NSLog(@"******************** %@",parameters);
+       // NSLog(@"******************** %@",parameters);
         
         NSString *urlGetuser =[NSString stringWithFormat:@"%@apis/updateqtycheckoutapi.json",SERVER_URL];
         urlGetuser = [urlGetuser stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
@@ -3872,10 +3873,10 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (error) {
                     [Helper_activity stop_activity_animation:self];
-                    NSLog(@"%@",[error localizedDescription]);
+                   // NSLog(@"%@",[error localizedDescription]);
                 }
                 if (data) {
-                    NSLog(@"%@",data);
+                  //  NSLog(@"%@",data);
                      [Helper_activity stop_activity_animation:self];
                     @try {
                         if ([[NSString stringWithFormat:@"%@",[data valueForKey:@"success"]] isEqualToString:@"1"]) {
@@ -3919,12 +3920,12 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (error) {
                     [Helper_activity stop_activity_animation:self];
-                    NSLog(@"%@",[error localizedDescription]);
+                   // NSLog(@"%@",[error localizedDescription]);
                 }
                 if (data) {
                     
                     @try {
-                        NSLog(@"%@",data);
+                      //  NSLog(@"%@",data);
                        
                         if ([data isKindOfClass:[NSDictionary class]]) {
                             [delivary_slot_dic addEntriesFromDictionary:data];
@@ -3945,7 +3946,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         
         
     } @catch (NSException *exception) {
-        NSLog(@"%@",exception);
+       // NSLog(@"%@",exception);
          [Helper_activity stop_activity_animation:self];
     }
 //    VW_overlay.hidden = YES;
@@ -3968,19 +3969,19 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                     if (error) {
                          [Helper_activity stop_activity_animation:self];
                         
-                        NSLog(@"%@",[error localizedDescription]);
+                      //  NSLog(@"%@",[error localizedDescription]);
                     }
                     if (data) {
                         @try {
                             if ([data isKindOfClass:[NSArray class]]) {
                                 [countryStatesArray removeAllObjects];
-                                NSLog(@".............%@",data);
+                              //  NSLog(@".............%@",data);
                                 [countryStatesArray addObjectsFromArray:data];
                                 
                                 [_staes_country_pickr reloadAllComponents];
                                 
                                
-                                NSLog(@"%@",countryStatesArray);
+                             
                             }
                             else{
                                 [HttpClient createaAlertWithMsg:@"The Data could not be read" andTitle:@""];
@@ -4033,7 +4034,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                 if (data) {
                     
                     @try {
-                        NSLog(@"%@",data);
+                      //  NSLog(@"%@",data);
                         
                         if ([data isKindOfClass:[NSArray class]]) {
                            
@@ -4080,7 +4081,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         
         
 //        arr_states = [NSMutableArray array];
-        NSLog(@"%ld",(long)cntry_ID);
+       // NSLog(@"%ld",(long)cntry_ID);
         
         NSString *urlGetuser =[NSString stringWithFormat:@"%@apis/getstatebyconapi/%ld.json",SERVER_URL,(long)cntry_ID];
         urlGetuser = [urlGetuser stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
@@ -4090,7 +4091,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
             [HttpClient postServiceCall:urlGetuser andParams:nil completionHandler:^(id  _Nullable data, NSError * _Nullable error) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (error) {
-                        NSLog(@"%@",[error localizedDescription]);
+                       // NSLog(@"%@",[error localizedDescription]);
                         [Helper_activity stop_activity_animation:self];
                     }
                     if (data) {
@@ -4118,7 +4119,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                 
             }];
         } @catch (NSException *exception) {
-            NSLog(@"%@",exception);
+          //  NSLog(@"%@",exception);
             [Helper_activity stop_activity_animation:self];
         }
         
@@ -4182,7 +4183,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
               return [NSString stringWithFormat:@"%@   %@",[phone_code_arr[row] valueForKey:@"name"],[phone_code_arr[row] valueForKey:@"code"]];
             
         } @catch (NSException *exception) {
-            NSLog(@"%@",exception);
+          //  NSLog(@"%@",exception);
         }
         
         
@@ -4358,7 +4359,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
             
         } @catch (NSException *exception) {
             
-            NSLog(@"Selection of Shipping Country %@",exception);
+          //  NSLog(@"Selection of Shipping Country %@",exception);
         }
         
     }
@@ -4422,7 +4423,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                         [Helper_activity stop_activity_animation:self];
                         @try {
                             if ([data isKindOfClass:[NSDictionary class]]) {
-                                NSLog(@"Payment Methods %@",data);
+                              //  NSLog(@"Payment Methods %@",data);
                                 
                          // Checking Cash on Delivary is Available or Not
                               //////////////
@@ -4495,7 +4496,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                         @try {
                             if ([data isKindOfClass:[NSDictionary class]]) {
                                 
-                                NSLog(@"%@",data);
+                               // NSLog(@"%@",data);
 
                                 if ([[NSString stringWithFormat:@"%@",[data valueForKey:@"success"]] isEqualToString:@"1"]) {
                                     
@@ -5614,7 +5615,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                         [chrg_array addObject:str];
                         [ship_array addObject:method];
                         
-                        NSLog(@" ::::: %@ :::::%@ ",str,method);
+                       // NSLog(@" ::::: %@ :::::%@ ",str,method);
                         
                     }
                     shiip_charge = [chrg_array componentsJoinedByString:@","];
@@ -5638,7 +5639,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                     
                     
                     
-                    NSLog(@"%@",deliveytime);
+                  //  NSLog(@"%@",deliveytime);
                     
                     
                 }
@@ -5688,7 +5689,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         data = [NSJSONSerialization dataWithJSONObject:FormSameasBilling options:NSJSONWritingPrettyPrinted error:nil];
         NSString *FormSameasBilling_str = [[NSString alloc] initWithData:data
                                                                 encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",promo_codeStr);
+      //  NSLog(@"%@",promo_codeStr);
         
         NSDictionary *Formcouponcode = @{@"couponcode":promo_codeStr};
         data = [NSJSONSerialization dataWithJSONObject:Formcouponcode options:NSJSONWritingPrettyPrinted error:nil];
@@ -5727,7 +5728,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         } @catch (NSException *exception) {
             [Helper_activity stop_activity_animation:self];
              [self.navigationController popViewControllerAnimated:YES];
-            NSLog(@"Some values are missing in dic");
+           // NSLog(@"Some values are missing in dic");
             //NSLog(@"%@",exception);
         }
         
@@ -5772,7 +5773,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
             NSHTTPURLResponse *response = nil;
     
             NSData *postData = [NSJSONSerialization dataWithJSONObject:params options:NSASCIIStringEncoding error:&err];
-            NSLog(@"the posted data is:%@",params);
+         //   NSLog(@"the posted data is:%@",params);
             //NSString *urlString =[NSString stringWithFormat:@"%@apis/placeorderapi.json",SERVER_URL];
 
             NSString *urlGetuser =[NSString stringWithFormat:@"%@apis/placeorderapi.json",SERVER_URL];
@@ -5823,13 +5824,13 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
                 [Helper_activity stop_activity_animation:self];
                
                 NSMutableDictionary *json_DATA = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:aData options:NSJSONReadingAllowFragments error:&error];
-                NSLog(@"%@",error);
-                NSLog(@"The response Api   sighn up API %@",json_DATA);
+//                NSLog(@"%@",error);
+//                NSLog(@"The response Api   sighn up API %@",json_DATA);
                 NSString *msg = [NSString stringWithFormat:@"%@",[json_DATA valueForKey:@"success"]];
                 
                 if ([msg isEqualToString:@"1"]) {
                    
-                    NSLog(@"%@",msg);
+                  //  NSLog(@"%@",msg);
                     [self performSegueWithIdentifier:@"move_to_pay" sender:json_DATA];
                 }
                 else{
@@ -5973,7 +5974,7 @@ blng_state_ID = [NSString stringWithFormat:@"%@",[[[jsonresponse_dic_address val
         [body appendData:[[NSString stringWithFormat:@"%@-%@",_TXT_Cntry_code.text,_TXT_phone.text]dataUsingEncoding:NSUTF8StringEncoding]];
         [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
         
-        NSLog(@"................%@",[NSString stringWithFormat:@"%@-%@",_TXT_Cntry_code.text,_TXT_phone.text]);
+      //  NSLog(@"................%@",[NSString stringWithFormat:@"%@-%@",_TXT_Cntry_code.text,_TXT_phone.text]);
         
         NSError *er;
         

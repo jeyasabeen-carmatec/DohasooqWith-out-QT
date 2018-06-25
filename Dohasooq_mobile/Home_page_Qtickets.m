@@ -235,7 +235,7 @@
         }
         @catch(NSException *exception)
         {
-            NSLog(@"image url Exception %@",exception);
+           // NSLog(@"image url Exception %@",exception);
         }
  
     }
@@ -249,7 +249,7 @@
         }
         @catch(NSException *exception)
         {
-            NSLog(@"imag dgf url Exception %@",exception);
+          //  NSLog(@"imag dgf url Exception %@",exception);
             url_Img_FULL = [NSString stringWithFormat:@"%@%@",[dict valueForKey:@"awsPath"],[user_data valueForKey:@"profile_pic"]];
  
         }
@@ -408,9 +408,9 @@
         [ARR_category addObjectsFromArray:[arr sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]];
         [_TBL_menu reloadData];
         
-        NSLog(@"Sorted Array :::%@",ARR_category);
+      //  NSLog(@"Sorted Array :::%@",ARR_category);
     } @catch (NSException *exception) {
-        NSLog(@"Array sort exception %@",exception);
+       // NSLog(@"Array sort exception %@",exception);
     }
     
     
@@ -1408,8 +1408,8 @@
             
         }
         
-        NSLog(@"The cell frame is :%@",NSStringFromCGRect(pro_cell.frame));
-        NSLog(@"The hot_deals frame is :%@",NSStringFromCGRect(_collection_hot_deals.frame));
+        //NSLog(@"The cell frame is :%@",NSStringFromCGRect(pro_cell.frame));
+       // NSLog(@"The hot_deals frame is :%@",NSStringFromCGRect(_collection_hot_deals.frame));
         
         
         return pro_cell;
@@ -1683,9 +1683,9 @@
             
             
         }
-        
-        NSLog(@"The cell frame is :%@",NSStringFromCGRect(pro_cell.frame));
-        NSLog(@"The hot_deals frame is :%@",NSStringFromCGRect(_collection_hot_deals.frame));
+//
+//        NSLog(@"The cell frame is :%@",NSStringFromCGRect(pro_cell.frame));
+//        NSLog(@"The hot_deals frame is :%@",NSStringFromCGRect(_collection_hot_deals.frame));
         return pro_cell;
         
         
@@ -1867,7 +1867,7 @@
     }
     else if(collectionView == _collection_hot_deals)
     {
-        NSLog(@"the size is width %f: THE height%d",(_collection_hot_deals.bounds.size.width/2),285);
+        //NSLog(@"the size is width %f: THE height%d",(_collection_hot_deals.bounds.size.width/2),285);
 
         return CGSizeMake(_collection_hot_deals.frame.size.width/2.011, 315);
         
@@ -2800,7 +2800,7 @@
                 }
             }
             else{
-                NSLog(@"ACCount selected");
+              //  NSLog(@"ACCount selected");
             }
             break;
              case 2:
@@ -3741,7 +3741,7 @@
         [_Collection_movies reloadData];
         [_collection_showing_movies reloadData];
         
-        NSLog(@"Mouvie arr count %lu",(unsigned long)Movies_arr.count);
+       // NSLog(@"Mouvie arr count %lu",(unsigned long)Movies_arr.count);
     }
     @catch(NSException *exception)
     {
@@ -3803,7 +3803,7 @@
        
     
         
-    NSLog(@"API Call Fetch%@",json_Response_Dic);
+   // NSLog(@"API Call Fetch%@",json_Response_Dic);
         [[NSUserDefaults standardUserDefaults] setValue:[json_Response_Dic valueForKey:@"default_time_zone"] forKey:@"time_zone"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     for(int  i= 0; i<[[json_Response_Dic valueForKey:@"banners"]count];i++)
@@ -3849,7 +3849,7 @@
        
     for(int i=0 ; i < [[[[json_Response_Dic valueForKey:@"dealSection"] valueForKey:@"two"] allKeys] count];i++)
     {
-        NSLog(@"The keys are %@",[[[json_Response_Dic valueForKey:@"dealSection"] valueForKey:@"two"] allKeys]);
+       // NSLog(@"The keys are %@",[[[json_Response_Dic valueForKey:@"dealSection"] valueForKey:@"two"] allKeys]);
             NSString *str_key = [NSString stringWithFormat:@"%@",[[[[json_Response_Dic valueForKey:@"dealSection"] valueForKey:@"two"] allKeys] objectAtIndex:i]];
         if([[[[json_Response_Dic valueForKey:@"dealSection"] valueForKey:@"two"] valueForKey:str_key]  isKindOfClass:[NSDictionary class]])
         {
@@ -3860,7 +3860,7 @@
         
          } // for loop Close
         } @catch (NSException *exception) {
-            NSLog(@"Exception in TWO Deal %@",exception);
+           // NSLog(@"Exception in TWO Deal %@",exception);
         }
         
     // ********** Deal One *************
@@ -3884,7 +3884,7 @@
         
           }
         } @catch (NSException *exception) {
-            NSLog(@"Exception in ONE Deal %@",exception);
+           // NSLog(@"Exception in ONE Deal %@",exception);
         }
     // ********** Brands *************//
         
@@ -4207,7 +4207,7 @@
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
    
-        NSLog(@"The language is:%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"language_arr"]);
+       // NSLog(@"The language is:%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"language_arr"]);
         return [[[NSUserDefaults standardUserDefaults] valueForKey:@"language_arr"]count];
     
 
@@ -4268,7 +4268,7 @@
             
             
         } @catch (NSException *exception) {
-            NSLog(@"Language Selection Exception ::%@",exception);
+           // NSLog(@"Language Selection Exception ::%@",exception);
         }
         
     }
@@ -4559,7 +4559,7 @@ NSString *str_status_text;
                         [Helper_activity stop_activity_animation:self];
                         
                         
-                        NSLog(@"The Wishlist %@",json_Response);
+                     //   NSLog(@"The Wishlist %@",json_Response);
                         NSIndexPath *index = [NSIndexPath indexPathForRow:sender.tag inSection:0];
                         product_cell *cell = (product_cell *)[self.collection_hot_deals cellForItemAtIndexPath:index];
                         
@@ -4662,10 +4662,10 @@ NSString *str_status_text;
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (error) {
                     [Helper_activity stop_activity_animation:self];
-                    NSLog(@"Api error %@",[error localizedDescription]);
+                  //  NSLog(@"Api error %@",[error localizedDescription]);
                 }
                 if (data) {
-                    NSLog(@"delFromWishList data %@",data);
+                 //   NSLog(@"delFromWishList data %@",data);
                     
                     [Helper_activity stop_activity_animation:self];
                     NSDictionary *temp_dict = data;
@@ -4687,7 +4687,7 @@ NSString *str_status_text;
     } @catch (NSException *exception) {
         [Helper_activity stop_activity_animation:self];
         
-        NSLog(@" sdfs sdf asfdrew we %@",exception);
+       // NSLog(@" sdfs sdf asfdrew we %@",exception);
         
     }
 }
@@ -4763,14 +4763,14 @@ NSString *str_status_text;
     NSDictionary *dict = [[NSUserDefaults standardUserDefaults] valueForKey:@"userdata"];
     NSString *user_id = [NSString stringWithFormat:@"%@",[dict valueForKey:@"id"]];
         
-        NSLog(@"Sender ...........%ld",(long)[sender tag]);
+        //NSLog(@"Sender ...........%ld",(long)[sender tag]);
         
         
         [Helper_activity animating_images:self];
         
      urlGetuser =[NSString stringWithFormat:@"%@apis/addToWishList/%@/%@.json",SERVER_URL,[[deals_ARR objectAtIndex:sender.tag] valueForKey:@"product_id"],user_id];
         
-         NSLog(@"URL ...........%@",urlGetuser);
+     //    NSLog(@"URL ...........%@",urlGetuser);
         
             NSError *error;
             
@@ -4847,7 +4847,7 @@ NSString *str_status_text;
                 
                   [Helper_activity stop_activity_animation:self];
                 
-                NSLog(@"Best Deals Wishlist %@",json_DATA);
+               // NSLog(@"Best Deals Wishlist %@",json_DATA);
                 
             }
         }
@@ -5051,7 +5051,7 @@ NSString *str_status_text;
 
             
             [self.collection_brands reloadData];
-            NSLog(@"The response Api form Brands%@",brands_dict);
+          //  NSLog(@"The response Api form Brands%@",brands_dict);
             
             
         }
@@ -5160,7 +5160,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 
     else{
        
-        NSLog(@"cancel:");
+       // NSLog(@"cancel:");
 
     }
     }
@@ -5176,7 +5176,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         }
         else
         {
-            NSLog(@"cancel:");
+          //  NSLog(@"cancel:");
 
         }
         
@@ -5675,7 +5675,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
             
         }
         if (data) {
-            NSLog(@"cart count sadas %@",data);
+          //  NSLog(@"cart count sadas %@",data);
             NSDictionary *dict = data;
             @try {
                 
@@ -5688,7 +5688,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
             } @catch (NSException *exception) {
                 
                 
-                NSLog(@"asjdas dasjbd asdas iccxv %@",exception);
+              //  NSLog(@"asjdas dasjbd asdas iccxv %@",exception);
             }
             
         }
@@ -5920,7 +5920,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         
         NSString *urlGetuser =[NSString stringWithFormat:@"%@apis/getCategoryList/%@/%@.json",SERVER_URL,country,lang];
         
-        NSLog(@"%ld,%ld",(long)[user_defaults integerForKey:@"country_id"],(long)[user_defaults integerForKey:@"language_id"]);
+     //   NSLog(@"%ld,%ld",(long)[user_defaults integerForKey:@"country_id"],(long)[user_defaults integerForKey:@"language_id"]);
         
         NSURL *urlProducts=[NSURL URLWithString:urlGetuser];
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
@@ -5971,7 +5971,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
             else{
                 
                 
-                NSLog(@"the api_collection_product%@",json_DATA);
+              //  NSLog(@"the api_collection_product%@",json_DATA);
                 [[NSUserDefaults standardUserDefaults] setObject:json_DATA  forKey:@"pho"];
                 [[NSUserDefaults standardUserDefaults] synchronize];
                 _Scroll_contents.delegate =self;
@@ -6070,7 +6070,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
                 {
                     if (data) {
                         
-                        NSLog(@"%@",data);
+                     //   NSLog(@"%@",data);
                         
                     }
                     
