@@ -828,7 +828,7 @@
         }
         
         
-        NSLog(@"cartCustomOptionId :: %@  variantCombinationID :: %@ ",cartCustomOptionId,variantCombinationID);
+      //  NSLog(@"cartCustomOptionId :: %@  variantCombinationID :: %@ ",cartCustomOptionId,variantCombinationID);
         
         
     } @catch (NSException *exception) {
@@ -1019,7 +1019,7 @@ params.put("customerId",customerid);
                     [self performSelector:@selector(cart_count) withObject:nil afterDelay:0.01];
                 });
 
-                NSLog(@"cart details are ::%@",json_dict);
+              //  NSLog(@"cart details are ::%@",json_dict);
                 if ([json_dict isKindOfClass:[NSDictionary class]]) {
                     if([[json_dict valueForKey:@"data"] isKindOfClass:[NSDictionary class]])
                     {
@@ -1141,7 +1141,7 @@ params.put("customerId",customerid);
                     NSLog(@"%@",[error localizedDescription]);
                 }
                 if (data) {
-                    NSLog(@"%@",data);
+                  //  NSLog(@"%@",data);
                     [HttpClient createaAlertWithMsg:[data valueForKey:@"message"] andTitle:@""];
                     
                     if ([[NSString stringWithFormat:@"%@",[data valueForKey:@"success"]]isEqualToString:@"1"]) {
@@ -1211,7 +1211,7 @@ params.put("customerId",customerid);
             
         }
         if (data) {
-            NSLog(@"cart count sadas %@",data);
+           // NSLog(@"cart count sadas %@",data);
             NSDictionary *dict = data;
             @try {
                 
@@ -1263,10 +1263,9 @@ params.put("customerId",customerid);
         }
         
         
-        
-       // _LBL_miles.text = plans;
-        NSLog(@"Value  %@",text);
-        NSLog(@"%@",_LBL_price);
+//
+//        NSLog(@"Value  %@",text);
+//        NSLog(@"%@",_LBL_price);
         
         // Price label text Set Up
         if ([_LBL_price respondsToSelector:@selector(setAttributedText:)]) {
@@ -1373,7 +1372,7 @@ params.put("customerId",customerid);
     
     urlGetuser = [urlGetuser stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     
-    NSLog(@"******** %@",urlGetuser);
+  //  NSLog(@"******** %@",urlGetuser);
     @try {
         [HttpClient postServiceCall:urlGetuser andParams:nil completionHandler:^(id  _Nullable data, NSError * _Nullable error) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -1383,7 +1382,7 @@ params.put("customerId",customerid);
                 }
                 if (data) {
                     [Helper_activity stop_activity_animation:self];
-                    NSLog(@"%@",data);
+                  //  NSLog(@"%@",data);
                     @try {
                         
                         if ([[NSString stringWithFormat:@"%@",[data valueForKey:@"success"]] isEqualToString:@"1"]) {
@@ -1451,7 +1450,7 @@ params.put("customerId",customerid);
             }
             if (data) {
                  [Helper_activity stop_activity_animation:self];
-                NSLog(@"%@",data);
+               // NSLog(@"%@",data);
                 @try {
                     NSString  *str = [NSString stringWithFormat:@"%@",[data valueForKey:@"success"]];
                     if ([str isEqualToString:@"1"]) {

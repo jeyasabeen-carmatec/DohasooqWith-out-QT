@@ -106,7 +106,7 @@
         
        json_DATA = [arr1 filteredArrayUsingPredicate:predicate1];
             
-        NSLog(@"Temp store array %@",json_DATA);
+        //NSLog(@"Temp store array %@",json_DATA);
            if(json_DATA.count < 1)
            {
                [self Orders_list_API];
@@ -410,7 +410,7 @@
         NSHTTPURLResponse *response = nil;
         
         NSData *postData = [NSJSONSerialization dataWithJSONObject:parameters options:NSASCIIStringEncoding error:&err];
-        NSLog(@"the posted data is:%@",parameters);
+        //NSLog(@"the posted data is:%@",parameters);
         NSString *urlGetuser =[NSString stringWithFormat:@"%@Apis/orderlistapi.json",SERVER_URL];
         // urlGetuser = [urlGetuser stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
         NSURL *urlProducts=[NSURL URLWithString:urlGetuser];
@@ -447,7 +447,7 @@
         {
           NSMutableDictionary *json_DAT = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:aData options:NSASCIIStringEncoding error:&error];
             json_DATA = [json_DAT valueForKey:@"Orders"];
-            NSLog(@"The response Api post sighn up API %@",json_DATA);
+           // NSLog(@"The response Api post sighn up API %@",json_DATA);
             if([json_DATA isKindOfClass:[NSArray class]] && json_DATA.count >= 1)
             {
              

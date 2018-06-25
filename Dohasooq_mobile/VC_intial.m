@@ -254,9 +254,9 @@
                                 [[NSUserDefaults standardUserDefaults] synchronize];
                                 
                                 
-                                [self hotCodingLanguages];
+                              //  [self hotCodingLanguages];
                                 
-                               // [self  language_API_calling:country_ID];
+                                [self  language_API_calling:country_ID];
                                 
                                 
 
@@ -303,15 +303,14 @@
 }
 
 #pragma mark Language API Integration
+//https://www.dohasooq.com/languages/getLangByCountryMultilingual/173.json
 -(void)language_API_calling : (NSString *)country_id{
   
     @try
     {
-        
-        
         [Helper_activity animating_images:self];
         
-        NSString *urlGetuser =[NSString stringWithFormat:@"%@Languages/getLangByCountry/%@.json",SERVER_URL,country_id];
+        NSString *urlGetuser =[NSString stringWithFormat:@"%@languages/getLangByCountryMultilingual/%@.json",SERVER_URL,country_id];
         urlGetuser = [urlGetuser stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
         [HttpClient postServiceCall:urlGetuser andParams:nil completionHandler:^(id  _Nullable data, NSError * _Nullable error) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -396,7 +395,7 @@
     
 }
 
-
+/*
 -(void)hotCodingLanguages{
     
     
@@ -470,7 +469,7 @@
     [[NSUserDefaults standardUserDefaults] setObject:lang_arr forKey:@"language_arr"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 
-}
+}*/
 
 
 #pragma ImagePath API calling

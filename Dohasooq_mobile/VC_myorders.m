@@ -1358,7 +1358,7 @@ int j ,i;
         
         json_DATA = [[NSMutableDictionary alloc]init];
     json_DATA = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:returnData options:NSASCIIStringEncoding error:&er];
-               NSLog(@"%@", [NSString stringWithFormat:@"JSON DATA OF ORDER DETAIL: %@", json_DATA]);
+            //   NSLog(@"%@", [NSString stringWithFormat:@"JSON DATA OF ORDER DETAIL: %@", json_DATA]);
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.TBL_orders reloadData];
 
