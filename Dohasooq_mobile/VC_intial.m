@@ -54,7 +54,7 @@
                                        // compare version with your apps local version
                                        NSString *iTunesVersion = [resultsDic objectForKey:@"version"];
                                        
-                                       NSString *appVersion = @"1.2";
+                                       NSString *appVersion = @"1.4";
                                        
                                        NSLog(@"itunes version = %@\nAppversion = %@",iTunesVersion,appVersion);
                                        
